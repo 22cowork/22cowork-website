@@ -1,0 +1,46 @@
+---
+import { colors } from '@/config/colors';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t mt-20" style={{ borderColor: colors.border, backgroundColor: colors.card }}>
+  <div class="container py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <h3 class="font-display font-bold mb-4" style={{ color: colors.primary }}>22Cowork</h3>
+        <p style={{ color: colors['muted-foreground'] }} class="text-sm">
+          O espaço de trabalho mais inteligente da Europa.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-display font-semibold mb-4">Navegação</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/space" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">O Espaço</a></li>
+          <li><a href="/intelligence" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Inteligência</a></li>
+          <li><a href="/memberships" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Membros</a></li>
+          <li><a href="/community" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Comunidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="mailto:team@22cowork.pt" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">team@22cowork.pt</a></li>
+          <li><a href="tel:+351" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">+351 ...</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display font-semibold mb-4">Redes Sociais</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">LinkedIn</a></li>
+          <li><a href="#" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-8" style={{ borderColor: colors.border }}>
+      <p style={{ color: colors['muted-foreground'] }} class="text-sm text-center">
+        © {currentYear} 22Cowork. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

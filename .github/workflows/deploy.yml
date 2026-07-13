@@ -1,0 +1,116 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+  deploy-staging:
+    needs: build
+    runs-on: [self-hosted, staging]
+    if: github.ref == 'refs/heads/staging' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to staging
+        run: |
+          cd /opt/22cowork/website
+          docker-compose --profile staging pull 22cowork-website-staging
+          docker-compose --profile staging up -d 22cowork-website-staging
+          sleep 10
+          docker-compose --profile staging exec -T 22cowork-website-staging wget --no-verbose --tries=1 --spider http://localhost:8081/ || exit 1
+
+      - name: Verify staging deployment
+        run: |
+          curl -f https://staging.22cowork.pt/ || exit 1
+
+  deploy-production:
+    needs: build
+    runs-on: [self-hosted, production]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+      - name: Backup current production
+        run: |
+          mkdir -p /opt/22cowork/website/backups
+          BACKUP_NAME="backup-$(date +%Y%m%d-%H%M%S)"
+          docker cp 22cowork-website-prod:/app/dist "/opt/22cowork/website/backups/$BACKUP_NAME" || true
+
+      - name: Deploy to production
+        run: |
+          cd /opt/22cowork/website
+          docker-compose pull 22cowork-website-prod
+          docker-compose up -d 22cowork-website-prod
+          sleep 10
+
+      - name: Health check
+        run: |
+          for i in {1..5}; do
+            if curl -f https://22cowork.pt/ > /dev/null 2>&1; then
+              echo "Health check passed"
+              exit 0
+            fi
+            echo "Health check attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "Health check failed after 5 attempts"
+          exit 1
+
+      - name: Rollback on failure
+        if: failure()
+        run: |
+          echo "Deployment failed, rolling back..."
+          cd /opt/22cowork/website
+          LATEST_BACKUP=$(ls -t backups/ | head -1)
+          if [ -n "$LATEST_BACKUP" ]; then
+            docker cp "/opt/22cowork/website/backups/$LATEST_BACKUP/." 22cowork-website-prod:/app/dist
+            docker-compose restart 22cowork-website-prod
+            sleep 10
+            curl -f https://22cowork.pt/ || exit 1
+            echo "Rollback completed successfully"
+          else
+            echo "No backup found for rollback"
+            exit 1
+          fi

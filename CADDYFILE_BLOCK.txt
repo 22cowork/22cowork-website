@@ -1,0 +1,52 @@
+# 22Cowork Website - Production
+22cowork.pt {
+    reverse_proxy 22cowork-website-prod:8080 {
+        header_uri -X-Forwarded-For
+        header_uri -X-Forwarded-Proto
+    }
+    
+    # Security headers
+    header X-Content-Type-Options "nosniff"
+    header X-Frame-Options "SAMEORIGIN"
+    header X-XSS-Protection "1; mode=block"
+    header Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Compression
+    encode gzip
+    
+    # Cache control for static assets
+    @static {
+        path /assets/*
+        path /favicon.ico
+    }
+    header @static Cache-Control "public, max-age=31536000, immutable"
+    
+    # Cache control for HTML
+    @html {
+        path_regexp ^.*\.html$
+    }
+    header @html Cache-Control "public, max-age=3600, must-revalidate"
+    
+    # Default cache for everything else
+    header Cache-Control "public, max-age=3600"
+}
+
+# 22Cowork Website - Staging
+staging.22cowork.pt {
+    reverse_proxy 22cowork-website-staging:8081 {
+        header_uri -X-Forwarded-For
+        header_uri -X-Forwarded-Proto
+    }
+    
+    # Security headers
+    header X-Content-Type-Options "nosniff"
+    header X-Frame-Options "SAMEORIGIN"
+    header X-XSS-Protection "1; mode=block"
+    header Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Compression
+    encode gzip
+    
+    # No caching for staging
+    header Cache-Control "no-cache, no-store, must-revalidate"
+}

@@ -1,0 +1,108 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import RevealSection from '@/components/RevealSection.jsx';
+import { communityPageContent } from '@/config/content';
+import { colors } from '@/config/colors';
+import communityImage from '@/assets/community_lounge.jpg';
+---
+
+<Layout
+  title="Comunidade - 22Cowork"
+  description={communityPageContent.hero.description}
+  ogImage={communityImage.src}
+  ogUrl="https://22cowork.pt/community"
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: colors.background }}>
+    <div class="container relative z-10 py-20">
+      <RevealSection client:load>
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
+            {communityPageContent.hero.headline}
+          </h1>
+          <p class="text-lg" style={{ color: colors['muted-foreground'] }}>
+            {communityPageContent.hero.description}
+          </p>
+        </div>
+      </RevealSection>
+    </div>
+    <img
+      src={communityImage.src}
+      alt="Comunidade"
+      class="absolute inset-0 w-full h-full object-cover opacity-20"
+    />
+  </section>
+
+  <!-- Member Types Section -->
+  <section class="py-20">
+    <div class="container">
+      <h2 class="font-display font-bold text-3xl mb-12 text-center" style={{ color: colors.foreground }}>
+        Nossos Membros
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {communityPageContent.memberTypes.map((type, index) => (
+          <RevealSection client:load delay={index * 0.1} key={index}>
+            <div class="p-8 rounded-lg text-center" style={{ backgroundColor: colors.card }}>
+              <p class="text-4xl font-bold mb-3" style={{ color: colors.primary }}>{type.count}</p>
+              <h3 class="font-display font-bold mb-3" style={{ color: colors.primary }}>
+                {type.role}
+              </h3>
+              <p style={{ color: colors['muted-foreground'] }}>
+                {type.desc}
+              </p>
+            </div>
+          </RevealSection>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="py-20" style={{ backgroundColor: colors.card }}>
+    <div class="container">
+      <h2 class="font-display font-bold text-3xl mb-12 text-center" style={{ color: colors.foreground }}>
+        Eventos e Atividades
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {communityPageContent.events.map((event, index) => (
+          <RevealSection client:load delay={index * 0.1} key={index}>
+            <div class="p-8 rounded-lg" style={{ backgroundColor: colors.background }}>
+              <h3 class="font-display font-bold mb-3" style={{ color: colors.primary }}>
+                {event.title}
+              </h3>
+              <p class="text-sm mb-3" style={{ color: colors.primary }}>
+                {event.date} · {event.time}
+              </p>
+              <p style={{ color: colors['muted-foreground'] }}>
+                {event.description}
+              </p>
+            </div>
+          </RevealSection>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20">
+    <div class="container">
+      <RevealSection client:load>
+        <div class="text-center">
+          <h2 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
+            {communityPageContent.cta.headline}
+          </h2>
+          <p class="text-lg mb-8" style={{ color: colors['muted-foreground'] }}>
+            {communityPageContent.cta.description}
+          </p>
+          <a
+            href="/memberships"
+            class="inline-block px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+            style={{ backgroundColor: colors.primary, color: colors['primary-foreground'] }}
+          >
+            {communityPageContent.cta.buttonText}
+          </a>
+        </div>
+      </RevealSection>
+    </div>
+  </section>
+</Layout>

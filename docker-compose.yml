@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Production environment
+  22cowork-website-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 22cowork-website-prod
+    networks:
+      - root_default
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    labels:
+      - "com.22cowork.environment=production"
+      - "com.22cowork.service=website"
+
+  # Staging environment
+  22cowork-website-staging:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 22cowork-website-staging
+    networks:
+      - root_default
+    environment:
+      - NODE_ENV=staging
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8081/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    labels:
+      - "com.22cowork.environment=staging"
+      - "com.22cowork.service=website"
+    profiles:
+      - staging
+
+networks:
+  root_default:
+    external: true

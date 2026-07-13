@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import RevealSection from '@/components/RevealSection.jsx';
+import BookForm from '@/components/BookForm.jsx';
+import { bookPageContent } from '@/config/content';
+import { colors } from '@/config/colors';
+---
+
+<Layout
+  title="Agendar Visita - 22Cowork"
+  description={bookPageContent.hero.description}
+  ogUrl="https://22cowork.pt/book"
+>
+  <!-- Hero Section -->
+  <section class="py-20" style={{ backgroundColor: colors.background }}>
+    <div class="container">
+      <RevealSection client:load>
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
+            {bookPageContent.hero.headline}
+          </h1>
+          <p class="text-lg" style={{ color: colors['muted-foreground'] }}>
+            {bookPageContent.hero.description}
+          </p>
+        </div>
+      </RevealSection>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="py-20">
+    <div class="container">
+      <div class="max-w-2xl mx-auto">
+        <RevealSection client:load>
+          <BookForm client:load />
+        </RevealSection>
+      </div>
+    </div>
+  </section>
+</Layout>
