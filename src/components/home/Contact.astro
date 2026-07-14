@@ -14,10 +14,22 @@ const memberships = [
       <div class="rise" data-d="1">
         <p class="lead">A member of the team will confirm a time within a day. No pressure, no pitch — just the room, and your questions.</p>
         <div style="margin-top:2.4rem" class="mono label"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
-        <div style="margin-top:1rem" class="mono label"><a href="mailto:hello@22cowork.pt">hello@22cowork.pt</a></div>
+        <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
         <div class="mono" style="margin-top:2rem; color:rgba(244,241,234,.4)">Pricing shared when you're ready — we compete on value, not tiers.</div>
       </div>
-      <form class="rise" data-d="2" id="book-form">
+      <form
+          class="rise"
+          data-d="2"
+          id="book-form"
+          action="https://formspree.io/f/mojgvedl"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from 22cowork.pt"
+          />
+          <input type="hidden" name="source" value="22Cowork website" />
         <div class="f2">
           <div class="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
           <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>

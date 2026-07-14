@@ -5,7 +5,7 @@ export interface Props {
 }
 const {
   title = "22cowork · Setúbal",
-  description = "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices, a studio and a gym. 20 minutes from Lisboa.",
+  description = "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices, a studio and a gym. 35 minutes from Lisboa.",
 } = Astro.props;
 ---
 
@@ -375,7 +375,7 @@ const {
     const bookForm = document.getElementById("book-form");
     if (bookForm) {
       bookForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+        
         const btn = bookForm.querySelector("button");
         if (btn) btn.textContent = "Reserved. We'll confirm within a day ✓";
       });

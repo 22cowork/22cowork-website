@@ -29,7 +29,7 @@ export default function BookForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-lg" style={{ backgroundColor: colors.card }}>
+    <form action="https://formspree.io/f/mojgvedl" method="POST" className="space-y-6 p-8 rounded-lg" style={{ backgroundColor: colors.card }}>
       <div>
         <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
           Nome

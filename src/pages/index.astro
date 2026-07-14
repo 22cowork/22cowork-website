@@ -23,12 +23,12 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     <div class="scrim"></div>
 
     <div class="hero-top wrap">
-      <span class="mono label">Coworking · Setúbal, Portugal · 20 min from Lisboa</span>
+      <span class="mono label">Coworking · Setúbal, Portugal · 35 min from Lisboa</span>
     </div>
 
     <div class="hero-inner wrap">
       <h1 class="display">A coworking space for<br />people who <span class="rot-hold"><em id="rot" class="rot">ship, not sit.</em><span class="cursor"></span></span></h1>
-      <p class="sub">Dedicated desks and private offices, a soundproofed studio and a gym downstairs. In Setúbal, 20 minutes from Lisboa.</p>
+      <p class="sub">Dedicated desks and private offices, a soundproofed studio and a gym downstairs. In Setúbal, 35 minutes from Lisboa.</p>
       <div class="hero-actions">
         <a href="#reserve" class="btn btn-gold">Reserve your space →</a>
         <a href="#tour" class="btn btn-ghost">Take the tour</a>
@@ -45,7 +45,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <span class="stars">★★★★★</span>
         <span class="gr-txt"><b>5.0</b> · Google reviews</span>
       </a>
-      <div class="stat"><b>20 min</b><span>from Lisboa</span></div>
+      <div class="stat"><b>35 min</b><span>from Lisboa</span></div>
       <div class="stat"><b>24/7</b><span>keycard access</span></div>
       <div class="stat"><b>10GB</b><span>fibre + WiFi 7</span></div>
       <span class="resv"><span class="dot"></span>20 desks available · 5 offices in presale</span>
@@ -299,10 +299,22 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
             <span class="t"><span class="dot"></span>Private offices · presale, 5 available</span>
           </div>
           <div style="margin-top:2.4rem" class="mono label"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
-          <div style="margin-top:1rem" class="mono label"><a href="mailto:hello@22cowork.pt">hello@22cowork.pt</a></div>
+          <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
           <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
-        <form class="rise" data-d="2" id="book-form">
+        <form
+          class="rise"
+          data-d="2"
+          id="book-form"
+          action="https://formspree.io/f/mojgvedl"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from 22cowork.pt"
+          />
+          <input type="hidden" name="source" value="22Cowork website" />
           <div class="f2">
             <div class="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
             <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>
@@ -334,7 +346,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       <div class="foot-top">
         <div>
           <div class="big-brand">22cowork<span style="color:var(--ember)">.</span></div>
-          <p style="max-width:34ch; margin-top:1rem; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 20 minutes from Lisboa.</p>
+          <p style="max-width:34ch; margin-top:1rem; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 35 minutes from Lisboa.</p>
         </div>
         <div>
           <h4>Space</h4>
