@@ -1,47 +1,76 @@
-version: '3.8'
-
 services:
-  # Production environment
   22cowork-website-prod:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: 22cowork-website-prod
+
+    ports:
+      - "8080:8080"
+
     networks:
       - root_default
+
     environment:
-      - NODE_ENV=production
+      NODE_ENV: production
+
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8080/"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:8080/"
+        ]
       interval: 30s
       timeout: 3s
       retries: 3
       start_period: 5s
-    restart: unless-stopped
-    labels:
-      - "com.22cowork.environment=production"
-      - "com.22cowork.service=website"
 
-  # Staging environment
+    restart: unless-stopped
+
+    labels:
+      com.22cowork.environment: production
+      com.22cowork.service: website
+
   22cowork-website-staging:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: 22cowork-website-staging
+
+    ports:
+      - "8081:8080"
+
     networks:
       - root_default
+
     environment:
-      - NODE_ENV=staging
+      NODE_ENV: staging
+
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8080/"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:8080/"
+        ]
       interval: 30s
       timeout: 3s
       retries: 3
       start_period: 5s
+
     restart: unless-stopped
+
     labels:
-      - "com.22cowork.environment=staging"
-      - "com.22cowork.service=website"
+      com.22cowork.environment: staging
+      com.22cowork.service: website
+
     profiles:
       - staging
 
