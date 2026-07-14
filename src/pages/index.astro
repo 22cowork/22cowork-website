@@ -1,28 +1,358 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
-import Nav from "../components/home/Nav.astro";
-import Hero from "../components/home/Hero.astro";
-import Manifesto from "../components/home/Manifesto.astro";
-import Workday from "../components/home/Workday.astro";
-import Kinds from "../components/home/Kinds.astro";
-import SpecSheet from "../components/home/SpecSheet.astro";
-import Tech from "../components/home/Tech.astro";
-import Tour from "../components/home/Tour.astro";
-import Community from "../components/home/Community.astro";
-import Contact from "../components/home/Contact.astro";
-import SiteFooter from "../components/home/SiteFooter.astro";
+const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_place_id=ChIJibrR-YpDGQ0R2UrFT6Fufsk";
 ---
 
 <HomeLayout>
-  <Nav />
-  <Hero />
-  <Manifesto />
-  <Workday />
-  <Kinds />
-  <SpecSheet />
-  <Tech />
-  <Tour />
-  <Community />
-  <Contact />
-  <SiteFooter />
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="brand"><b>22cowork</b><span class="b-cur"></span></a>
+    <nav class="links">
+      <a href="#spaces">Spaces</a>
+      <a href="#work">A day here</a>
+      <a href="#spec">Building</a>
+      <a href="#tour">Tour</a>
+      <a href="#reserve" class="nav-cta">Reserve</a>
+    </nav>
+    <a href="#reserve" class="burger">Reserve</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <img class="hero-img" src="/assets/hero.jpg" alt="Inside 22cowork, Setúbal" />
+    <div class="scrim"></div>
+
+    <div class="hero-top wrap">
+      <span class="mono label">Coworking · Setúbal, Portugal · 20 min from Lisboa</span>
+    </div>
+
+    <div class="hero-inner wrap">
+      <h1 class="display">A coworking space for<br />people who <span class="rot-hold"><em id="rot" class="rot">ship, not sit.</em><span class="cursor"></span></span></h1>
+      <p class="sub">Dedicated desks and private offices, a soundproofed studio and a gym downstairs. In Setúbal, 20 minutes from Lisboa.</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn-gold">Reserve your space →</a>
+        <a href="#tour" class="btn btn-ghost">Take the tour</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue"><span>Scroll</span><span class="ln"></span></div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <div class="trust">
+    <div class="wrap">
+      <a class="grating" href={maps} target="_blank" rel="noopener">
+        <span class="stars">★★★★★</span>
+        <span class="gr-txt"><b>5.0</b> · Google reviews</span>
+      </a>
+      <div class="stat"><b>20 min</b><span>from Lisboa</span></div>
+      <div class="stat"><b>24/7</b><span>keycard access</span></div>
+      <div class="stat"><b>10GB</b><span>fibre + WiFi 7</span></div>
+      <span class="resv"><span class="dot"></span>20 desks available · 5 offices in presale</span>
+    </div>
+  </div>
+
+  <!-- CHOOSE YOUR SPACE -->
+  <section class="band spaces" id="spaces">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">What you can rent</span>
+      <div class="head" style="display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap">
+        <h2 class="h2 rise" data-d="1">Choose your space.</h2>
+        <p class="lead rise" data-d="2">Five ways to work here, from a desk for the day to your own office. Reserve the one that fits and we'll confirm within a day.</p>
+      </div>
+
+      <div class="sp-grid">
+        <a href="#reserve" class="sp-card feat rise">
+          <div class="sp-media"><span class="sp-badge">20 available</span><img src="/assets/deepwork.jpg" alt="Dedicated desk at 22cowork" /></div>
+          <div class="sp-body">
+            <span class="lbl">Monthly · yours permanently</span>
+            <h3>Dedicated Desk</h3>
+            <p>Your own wood desk and ergonomic chair, same spot every day. The default for founders here full time. Only 20 left.</p>
+            <span class="sp-go">Reserve a desk →</span>
+          </div>
+        </a>
+
+        <a href="#reserve" class="sp-card feat rise" data-d="1">
+          <div class="sp-media"><span class="sp-badge">Pre-sale · 5 left</span><img src="/assets/meeting.jpg" alt="Private office at 22cowork" /></div>
+          <div class="sp-body">
+            <span class="lbl">For teams of 2 to 10</span>
+            <h3>Private Office</h3>
+            <p>Natural light, your team, your layout, a door that closes. In presale now. Only 5, opening September 2026.</p>
+            <span class="sp-go">Reserve an office →</span>
+          </div>
+        </a>
+
+        <a href="#reserve" class="sp-card rise">
+          <div class="sp-media"><span class="sp-badge soft">Flexible</span><img src="/assets/arrival.jpg" alt="Hot desk lounge at 22cowork" /></div>
+          <div class="sp-body">
+            <span class="lbl">By the day or month</span>
+            <h3>Hot Desk</h3>
+            <p>Any open desk, any day. For remote workers and freelancers who want flexibility.</p>
+            <span class="sp-go">Reserve →</span>
+          </div>
+        </a>
+
+        <a href="#reserve" class="sp-card rise" data-d="1">
+          <div class="sp-media"><span class="sp-badge soft">By the hour</span><img src="/assets/studio.jpg" alt="Meeting and podcast studio at 22cowork" /></div>
+          <div class="sp-body">
+            <span class="lbl">Soundproofed</span>
+            <h3>Meeting &amp; Studio</h3>
+            <p>A closed room for client calls, plus a podcast &amp; content studio. Book it by the hour.</p>
+            <span class="sp-go">Reserve →</span>
+          </div>
+        </a>
+
+        <a href="#reserve" class="sp-card rise" data-d="2">
+          <div class="sp-media"><span class="sp-badge soft">No desk needed</span><img src="/assets/post.jpg" alt="Post handling at 22cowork" /></div>
+          <div class="sp-body">
+            <span class="lbl">For invoices &amp; mail</span>
+            <h3>Business Address</h3>
+            <p>A real Setúbal business address with mail handling, whether or not you have a desk here.</p>
+            <span class="sp-go">Reserve →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="band manifesto" id="space">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">The idea</span>
+      <p class="quote rise" data-d="1">Fancy fails. <span class="em">Simple scales.</span></p>
+      <div class="foot rise" data-d="2">
+        <p>No gimmicks. No lofi or beanbag theatre. A solid room, a fast connection, and people who are actually working. It's the principle we build everything on, including the building.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKDAY -->
+  <section class="band day" id="work">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="mono label eyebrow rise">A day here</span>
+          <h2 class="h2 rise" data-d="1">One good day,<br />on repeat.</h2>
+        </div>
+        <p class="lead rise" data-d="2">No tour of features. Just the shape of a day that works, from the moment you badge in to the moment you leave lighter than you arrived.</p>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">08 : 12 · Arrival</div>
+          <h3 class="h3">Badge in. The room already knows.</h3>
+          <p>Lights, climate and your desk, ready before you sit down. No switches, no waiting.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/arrival.jpg" alt="The lounge at 22cowork" /><span class="tag">The lounge</span></div></div>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">08 : 30 · Coffee</div>
+          <h3 class="h3">First coffee. Included, always.</h3>
+          <p>The good machine, not the sad pod. The small ritual that starts the work.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/coffee.jpg" alt="Coffee at 22cowork" /><span class="tag">Delta Q · always on</span></div></div>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">09 : 00 · Deep work</div>
+          <h3 class="h3">Your desk. Same spot, every day.</h3>
+          <p>Wood desk, ergonomic chair, standing option. Fibre that doesn't blink. Quiet that holds.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/deepwork.jpg" alt="Dedicated desk by the window at 22cowork" /><span class="tag">Your desk, by the light</span></div></div>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">11 : 30 · The meeting</div>
+          <h3 class="h3">A door that actually closes.</h3>
+          <p>Soundproofed room for the client call, the investor, or the conversation that needs privacy.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/meeting.jpg" alt="Private office with a view at 22cowork" /><span class="tag">Private office · Setúbal light</span></div></div>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">14 : 00 · The studio</div>
+          <h3 class="h3">Record it here. Skip the second membership.</h3>
+          <p>A soundproofed podcast and content room in the same building. Film, record, edit. Done.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/studio.jpg" alt="Soundproofed podcast and content studio at 22cowork" /><span class="tag">The studio</span></div></div>
+      </div>
+
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">17 : 45 · Downstairs</div>
+          <h3 class="h3">Close the laptop. Not the day.</h3>
+          <p>Gym one floor down. Parking underground. People around who are building things too.</p>
+        </div>
+        <div class="m-media"><div class="slot"><img src="/assets/gym.jpg" alt="Gym one floor down at 22cowork" /><span class="tag">Gym · one floor down</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE KINDS OF WORK -->
+  <section class="band kinds">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">Who it's for</span>
+      <h2 class="h2 rise" data-d="1">Built around three<br />kinds of work.</h2>
+      <div class="kgrid">
+        <div class="kcard rise">
+          <span class="n">01 / Founders</span>
+          <div><h3>Run the company from here</h3><p>A room that looks the part when a client walks in, because it's the one you actually work from.</p></div>
+        </div>
+        <div class="kcard rise" data-d="1">
+          <span class="n">02 / Creators</span>
+          <div><h3>Shoot, edit, record</h3><p>The soundproofed studio means you don't need a second studio across town. It's all in the building.</p></div>
+        </div>
+        <div class="kcard rise" data-d="2">
+          <span class="n">03 / Freelancers</span>
+          <div><h3>Freelance without the isolation</h3><p>A desk when you need one, a real business address, and people building alongside you.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC SHEET -->
+  <section class="band spec" id="spec">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">The spec sheet<span class="status"><span class="dot"></span>Systems online</span></span>
+      <h2 class="h2 rise" data-d="1">What's actually<br />in the building.</h2>
+      <div class="sheet">
+        <div class="row rise"><span class="k">Net</span><span class="v">10GB fibre backbone, WiFi 7 throughout</span><span class="m">// no dead zones</span></div>
+        <div class="row rise"><span class="k">Access</span><span class="v">24 hour keycard entry</span><span class="m">// presence aware</span></div>
+        <div class="row rise"><span class="k">Studio</span><span class="v">Soundproofed podcast &amp; content room</span><span class="m">// book it</span></div>
+        <div class="row rise"><span class="k">Fitness</span><span class="v">Gym downstairs, Fitness Up</span><span class="m">// one floor</span></div>
+        <div class="row rise"><span class="k">Parking</span><span class="v">Private, underground</span><span class="m">// covered</span></div>
+        <div class="row rise"><span class="k">Post</span><span class="v">Business address + mail handling</span><span class="m">// invoices sorted</span></div>
+        <div class="row rise"><span class="k">Coffee</span><span class="v">Included, always</span><span class="m">// non-negotiable</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVISIBLE TECH -->
+  <section class="band tech">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">Behind the walls</span>
+      <p class="big rise" data-d="1">You'll never notice the technology. <span class="fade">That's the entire point.</span></p>
+      <div class="chips">
+        <span class="chip rise">AI orchestration</span>
+        <span class="chip rise">Presence sensing</span>
+        <span class="chip rise">Smart access</span>
+        <span class="chip rise">Climate control</span>
+        <span class="chip rise">Smart lighting</span>
+        <span class="chip rise">Energy optimization</span>
+        <span class="chip rise">Network infrastructure</span>
+        <span class="chip rise">Analytics</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOUR -->
+  <section class="band tour" id="tour">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">Walkthrough</span>
+      <h2 class="h2 rise" data-d="1">Take the tour.</h2>
+      <div class="video-frame rise" data-d="2" id="tour-video" data-yt="htTdP9zs7pM">
+        <button class="vplay" type="button" aria-label="Play the 22cowork tour">
+          <img class="vthumb" src="https://i.ytimg.com/vi/htTdP9zs7pM/maxresdefault.jpg" alt="22cowork office tour" />
+          <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+        </button>
+      </div>
+      <div class="rise" data-d="3" style="margin-top:16px"><a href="https://www.youtube.com/watch?v=htTdP9zs7pM" target="_blank" rel="noopener" class="mono label">Prefer YouTube? Watch the tour there ↗</a></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="band comm">
+    <div class="wrap comm-grid">
+      <div>
+        <span class="mono label eyebrow rise">Community</span>
+        <h2 class="h2 rise" data-d="1">Not a lobby<br />full of strangers.</h2>
+        <p class="lead rise" data-d="2" style="margin-top:1.4rem">Follow the building day to day. Who's shipped what, which desks are open, what's on this month.</p>
+        <div class="rise" data-d="2" style="margin-top:2rem"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
+      </div>
+      {/* To show a live @22cowork feed here, create a Grid widget at behold.so and replace the tiles below with its embed. */}
+      <div class="ig rise" data-d="1" id="ig-feed">
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig1.jpg" alt="22cowork" /><span class="tag">@22cowork</span></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig2.jpg" alt="22cowork" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig3.jpg" alt="22cowork" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig4.jpg" alt="22cowork" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig5.jpg" alt="22cowork" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/studio.jpg" alt="22cowork" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section class="contact" id="reserve">
+    <div class="wrap">
+      <span class="mono label eyebrow rise">Reserve your space</span>
+      <h2 class="h2 rise" data-d="1">Claim your spot<br />before it's taken.</h2>
+      <div class="grid">
+        <div class="rise" data-d="1">
+          <p class="lead">Tell us what you're after and we'll confirm within a day. Only 20 dedicated desks remain, and private offices are in presale. Just 5, opening September 2026.</p>
+          <div class="resv-tags">
+            <span class="t"><span class="dot"></span>Dedicated desks · 20 available</span>
+            <span class="t"><span class="dot"></span>Private offices · presale, 5 available</span>
+          </div>
+          <div style="margin-top:2.4rem" class="mono label"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
+          <div style="margin-top:1rem" class="mono label"><a href="mailto:hello@22cowork.pt">hello@22cowork.pt</a></div>
+          <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
+        </div>
+        <form class="rise" data-d="2" id="book-form">
+          <div class="f2">
+            <div class="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>
+          </div>
+          <div class="f2">
+            <div class="field"><label>Company</label><input type="text" placeholder="Optional" /></div>
+            <div class="field"><label>Phone</label><input type="tel" placeholder="Optional" /></div>
+          </div>
+          <div class="field">
+            <label>What are you after</label>
+            <select>
+              <option>Dedicated Desk</option>
+              <option>Hot Desk</option>
+              <option>Private Office (opening Sep 2026)</option>
+              <option>Meeting / Studio Room</option>
+              <option>Business Address</option>
+              <option>Just a look around</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold" style="justify-self:start; margin-top:8px">Reserve your space →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-top">
+        <div>
+          <div class="big-brand">22cowork<span style="color:var(--ember)">.</span></div>
+          <p style="max-width:34ch; margin-top:1rem; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 20 minutes from Lisboa.</p>
+        </div>
+        <div>
+          <h4>Space</h4>
+          <a href="#spaces">Spaces</a><a href="#work">A day here</a><a href="#spec">The building</a><a href="#tour">Tour</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="https://22cowork.netlify.app/blog" target="_blank" rel="noopener">Journal</a><a href="#reserve">Reserve a space</a><a href="https://instagram.com/22cowork" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="https://22cowork.netlify.app/terms" target="_blank" rel="noopener">Terms</a><a href="https://22cowork.netlify.app/privacy" target="_blank" rel="noopener">Privacy</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="mono">© 2026 22cowork · Setúbal, Portugal</span>
+        <span class="mono">Built simple. Made to last.<span class="cursor" style="transform:translateY(.1em)"></span></span>
+      </div>
+    </div>
+  </footer>
 </HomeLayout>
