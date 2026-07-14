@@ -1,40 +1,44 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import RevealSection from '@/components/RevealSection.jsx';
-import BookForm from '@/components/BookForm.jsx';
-import { bookPageContent } from '@/config/content';
-import { colors } from '@/config/colors';
+import Layout from "../layouts/Layout.astro";
+import { bookPageContent, siteMetadata } from "../config/content";
+import RevealSection from "../components/RevealSection.jsx";
+import BookForm from "../components/BookForm.jsx";
 ---
 
-<Layout
-  title="Agendar Visita - 22Cowork"
-  description={bookPageContent.hero.description}
-  ogUrl="https://22cowork.pt/book"
->
-  <!-- Hero Section -->
-  <section class="py-20" style={{ backgroundColor: colors.background }}>
-    <div class="container">
-      <RevealSection client:load>
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
-            {bookPageContent.hero.headline}
-          </h1>
-          <p class="text-lg" style={{ color: colors['muted-foreground'] }}>
-            {bookPageContent.hero.description}
-          </p>
-        </div>
-      </RevealSection>
+<Layout title={`Book a Tour · ${siteMetadata.title}`} description={bookPageContent.hero.description}>
+  <section class="relative py-20 bg-soft-off-white">
+    <div class="container text-center">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 text-text-black">
+        {bookPageContent.hero.headline}
+      </h1>
+      <p class="text-lg md:text-xl text-text-dark-gray max-w-3xl mx-auto">
+        {bookPageContent.hero.description}
+      </p>
     </div>
   </section>
 
-  <!-- Form Section -->
-  <section class="py-20">
+  <section class="py-20 bg-warm-white">
     <div class="container">
-      <div class="max-w-2xl mx-auto">
-        <RevealSection client:load>
-          <BookForm client:load />
-        </RevealSection>
+      <div class="max-w-2xl mx-auto p-8 rounded-lg shadow-lg bg-soft-off-white">
+        <h2 class="text-3xl font-display font-bold text-center mb-8 text-text-black">
+          {bookPageContent.form.title}
+        </h2>
+        <BookForm client:load />
       </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-forest-green text-warm-white text-center">
+    <div class="container">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        {bookPageContent.ctaFinal.headline}
+      </h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">
+        {bookPageContent.ctaFinal.description}
+      </p>
+      <a href="/book" class="btn-primary bg-warm-white text-forest-green hover:bg-light-gray">
+        Schedule Your Tour
+      </a>
     </div>
   </section>
 </Layout>

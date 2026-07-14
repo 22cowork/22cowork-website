@@ -3,14 +3,14 @@ import React from 'react';
 export default function YouTubeEmbed({ videoId, title = 'YouTube Video' }) {
   if (!videoId) {
     return (
-      <div className="w-full bg-gray-900 rounded-lg flex items-center justify-center aspect-video">
-        <p className="text-gray-400">Vídeo YouTube não configurado</p>
+      <div className="w-full bg-soft-off-white rounded-lg flex items-center justify-center aspect-video">
+        <p className="text-text-dark-gray">YouTube video not configured.</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full rounded-lg overflow-hidden">
+    <div className="w-full rounded-lg overflow-hidden shadow-lg">
       <iframe
         width="100%"
         height="600"

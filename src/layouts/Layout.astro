@@ -1,48 +1,34 @@
 ---
-import Navigation from '@/components/Navigation.astro';
-import Footer from '@/components/Footer.astro';
-import '@/styles/global.css';
+import { ViewTransitions } from "astro:transitions";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import { siteMetadata } from "../config/content";
 
 interface Props {
-  title: string;
-  description: string;
-  ogImage?: string;
-  ogUrl?: string;
+  title?: string;
+  description?: string;
 }
 
-const { title, description, ogImage = '/assets/hero_space.jpg', ogUrl = 'https://22cowork.pt' } = Astro.props;
+const { title: defaultTitle, description: defaultDescription } = siteMetadata;
+const { title = defaultTitle, description = defaultDescription } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={ogUrl} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="canonical" href={ogUrl} />
-    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <meta name="description" content={description} />
+    <ViewTransitions />
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <Navigation />
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  :root {
-    color-scheme: dark;
-  }
-</style>

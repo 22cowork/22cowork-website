@@ -6,8 +6,8 @@ export default function PhotoGallery({ photos = [] }) {
 
   if (photos.length === 0) {
     return (
-      <div className="w-full bg-gray-900 rounded-lg flex items-center justify-center py-12">
-        <p className="text-gray-400">Galeria de fotos não configurada</p>
+      <div className="w-full bg-soft-off-white rounded-lg flex items-center justify-center py-12">
+        <p className="text-text-dark-gray">Photo gallery not configured.</p>
       </div>
     );
   }
@@ -19,13 +19,13 @@ export default function PhotoGallery({ photos = [] }) {
         {photos.map((photo, index) => (
           <motion.div
             key={index}
-            className="cursor-pointer overflow-hidden rounded-lg"
+            className="cursor-pointer overflow-hidden rounded-lg shadow-md"
             whileHover={{ scale: 1.05 }}
             onClick={() => setSelectedIndex(index)}
           >
             <img
               src={photo.src}
-              alt={photo.alt || `Foto ${index + 1}`}
+              alt={photo.alt || `Photo ${index + 1}`}
               className="w-full h-64 object-cover"
               loading="lazy"
             />
@@ -36,7 +36,7 @@ export default function PhotoGallery({ photos = [] }) {
       {/* Lightbox */}
       {selectedIndex !== null && (
         <motion.div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           onClick={() => setSelectedIndex(null)}
@@ -49,21 +49,21 @@ export default function PhotoGallery({ photos = [] }) {
           >
             <img
               src={photos[selectedIndex].src}
-              alt={photos[selectedIndex].alt || `Foto ${selectedIndex + 1}`}
-              className="w-full rounded-lg"
+              alt={photos[selectedIndex].alt || `Photo ${selectedIndex + 1}`}
+              className="w-full rounded-lg shadow-xl"
             />
             <div className="flex justify-between mt-4">
               <button
                 onClick={() => setSelectedIndex((selectedIndex - 1 + photos.length) % photos.length)}
-                className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white transition-colors"
+                className="px-4 py-2 bg-light-gray bg-opacity-20 hover:bg-opacity-30 rounded-lg text-warm-white transition-colors"
               >
-                ← Anterior
+                ← Previous
               </button>
               <button
                 onClick={() => setSelectedIndex((selectedIndex + 1) % photos.length)}
-                className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-white transition-colors"
+                className="px-4 py-2 bg-light-gray bg-opacity-20 hover:bg-opacity-30 rounded-lg text-warm-white transition-colors"
               >
-                Próxima →
+                Next →
               </button>
             </div>
           </motion.div>

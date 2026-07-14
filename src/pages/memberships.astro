@@ -1,71 +1,56 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import RevealSection from '@/components/RevealSection.jsx';
-import { membershipsPageContent } from '@/config/content';
-import { colors } from '@/config/colors';
+import Layout from "../layouts/Layout.astro";
+import { membershipsPageContent, siteMetadata } from "../config/content";
+import RevealSection from "../components/RevealSection.jsx";
 ---
 
-<Layout
-  title="Membros - 22Cowork"
-  description={membershipsPageContent.hero.description}
-  ogUrl="https://22cowork.pt/memberships"
->
-  <!-- Hero Section -->
-  <section class="py-20" style={{ backgroundColor: colors.background }}>
-    <div class="container">
-      <RevealSection client:load>
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
-            {membershipsPageContent.hero.headline}
-          </h1>
-          <p class="text-lg" style={{ color: colors['muted-foreground'] }}>
-            {membershipsPageContent.hero.description}
-          </p>
-        </div>
-      </RevealSection>
+<Layout title={`Memberships · ${siteMetadata.title}`} description={membershipsPageContent.hero.description}>
+  <section class="relative py-20 bg-soft-off-white">
+    <div class="container text-center">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 text-text-black">
+        {membershipsPageContent.hero.headline}
+      </h1>
+      <p class="text-lg md:text-xl text-text-dark-gray max-w-3xl mx-auto">
+        {membershipsPageContent.hero.description}
+      </p>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section class="py-20">
+  <section class="py-20 bg-warm-white">
     <div class="container">
-      <h2 class="font-display font-bold text-3xl mb-12 text-center" style={{ color: colors.foreground }}>
-        Planos de Membros
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-text-black">
+        Choose Your Plan
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {membershipsPageContent.tiers.map((tier, index) => (
-          <RevealSection client:load delay={index * 0.1} key={index}>
-            <div
-              class="p-8 rounded-lg border-2 transition-all hover:scale-105"
-              style={{
-                backgroundColor: colors.card,
-                borderColor: tier.highlighted ? colors.primary : colors.border,
-              }}
-            >
-              <h3 class="font-display font-bold mb-2 text-xl" style={{ color: colors.primary }}>
-                {tier.name}
-              </h3>
-              <p class="text-sm mb-4" style={{ color: colors['muted-foreground'] }}>
-                {tier.tagline}
-              </p>
-              <p class="text-3xl font-bold mb-6" style={{ color: colors.foreground }}>
-                €{tier.monthlyPrice}
-                <span class="text-sm" style={{ color: colors['muted-foreground'] }}>/mês</span>
-              </p>
-              <ul class="space-y-3 mb-8">
-                {tier.features.map((feature) => (
-                  <li style={{ color: colors['muted-foreground'] }} class="text-sm" key={feature}>
-                    ✓ {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="/book"
-                class="block w-full text-center px-4 py-2 rounded-lg font-semibold transition-all"
-                style={{ backgroundColor: colors.primary, color: colors['primary-foreground'] }}
-              >
-                {tier.cta}
-              </a>
+        {membershipsPageContent.plans.map((tier, index) => (
+          <RevealSection client:load>
+            <div class="p-8 rounded-lg shadow-lg bg-soft-off-white border border-light-gray flex flex-col h-full">
+              <h3 class="text-2xl font-display font-bold mb-2 text-text-black">{tier.name}</h3>
+              <p class="text-sm text-forest-green font-semibold mb-4">{tier.tagline}</p>
+              <div class="mt-auto">
+                <ul class="space-y-2 mb-6 text-text-dark-gray">
+                  {tier.features.map((feature) => (
+                    <li class="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 text-forest-green mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a href={tier.cta.href} class="btn-primary w-full text-center">
+                  {tier.cta.text}
+                </a>
+              </div>
             </div>
           </RevealSection>
         ))}
@@ -73,26 +58,17 @@ import { colors } from '@/config/colors';
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20" style={{ backgroundColor: colors.card }}>
+  <section class="py-20 bg-forest-green text-warm-white text-center">
     <div class="container">
-      <RevealSection client:load>
-        <div class="text-center">
-          <h2 class="font-display font-bold mb-6" style={{ color: colors.foreground }}>
-            Pronto para começar?
-          </h2>
-          <p class="text-lg mb-8" style={{ color: colors['muted-foreground'] }}>
-            Todos os planos incluem acesso completo à infraestrutura inteligente do edifício.
-          </p>
-          <a
-            href="/book"
-            class="inline-block px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105"
-            style={{ backgroundColor: colors.primary, color: colors['primary-foreground'] }}
-          >
-            Agendar Visita
-          </a>
-        </div>
-      </RevealSection>
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        {membershipsPageContent.ctaFinal.headline}
+      </h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">
+        {membershipsPageContent.ctaFinal.description}
+      </p>
+      <a href={membershipsPageContent.ctaFinal.cta.href} class="btn-primary bg-warm-white text-forest-green hover:bg-light-gray">
+        {membershipsPageContent.ctaFinal.cta.text}
+      </a>
     </div>
   </section>
 </Layout>

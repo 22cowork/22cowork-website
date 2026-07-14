@@ -1,167 +1,138 @@
 import React, { useState } from 'react';
-import { colors } from '@/config/colors';
+import { bookPageContent } from '../config/content';
 
-export default function BookForm() {
+const BookForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     email: '',
     phone: '',
-    date: '',
-    intent: '',
+    interest: '',
+    preferredDate: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implementar submissão do formulário
-    console.log('Formulário enviado:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    console.log('Form submitted:', formData);
+    alert(bookPageContent.form.successMessage);
+    setFormData({
+      fullName: '',
+      email: '',
+      phone: '',
+      interest: '',
+      preferredDate: '',
+      message: '',
+    });
   };
 
+  const interestField = bookPageContent.form.fields.find(f => f.name === 'interest');
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-lg" style={{ backgroundColor: colors.card }}>
+    <form onSubmit={handleSubmit} class="space-y-6">
       <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
-          Nome
+        <label htmlFor="fullName" class="block text-sm font-medium text-text-dark-gray mb-1">
+          Full Name
         </label>
         <input
           type="text"
-          name="name"
-          value={formData.name}
+          id="fullName"
+          name="fullName"
+          value={formData.fullName}
           onChange={handleChange}
+          placeholder="John Doe"
           required
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
-          placeholder="Seu nome"
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
+        <label htmlFor="email" class="block text-sm font-medium text-text-dark-gray mb-1">
           Email
         </label>
         <input
           type="email"
+          id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder="john.doe@example.com"
           required
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
-          placeholder="seu@email.com"
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
-          Telefone
+        <label htmlFor="phone" class="block text-sm font-medium text-text-dark-gray mb-1">
+          Phone Number
         </label>
         <input
           type="tel"
+          id="phone"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
-          placeholder="+351 ..."
+          placeholder="+351 912 345 678"
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
-          Data Preferida
+        <label htmlFor="interest" class="block text-sm font-medium text-text-dark-gray mb-1">
+          What are you interested in?
+        </label>
+        <select
+          id="interest"
+          name="interest"
+          value={formData.interest}
+          onChange={handleChange}
+          required
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
+        >
+          <option value="">Select an option</option>
+          {interestField && interestField.options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="preferredDate" class="block text-sm font-medium text-text-dark-gray mb-1">
+          Preferred Date (Optional)
         </label>
         <input
           type="date"
-          name="date"
-          value={formData.date}
+          id="preferredDate"
+          name="preferredDate"
+          value={formData.preferredDate}
           onChange={handleChange}
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
-          Interesse
-        </label>
-        <select
-          name="intent"
-          value={formData.intent}
-          onChange={handleChange}
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
-        >
-          <option value="">Selecionar...</option>
-          <option value="hot-desk">Hot Desk</option>
-          <option value="private-office">Escritório Privado</option>
-          <option value="meeting-room">Sala de Reunião</option>
-          <option value="other">Outro</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-2" style={{ color: colors.foreground }}>
-          Mensagem
+        <label htmlFor="message" class="block text-sm font-medium text-text-dark-gray mb-1">
+          Message
         </label>
         <textarea
+          id="message"
           name="message"
+          rows="4"
           value={formData.message}
           onChange={handleChange}
-          rows={4}
-          className="w-full px-4 py-2 rounded-lg border transition-colors"
-          style={{
-            backgroundColor: colors.background,
-            borderColor: colors.border,
-            color: colors.foreground,
-          }}
-          placeholder="Conte-nos mais sobre você..."
-        />
+          placeholder="Tell us about your needs..."
+          class="w-full px-4 py-2 border border-light-gray rounded-md focus:ring-forest-green focus:border-forest-green bg-warm-white text-text-black"
+        ></textarea>
       </div>
-
-      <button
-        type="submit"
-        className="w-full px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105"
-        style={{ backgroundColor: colors.primary, color: colors['primary-foreground'] }}
-      >
-        Enviar Pedido
+      <button type="submit" class="btn-primary w-full">
+        {bookPageContent.form.submitButton}
       </button>
-
-      {submitted && (
-        <div className="p-4 rounded-lg text-center" style={{ backgroundColor: colors.background, color: colors.primary }}>
-          ✓ Obrigado! Entraremos em contacto em breve.
-        </div>
-      )}
     </form>
   );
-}
+};
+
+export default BookForm;

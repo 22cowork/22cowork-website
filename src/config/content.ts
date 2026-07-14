@@ -1,337 +1,419 @@
-export const homepageContent = {
-  hero: {
-    tagline: "Setúbal, Portugal · Est. 2024",
-    headline: "The building <span class=\"text-primary\">thinks.</span><br />You focus.",
-    description: "22Cowork is Europe's most intelligent coworking space — a living laboratory for AI, automation, and the future of work.",
-    ctaPrimary: "Enter the Ecosystem",
-    ctaSecondary: "See the Intelligence",
-    dataChips: [
-      { label: "AIR", value: "98%" },
-      { label: "TEMP", value: "21°C" },
-      { label: "OCC", value: "4/12" },
-      { label: "NET", value: "1Gbps" },
-    ],
-  },
-  philosophyStrip: {
-    text: "Not just a desk. <span class=\"text-gray-500\">A living laboratory for productivity, AI, and modern work. Every sensor, every system, every surface is engineered to help you do the best work of your life.</span>",
-  },
-  stats: [
-    { value: 47, suffix: "+", label: "smart sensors" },
-    { value: 1, suffix: "Gbps", label: "fiber speed" },
-    { value: 98, suffix: "%", label: "avg air quality" },
-    { value: 24, suffix: "/7", label: "building uptime" },
-  ],
-  ecosystem: {
-    title: "The Ecosystem",
-    headline: "Infrastructure built for the next decade.",
-    features: [
-      {
-        title: "AI-Native Infrastructure",
-        description: "Every desk, room, and corridor is wired for AI. Run experiments, deploy models, and access GPU resources without leaving the building.",
-        detail: "Home Assistant · 47 devices · All online",
-      },
-      {
-        title: "Adaptive Climate",
-        description: "CO₂ sensors and occupancy data drive real-time HVAC adjustments. The air is always optimal for deep work.",
-      },
-      {
-        title: "1 Gbps Symmetric",
-        description: "Enterprise-grade fiber with redundant failover. Latency under 2ms to Lisbon data centers.",
-      },
-      {
-        title: "Smart Access",
-        description: "Keyless entry via NFC or mobile app. 24/7 security monitoring — fully automated.",
-      },
-      {
-        title: "Hospitality Layer",
-        description: "Specialty coffee, ergonomic hardware, and a concierge that handles everything from printing to package reception.",
-      },
-    ],
-  },
-  cta: {
-    headline: "Experience it firsthand.",
-    description: "Book a visit and see how the building responds to your presence.",
-    buttonText: "Book a Visit",
+export const siteMetadata = {
+  title: "22Cowork · The Future of Work",
+  description: "Experience clarity, focus, and effortless productivity at 22Cowork. An intelligently designed ecosystem for ambitious professionals.",
+  author: "22Cowork",
+  keywords: "coworking, Setúbal, Portugal, workspace, office, productivity, AI, smart building, community, flexible office, dedicated desk, private office, meeting rooms, podcast studio",
+  siteUrl: "https://22cowork.pt",
+  social: {
+    instagram: "https://www.instagram.com/22cowork/",
+    youtube: "https://www.youtube.com/@22cowork",
+    whatsapp: "https://wa.me/YOUR_WHATSAPP_NUMBER", // Replace with actual WhatsApp number
   },
 };
 
-export const intelligencePageContent = {
+export const navigationLinks = [
+  { name: "Space", href: "/space" },
+  { name: "Intelligence", href: "/intelligence" },
+  { name: "Community", href: "/community" },
+  { name: "Memberships", href: "/memberships" },
+  { name: "Book a Tour", href: "/book" },
+];
+
+export const homepageContent = {
   hero: {
-    tagline: "Intelligence",
-    headline: "A building that thinks with you.",
-    description: "Powered by Home Assistant and a network of 47 IoT sensors, 22Cowork continuously monitors and optimizes every aspect of the environment — so you never have to think about it.",
-  },
-  liveStatus: {
-    title: "Live Building Status",
-    description: "Simulated live readings from the 22Cowork sensor network. Values update every 2 seconds.",
-    metrics: [
-      { label: "Air Quality", value: 98, unit: "%" },
-      { label: "Temperature", value: 21, unit: "°C" },
-      { label: "Ambient Noise", value: 31, unit: "dB" },
-      { label: "Power Draw", value: 4.2, unit: "kW" },
-      { label: "Occupancy", value: 4, unit: "/12" },
-      { label: "Network Load", value: 340, unit: "Mbps" },
-    ],
-  },
-  howItWorks: {
-    title: "How it works",
-    headline: "Six systems. One seamless experience.",
+    tagline: "Your best work, realized.",
+    headline: "Clarity, by design. Focus, by choice.",
+    description: "An intelligently designed ecosystem where every detail supports your productivity. Experience a workspace that anticipates your needs, so you can master your day.",
+    ctaPrimary: { text: "Book a Tour", href: "/book" },
+    ctaSecondary: { text: "Explore the Space", href: "/space" },
     features: [
+      "Effortless Access",
+      "Seamless Connectivity",
+      "Intuitive Environment",
+    ],
+    image: "/assets/hero_space.jpg", // Placeholder, will use real image
+  },
+  storytelling: {
+    title: "A Day, Redefined.",
+    sections: [
       {
-        title: "Adaptive Air Quality",
-        description: "A network of CO₂, VOC, and particulate sensors continuously monitors air quality across every zone. The HVAC system responds automatically — you'll never notice the air, which is exactly the point.",
-        detail: "CO₂ < 600ppm · VOC < 0.1mg/m³ · PM2.5 < 5μg/m³",
+        title: "Arrival. Effortless.",
+        description: "Your day begins before you even step inside. Smart access anticipates your arrival, guiding you seamlessly into an environment designed for immediate focus. No friction, just flow.",
+        image: "/assets/arrival.jpg", // Placeholder
       },
       {
-        title: "Circadian Climate Control",
-        description: "Temperature and lighting color temperature shift throughout the day to align with your circadian rhythm. Cooler and brighter in the morning for focus. Warmer and dimmer in the afternoon for creative thinking.",
-        detail: "6500K morning → 2700K evening · 19°C–23°C range",
+        title: "Focus. Uninterrupted.",
+        description: "Find your rhythm in spaces crafted for deep work. Intelligent lighting adapts to your presence, climate control maintains perfect comfort, and sound-dampened zones ensure your concentration remains unbroken.",
+        image: "/assets/focus.jpg", // Placeholder
       },
       {
-        title: "Acoustic Intelligence",
-        description: "Sound masking systems activate automatically in open areas when noise levels exceed thresholds. Meeting rooms detect when a call starts and engage active noise cancellation.",
-        detail: "Target: < 35dB ambient · Sound masking: 45dB",
+        title: "Connect. Intentionally.",
+        description: "Beyond the individual, a vibrant community thrives. Connect with like-minded professionals in curated common areas, or host impactful meetings in our technologically advanced conference rooms. Collaboration, simplified.",
+        image: "/assets/connect.jpg", // Placeholder
       },
       {
-        title: "Occupancy Optimization",
-        description: "Presence sensors track desk and room utilization in real time. The system learns patterns over time, pre-conditioning spaces before peak hours and powering down unused zones.",
-        detail: "47 presence sensors · 15-min predictive warm-up",
-      },
-      {
-        title: "Energy Intelligence",
-        description: "Every circuit is monitored. The building automatically shifts non-critical loads to off-peak hours, integrates with solar generation data, and provides per-member energy reports.",
-        detail: "Solar-aware · Per-circuit monitoring · Carbon reporting",
-      },
-      {
-        title: "AI Workload Support",
-        description: "Dedicated GPU compute nodes available to members for AI training, inference, and experimentation. Accessible via SSH or a browser-based JupyterHub instance — no setup required.",
-        detail: "NVIDIA A100 · JupyterHub · SSH access",
+        title: "Depart. Accomplished.",
+        description: "As your day concludes, leave feeling energized and accomplished. The building intelligently powers down, securing your work and preparing for tomorrow. Your productivity, amplified.",
+        image: "/assets/depart.jpg", // Placeholder
       },
     ],
   },
-  cta: {
-    headline: "Experience it firsthand.",
-    description: "Book a visit and see how the building responds to your presence.",
-    buttonText: "Book a Visit",
+  valueProposition: {
+    title: "Beyond a Desk. An Ecosystem.",
+    items: [
+      {
+        icon: "/assets/icon_ai.svg", // Placeholder
+        headline: "Intelligent Infrastructure",
+        description: "AI-powered systems optimize your environment for peak performance, from air quality to lighting.",
+      },
+      {
+        icon: "/assets/icon_community.svg", // Placeholder
+        headline: "Curated Community",
+        description: "Connect with a network of innovators, founders, and creators. Opportunities for collaboration are always present.",
+      },
+      {
+        icon: "/assets/icon_comfort.svg", // Placeholder
+        headline: "Unrivaled Comfort",
+        description: "Ergonomic design, silent zones, and premium amenities ensure your physical and mental well-being.",
+      },
+      {
+        icon: "/assets/icon_security.svg", // Placeholder
+        headline: "Advanced Security",
+        description: "State-of-the-art security systems protect your work and privacy, 24/7.",
+      },
+    ],
+  },
+  ctaFinal: {
+    headline: "Ready to Redefine Your Workday?",
+    description: "Discover how 22Cowork can elevate your productivity and connect you with a thriving community.",
+    ctaPrimary: { text: "Book Your Tour", href: "/book" },
+    ctaSecondary: { text: "View Memberships", href: "/memberships" },
   },
 };
 
 export const spacePageContent = {
   hero: {
-    tagline: "The Space",
-    headline: "Architecture designed for deep work.",
-    description: "Every material, every light source, every acoustic panel was chosen with a single purpose: to eliminate friction between you and your best work.",
+    headline: "Spaces Designed for Your Success.",
+    description: "From focused deep work to dynamic collaboration, our environments are meticulously crafted to support every facet of your professional life.",
+    image: "/assets/space_hero.jpg", // Placeholder
   },
-  spaceTypes: [
+  sections: [
     {
-      title: "Open Studio",
-      description: "Expansive open-plan workspace with height-adjustable desks, premium ergonomic seating, and zones calibrated for different work modes — from deep focus to collaborative sprints.",
-      image: "/assets/hero_space.jpg",
-      tags: ["Height-adjustable desks", "Ergonomic chairs", "Focus zones", "Natural light"],
+      title: "Dedicated Desks. Your Private Domain.",
+      description: "Claim your permanent spot in a vibrant, yet focused, open-plan setting. Equipped with ergonomic furniture and seamless connectivity, it\'s your space to thrive, day after day.",
+      image: "/assets/dedicated_desk.jpg", // Placeholder
+      features: [
+        "Ergonomic Seating",
+        "Personal Storage",
+        "High-Speed Ethernet",
+        "24/7 Access",
+      ],
     },
     {
-      title: "Private Offices",
-      description: "Fully enclosed, acoustically treated offices for teams of 1–8. Each comes with a dedicated smart panel for climate and lighting control, and a reserved fiber drop.",
-      image: "/assets/private_office.jpg",
-      tags: ["Acoustic treatment", "Smart climate", "Dedicated fiber", "24/7 access"],
+      title: "Private Offices. Your Brand\'s Sanctuary.",
+      description: "Secure a fully furnished, private office tailored for individuals or small teams. Ideal for focused work, confidential meetings, and establishing your brand presence.",
+      image: "/assets/private_office.jpg", // Placeholder
+      features: [
+        "Soundproofed Environment",
+        "Customizable Layouts",
+        "Client-Ready Interiors",
+        "Scalable Options",
+      ],
     },
     {
-      title: "Meeting Rooms",
-      description: "Glass-walled rooms equipped with 4K displays, wireless presentation systems, and AI-powered noise cancellation. Book via app — rooms pre-cool 10 minutes before your meeting.",
-      image: "/assets/meeting_room.jpg",
-      tags: ["4K displays", "Wireless presentation", "AI noise cancellation", "Auto-booking"],
+      title: "Meeting & Podcast Studio. Ideas Amplified.",
+      description: "Host impactful presentations, confidential discussions, or record high-quality podcasts in our state-of-the-art studio. Technology and comfort, perfectly aligned.",
+      image: "/assets/meeting_room.jpg", // Placeholder
+      features: [
+        "Acoustically Treated",
+        "High-Definition Displays",
+        "Professional Audio Gear",
+        "Seamless Booking",
+      ],
     },
     {
-      title: "Community Lounge",
-      description: "A curated social space for informal conversations, casual work, and the kind of serendipitous collisions that start companies. Specialty coffee always on.",
-      image: "/assets/community_lounge.jpg",
-      tags: ["Specialty coffee", "Curated library", "Lounge seating", "Event space"],
+      title: "Hot Desks. Flexible Freedom.",
+      description: "Access our dynamic open workspace on demand. Perfect for those who need a professional environment without a fixed commitment. Find your spot, plug in, and produce.",
+      image: "/assets/hot_desk.jpg", // Placeholder
+      features: [
+        "Flexible Access",
+        "Diverse Work Zones",
+        "Plug & Play Setup",
+        "Community Access",
+      ],
     },
   ],
-  amenities: {
-    title: "Amenities",
-    headline: "Every detail considered.",
-    items: [
-      { label: "4K External Monitors", description: "Available at every hot desk" },
-      { label: "Acoustic Engineering", description: "NRC 0.85 rated panels throughout" },
-      { label: "Circadian Lighting", description: "Color temperature shifts with the day" },
-      { label: "24/7 Access", description: "NFC keyless entry, always on" },
-      { label: "Ergonomic Hardware", description: "Herman Miller, Logitech MX series" },
-    ],
+};
+
+export const intelligencePageContent = {
+  hero: {
+    headline: "Intelligence You Don\'t See. Results You Feel.",
+    description: "Our building is a living ecosystem, constantly optimizing itself to enhance your comfort, productivity, and security. Technology, effortlessly integrated.",
+    image: "/assets/intelligence_hero.jpg", // Placeholder
   },
-  cta: {
-    headline: "See it in person.",
-    description: "Words and photos can only go so far. Book a tour and feel the difference.",
-    buttonText: "Book a Visit",
-  },
+  sections: [
+    {
+      title: "Adaptive Climate Control. Perfect Comfort.",
+      description: "Experience an environment that intuitively adjusts to your presence. Our smart HVAC systems maintain optimal temperature and air quality, ensuring your focus is never broken.",
+      image: "/assets/climate_control.jpg", // Placeholder
+      features: [
+        "Personalized Zones",
+        "Real-time Air Quality",
+        "Energy Optimized",
+        "Silent Operation",
+      ],
+    },
+    {
+      title: "Dynamic Lighting. Naturally Productive.",
+      description: "Intelligent lighting systems mimic natural daylight cycles, reducing eye strain and boosting your energy. Light that works with you, not against you.",
+      image: "/assets/dynamic_lighting.jpg", // Placeholder
+      features: [
+        "Circadian Rhythm Support",
+        "Presence Detection",
+        "Glare Reduction",
+        "Customizable Scenes",
+      ],
+    },
+    {
+      title: "Seamless Connectivity. Always On.",
+      description: "Uninterrupted 10GB fiber internet and WiFi 7 ensure you\'re always connected. Our network infrastructure is built for speed, reliability, and security.",
+      image: "/assets/connectivity.jpg", // Placeholder
+      features: [
+        "10GB Fiber Backbone",
+        "WiFi 7 Ready",
+        "Redundant Systems",
+        "Secure VPN Options",
+      ],
+    },
+    {
+      title: "Smart Access & Security. Peace of Mind.",
+      description: "Your safety and privacy are paramount. Advanced keycard access, intelligent surveillance, and secure data networks provide complete peace of mind, 24/7.",
+      image: "/assets/security.jpg", // Placeholder
+      features: [
+        "24/7 Keycard Access",
+        "AI-Powered Surveillance",
+        "Data Privacy Protocols",
+        "Visitor Management",
+      ],
+    },
+  ],
 };
 
 export const membershipsPageContent = {
   hero: {
-    tagline: "Memberships",
-    headline: "Join the network.",
-    description: "Three tiers. One ecosystem. Choose the level of access that matches your ambition.",
+    headline: "Memberships Designed for Your Ambition.",
+    description: "Flexible plans crafted to support every stage of your professional journey. Find the perfect fit for your focus, team, and growth.",
+    image: "/assets/memberships_hero.jpg", // Placeholder
   },
-  tiers: [
+  plans: [
     {
-      name: "Nomad",
-      tagline: "For the independent operator.",
-      monthlyPrice: 149,
-      annualPrice: 119,
-      description: "Flexible hot-desk access with full building privileges. Come when you need to, leave when you want.",
+      name: "Hot Desk",
+      tagline: "Flexible Freedom.",
       features: [
-        "10 days/month hot-desk access",
-        "1 Gbps fiber",
-        "Adaptive climate & lighting",
-        "Smart access via mobile app",
-        "Community events",
-        "Specialty coffee & tea",
-        "2 meeting room hours/month",
+        "Access to open workspace",
+        "High-speed Wi-Fi",
+        "Community events access",
+        "Business address",
       ],
-      highlighted: false,
-      cta: "Start as Nomad",
+      cta: { text: "Start Your Trial", href: "/book?plan=hot-desk" },
     },
     {
-      name: "Resident",
-      tagline: "For the serious builder.",
-      monthlyPrice: 349,
-      annualPrice: 279,
-      description: "Unlimited access, a dedicated desk, and priority access to all AI infrastructure and GPU resources.",
+      name: "Dedicated Desk",
+      tagline: "Your Permanent Hub.",
       features: [
-        "Unlimited hot-desk access",
-        "Dedicated desk (reserved)",
-        "1 Gbps fiber + dedicated IP",
-        "GPU compute access (20h/mo)",
-        "AI tools & JupyterHub",
-        "10 meeting room hours/month",
-        "Priority event access",
-        "Locker storage",
-        "Guest passes (2/month)",
+        "Your own fixed desk",
+        "Ergonomic chair",
+        "Personal storage",
+        "24/7 access",
+        "Meeting room credits",
       ],
-      highlighted: true,
-      cta: "Become a Resident",
+      cta: { text: "Inquire Now", href: "/book?plan=dedicated-desk" },
     },
     {
-      name: "Studio",
-      tagline: "For the team that means business.",
-      monthlyPrice: 899,
-      annualPrice: 719,
-      description: "A fully private, acoustically treated office for teams of up to 4. Your own space inside the most intelligent building in Europe.",
+      name: "Private Office",
+      tagline: "Your Brand\'s Sanctuary.",
       features: [
-        "Private office (up to 4 people)",
-        "24/7 dedicated access",
-        "Dedicated fiber drop",
-        "GPU compute access (100h/mo)",
-        "Unlimited meeting room access",
-        "Custom smart environment profile",
-        "Dedicated concierge",
-        "Unlimited guest passes",
-        "Custom branding on door panel",
+        "Fully furnished private office",
+        "Soundproofed environment",
+        "Customizable layout",
+        "Client-ready interiors",
+        "Generous meeting room credits",
       ],
-      highlighted: false,
-      cta: "Claim a Studio",
+      cta: { text: "Request a Quote", href: "/book?plan=private-office" },
     },
   ],
-  faqs: [
-    {
-      question: "Is there a minimum commitment?",
-      answer: "No. All memberships are month-to-month by default. Annual plans are available at a 20% discount for those who want to commit.",
-    },
-    {
-      question: "Can I upgrade or downgrade my plan?",
-      answer: "Yes, at any time. Changes take effect at the start of the next billing cycle.",
-    },
-    {
-      question: "What is included in GPU compute access?",
-      answer: "Access to NVIDIA A100 nodes via SSH or JupyterHub. Hours are tracked per session. Additional hours can be purchased at €3/hour.",
-    },
-    {
-      question: "Is there a trial period?",
-      answer: "Yes. Book a visit first — we offer a free day pass so you can experience the space before committing.",
-    },
-    {
-      question: "Are there discounts for startups or students?",
-      answer: "We offer a 30% discount for early-stage startups (pre-seed) and students enrolled in accredited programs. Contact us to apply.",
-    },
-  ],
+  ctaFinal: {
+    headline: "Not Sure Which Plan is Right?",
+    description: "Our team is here to help you find the perfect membership to elevate your work.",
+    cta: { text: "Contact Us", href: "/contact" },
+  },
 };
 
 export const communityPageContent = {
   hero: {
-    tagline: "Community",
-    headline: "Connect with the brightest minds.",
-    description: "22Cowork is more than a workspace; it\'s an ecosystem of innovators, founders, and thought leaders. Connect, collaborate, and grow.",
+    headline: "Connect. Collaborate. Grow.",
+    description: "Beyond the workspace, a vibrant ecosystem of innovators, founders, and creators. Discover opportunities, share insights, and build lasting connections.",
+    image: "/assets/community_hero.jpg", // Placeholder
   },
+  sections: [
+    {
+      title: "Curated Events. Inspired Connections.",
+      description: "From expert-led workshops to informal networking mixers, our calendar is designed to foster meaningful interactions and professional growth.",
+      image: "/assets/events.jpg", // Placeholder
+      items: [
+        "Weekly Meetups",
+        "Skill-Share Sessions",
+        "Founder Forums",
+        "Social Gatherings",
+      ],
+    },
+    {
+      title: "Member Stories. Your Journey.",
+      description: "Be inspired by the diverse achievements of our community. 22Cowork is where groundbreaking ideas take flight and careers accelerate.",
+      image: "/assets/member_stories.jpg", // Placeholder
+      items: [
+        "Success Spotlights",
+        "Collaborative Projects",
+        "Industry Insights",
+        "Personal Growth",
+      ],
+    },
+    {
+      title: "Online Hub. Always Connected.",
+      description: "Our exclusive online platform keeps you connected with fellow members, even when you\'re not in the space. Share resources, ask questions, and collaborate effortlessly.",
+      image: "/assets/online_hub.jpg", // Placeholder
+      items: [
+        "Member Directory",
+        "Discussion Boards",
+        "Resource Sharing",
+        "Event RSVPs",
+      ],
+    },
+  ],
   memberTypes: [
-    { role: "AI Engineers", count: "12", desc: "Building models, fine-tuning LLMs, and deploying production AI systems." },
-    { role: "Founders", count: "8", desc: "Pre-seed to Series A, across SaaS, hardware, and deep tech." },
-    { role: "Researchers", count: "5", desc: "Academic and independent researchers in ML, robotics, and systems." },
-    { role: "Designers", count: "6", desc: "Product designers, UX researchers, and creative technologists." },
-    { role: "Operators", count: "9", desc: "Growth, finance, and operations professionals at high-growth companies." },
-  ],
-  events: [
     {
-      title: "AI Ethics Roundtable",
-      date: "July 20, 2024",
-      time: "18:00 - 19:30",
-      location: "Auditorium",
-      description: "A monthly discussion on the ethical implications of AI, featuring guest speakers from academia and industry.",
+      title: "Founders",
+      description: "Building the next big thing. Seeking focus, resources, and a network of peers.",
     },
     {
-      title: "Founder's Pitch Night",
-      date: "August 5, 2024",
-      time: "19:00 - 21:00",
-      location: "Event Space",
-      description: "Showcase your startup, get feedback from experienced entrepreneurs, and network with potential investors.",
+      title: "Creators",
+      description: "Crafting compelling content. Needing dedicated space, professional tools, and creative inspiration.",
     },
     {
-      title: "Deep Work Workshop",
-      date: "August 15, 2024",
-      time: "10:00 - 12:00",
-      location: "Focus Zone 3",
-      description: "Learn strategies and techniques for achieving flow state and maximizing productivity in a distraction-free environment.",
+      title: "Freelancers",
+      description: "Mastering their craft. Valuing flexibility, community, and a professional address.",
     },
   ],
-  perks: [
-    {
-      title: "Exclusive Workshops",
-      description: "Access to members-only workshops on AI, automation, and advanced productivity techniques.",
-    },
-    {
-      title: "Mentorship Program",
-      description: "Connect with experienced mentors in AI, tech, and entrepreneurship to accelerate your growth.",
-    },
-    {
-      title: "Networking Events",
-      description: "Regular social events, happy hours, and informal gatherings to foster connections and collaboration.",
-    },
-    {
-      title: "Online Forum",
-      description: "A private online community to share ideas, ask questions, and collaborate on projects.",
-    },
-  ],
-  cta: {
-    headline: "Join the conversation.",
-    description: "Become part of a vibrant community pushing the boundaries of innovation.",
-    buttonText: "Explore Memberships",
+  ctaFinal: {
+    headline: "Join Our Community.",
+    description: "Experience the power of working alongside like-minded professionals. Your next opportunity is waiting.",
+    cta: { text: "Explore Memberships", href: "/memberships" },
   },
 };
 
 export const bookPageContent = {
   hero: {
-    tagline: "Connect",
-    headline: "Experience the future of work.",
-    description: "Schedule a visit, request a day pass, or inquire about membership. Our team will get back to you within 24 hours.",
+    headline: "Begin Your 22Cowork Experience.",
+    description: "Schedule a personalized tour or inquire about our memberships. Discover the difference an intelligently designed workspace can make.",
+    image: "/assets/book_hero.jpg", // Placeholder
   },
   form: {
-    headline: "Tell us about your needs.",
-    intents: [
-      "Book a Tour",
-      "Request a Day Pass",
-      "Inquire about Membership",
-      "General Inquiry",
+    title: "Book Your Visit or Inquire",
+    fields: [
+      { label: "Full Name", type: "text", name: "fullName", placeholder: "John Doe" },
+      { label: "Email", type: "email", name: "email", placeholder: "john.doe@example.com" },
+      { label: "Phone Number", type: "tel", name: "phone", placeholder: "+351 912 345 678" },
+      {
+        label: "Interest",
+        type: "select",
+        name: "interest",
+        options: [
+          { value: "tour", label: "Schedule a Tour" },
+          { value: "hot-desk", label: "Hot Desk Membership" },
+          { value: "dedicated-desk", label: "Dedicated Desk Membership" },
+          { value: "private-office", label: "Private Office Inquiry" },
+          { value: "podcast-studio", label: "Podcast Studio Booking" },
+          { value: "other", label: "Other Inquiry" },
+        ],
+      },
+      { label: "Preferred Date (Optional)", type: "date", name: "preferredDate" },
+      { label: "Message", type: "textarea", name: "message", placeholder: "Tell us about your needs..." },
     ],
-    submitButton: "Send Request",
-    successMessage: "Your request has been received! We'll be in touch shortly.",
+    submitButton: "Send Inquiry",
+    successMessage: "Your inquiry has been received. We'll be in touch shortly!",
   },
+  ctaFinal: {
+    headline: "Questions? We're Here to Help.",
+    description: "Our team is ready to guide you through your 22Cowork journey. Reach out anytime.",
+    cta: { text: "Contact Us", href: "/contact" },
+  },
+};
+
+export const contactPageContent = {
+  hero: {
+    headline: "Let\'s Connect.",
+    description: "Have questions? Ready to elevate your workspace? Reach out to our team.",
+    image: "/assets/contact_hero.jpg", // Placeholder
+  },
+  details: [
+    {
+      icon: "/assets/icon_location.svg", // Placeholder
+      title: "Our Location",
+      description: "Rua do Comércio, 22, 2900-000 Setúbal, Portugal",
+      link: "https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK", // Replace with actual Google Maps link
+    },
+    {
+      icon: "/assets/icon_email.svg", // Placeholder
+      title: "Email Us",
+      description: "team@22cowork.pt",
+      link: "mailto:team@22cowork.pt",
+    },
+    {
+      icon: "/assets/icon_phone.svg", // Placeholder
+      title: "Call Us",
+      description: "+351 912 345 678", // Replace with actual phone number
+      link: "tel:+351912345678",
+    },
+  ],
+};
+
+export const aboutPageContent = {
+  hero: {
+    headline: "Our Vision. Your Future.",
+    description: "22Cowork was founded on the belief that work environments should inspire, empower, and adapt. We\'re building the future of productivity, one intelligent space at a time.",
+    image: "/assets/about_hero.jpg", // Placeholder
+  },
+  sections: [
+    {
+      title: "The 22Cowork Philosophy",
+      description: "We believe in creating spaces that are more than just offices. They are ecosystems designed for deep work, seamless collaboration, and genuine community. Our philosophy is rooted in the idea that technology should be invisible, enhancing your experience without distraction.",
+      image: "/assets/philosophy.jpg", // Placeholder
+    },
+    {
+      title: "Our Commitment to Intelligence",
+      description: "From AI-powered climate control to smart access systems, every aspect of 22Cowork is engineered for efficiency and comfort. We are a living laboratory for the future of work, constantly evolving to meet the needs of ambitious professionals.",
+      image: "/assets/commitment.jpg", // Placeholder
+    },
+    {
+      title: "Join Our Story",
+      description: "We\'re building a community of forward-thinkers in Setúbal. Whether you\'re a founder, creator, or freelancer, 22Cowork offers the environment and network to amplify your potential.",
+      image: "/assets/join_story.jpg", // Placeholder
+    },
+  ],
+};
+
+export const trialPageContent = {
+  hero: {
+    headline: "Experience 22Cowork. Risk-Free.",
+    description: "Discover the difference an intelligently designed workspace makes. Try 22Cowork for 3 days, completely free.",
+    image: "/assets/trial_hero.jpg", // Placeholder
+  },
+  features: [
+    "3 Days of Hot Desk Access",
+    "High-Speed Wi-Fi",
+    "Community Event Access",
+    "Complimentary Coffee & Tea",
+    "No Obligation",
+  ],
+  cta: { text: "Claim Your Free Trial", href: "/book?plan=free-trial" },
 };

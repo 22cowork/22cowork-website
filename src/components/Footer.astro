@@ -1,46 +1,71 @@
 ---
-import { colors } from '@/config/colors';
+import { siteMetadata, navigationLinks } from "../config/content";
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t mt-20" style={{ borderColor: colors.border, backgroundColor: colors.card }}>
-  <div class="container py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div>
-        <h3 class="font-display font-bold mb-4" style={{ color: colors.primary }}>22Cowork</h3>
-        <p style={{ color: colors['muted-foreground'] }} class="text-sm">
-          O espaço de trabalho mais inteligente da Europa.
-        </p>
-      </div>
-      <div>
-        <h4 class="font-display font-semibold mb-4">Navegação</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/space" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">O Espaço</a></li>
-          <li><a href="/intelligence" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Inteligência</a></li>
-          <li><a href="/memberships" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Membros</a></li>
-          <li><a href="/community" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Comunidade</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-display font-semibold mb-4">Contacto</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="mailto:team@22cowork.pt" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">team@22cowork.pt</a></li>
-          <li><a href="tel:+351" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">+351 ...</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-display font-semibold mb-4">Redes Sociais</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">LinkedIn</a></li>
-          <li><a href="#" style={{ color: colors['muted-foreground'] }} class="hover:text-foreground transition-colors">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t pt-8" style={{ borderColor: colors.border }}>
-      <p style={{ color: colors['muted-foreground'] }} class="text-sm text-center">
-        © {currentYear} 22Cowork. Todos os direitos reservados.
+<footer class="bg-soft-off-white text-text-dark-gray py-12 mt-20">
+  <div class="container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <a href="/" class="flex items-center space-x-2 mb-4">
+        <img src="/assets/logo.svg" alt="22Cowork Logo" class="h-8" />
+        <span class="font-display text-xl font-bold text-text-black">{siteMetadata.title.split(" · ")[0]}</span>
+      </a>
+      <p class="text-sm">
+        {siteMetadata.description}
       </p>
     </div>
+    <div>
+      <h4 class="font-display font-semibold text-text-black mb-4">Navigation</h4>
+      <ul class="space-y-2 text-sm">
+        {navigationLinks.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-forest-green transition-colors duration-300">
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-display font-semibold text-text-black mb-4">Connect</h4>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href={siteMetadata.social.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-forest-green transition-colors duration-300">
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a href={siteMetadata.social.youtube} target="_blank" rel="noopener noreferrer" class="hover:text-forest-green transition-colors duration-300">
+            YouTube
+          </a>
+        </li>
+        <li>
+          <a href={siteMetadata.social.whatsapp} target="_blank" rel="noopener noreferrer" class="hover:text-forest-green transition-colors duration-300">
+            WhatsApp
+          </a>
+        </li>
+        <li>
+          <a href="mailto:{siteMetadata.social.email}" class="hover:text-forest-green transition-colors duration-300">
+            Email
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-display font-semibold text-text-black mb-4">Location</h4>
+      <p class="text-sm">
+        Rua do Comércio, 22<br />
+        2900-000 Setúbal, Portugal
+      </p>
+      <a href="https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK" target="_blank" rel="noopener noreferrer" class="text-sm text-forest-green hover:underline mt-2 block">
+        Get Directions
+      </a>
+    </div>
+  </div>
+  <div class="border-t border-light-gray pt-8 mt-8">
+    <p class="text-sm text-center">
+      &copy; {currentYear} {siteMetadata.title.split(" · ")[0]}. All rights reserved.
+    </p>
   </div>
 </footer>
