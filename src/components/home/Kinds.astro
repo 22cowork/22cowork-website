@@ -1,0 +1,22 @@
+---
+// Three kinds of work.
+const kinds = [
+  { n: "01 / Founders", title: "Run the company from here", body: "A room that looks the part when a client walks in — because it's the one you actually work from." },
+  { n: "02 / Creators", title: "Shoot, edit, record", body: "The soundproofed studio means you don't need a second studio across town. It's all in the building." },
+  { n: "03 / Freelancers", title: "Freelance without the isolation", body: "A desk when you need one, a real business address, and people building alongside you." },
+];
+---
+<section class="band kinds">
+  <div class="wrap">
+    <span class="mono label eyebrow rise">Who it's for</span>
+    <h2 class="h2 rise" data-d="1">Built around three<br>kinds of work.</h2>
+    <div class="kgrid">
+      {kinds.map((k, i) => (
+        <div class="kcard rise" data-d={i === 0 ? undefined : String(i)}>
+          <span class="n">{k.n}</span>
+          <div><h3>{k.title}</h3><p>{k.body}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

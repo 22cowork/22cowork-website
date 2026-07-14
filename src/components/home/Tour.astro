@@ -1,0 +1,25 @@
+---
+// The office tour — YouTube (privacy-enhanced) with a guaranteed fallback link.
+const videoId = "htTdP9zs7pM";
+const embed = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
+const watch = `https://www.youtube.com/watch?v=${videoId}`;
+---
+<section class="band tour" id="tour">
+  <div class="wrap">
+    <span class="mono label eyebrow rise">Walkthrough</span>
+    <h2 class="h2 rise" data-d="1">Take the tour.</h2>
+    <div class="video-frame rise" data-d="2">
+      <iframe
+        src={embed}
+        title="22cowork — office tour"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="rise" data-d="3" style="margin-top:18px">
+      <a href={watch} target="_blank" rel="noopener" class="mono label">Trouble seeing it? Watch the tour on YouTube ↗</a>
+    </div>
+  </div>
+</section>

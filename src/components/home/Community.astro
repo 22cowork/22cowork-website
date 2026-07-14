@@ -1,0 +1,36 @@
+---
+// Community — real photos now; swap in a live Behold @22cowork feed later.
+const ig = "https://instagram.com/22cowork";
+const tiles = [
+  { img: "/assets/ig1.jpg", tag: "@22cowork" },
+  { img: "/assets/ig2.jpg", tag: null },
+  { img: "/assets/ig3.jpg", tag: null },
+  { img: "/assets/ig4.jpg", tag: null },
+  { img: "/assets/ig5.jpg", tag: null },
+  { img: "/assets/studio.jpg", tag: null },
+];
+---
+<section class="band comm">
+  <div class="wrap comm-grid">
+    <div>
+      <span class="mono label eyebrow rise">Community</span>
+      <h2 class="h2 rise" data-d="1">Not a lobby<br>full of strangers.</h2>
+      <p class="lead rise" data-d="2" style="margin-top:1.4rem">Follow the building day to day — who's shipped what, which desks are open, what's on this month.</p>
+      <div class="rise" data-d="2" style="margin-top:2rem"><a href={ig} target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
+    </div>
+
+    {/*
+      LIVE INSTAGRAM FEED
+      To show real, always-current posts: create a Grid widget at behold.so,
+      connect @22cowork, and replace the tiles below with the embed it gives you.
+    */}
+    <div class="ig rise" data-d="1" id="ig-feed">
+      {tiles.map((t) => (
+        <a href={ig} target="_blank" rel="noopener" class="slot">
+          <img src={t.img} alt="22cowork" />
+          {t.tag && <span class="tag">{t.tag}</span>}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

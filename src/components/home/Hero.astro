@@ -1,0 +1,34 @@
+---
+// Hero — cinematic video background (real 22cowork tour clip), dark fallback.
+const heroVideo = "https://22cowork.pt/wp-content/uploads/2026/05/download-1.mp4";
+---
+<section class="hero" id="top">
+  <video autoplay muted loop playsinline>
+    <source src={heroVideo} type="video/mp4" />
+  </video>
+  <div class="fallback"></div>
+  <div class="scrim"></div>
+
+  <div class="hero-top wrap">
+    <span class="mono label">Setúbal, Portugal · 20 min from Lisboa</span>
+  </div>
+
+  <div class="hero-inner wrap">
+    <h1 class="display">Work, <em>better.</em><span class="cursor"></span></h1>
+    <p class="sub">Everything else is already taken care of.</p>
+    <div class="hero-actions">
+      <a href="#visit" class="btn btn-solid">Book a visit →</a>
+      <a href="#tour" class="btn btn-ghost">Take the tour</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="run" id="run">
+    <span>10GB fibre + WiFi 7</span><span>24h keycard access</span><span>Soundproofed studio</span><span>Gym downstairs</span><span>Private underground parking</span><span>Coffee, always</span><span>Business address</span>
+    <span>10GB fibre + WiFi 7</span><span>24h keycard access</span><span>Soundproofed studio</span><span>Gym downstairs</span><span>Private underground parking</span><span>Coffee, always</span><span>Business address</span>
+  </div>
+</div>

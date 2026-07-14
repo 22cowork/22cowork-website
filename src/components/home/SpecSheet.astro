@@ -1,0 +1,27 @@
+---
+// The spec sheet — building facts as a museum plaque.
+const rows = [
+  { k: "Net", v: "10GB fibre backbone, WiFi 7 throughout", m: "// no dead zones" },
+  { k: "Access", v: "24-hour keycard entry", m: "// presence-aware" },
+  { k: "Studio", v: "Soundproofed podcast & content room", m: "// book it" },
+  { k: "Fitness", v: "Gym downstairs — My Fitness Academy", m: "// one floor" },
+  { k: "Parking", v: "Private, underground", m: "// covered" },
+  { k: "Post", v: "Business address + mail handling", m: "// invoices sorted" },
+  { k: "Coffee", v: "Included, always", m: "// non-negotiable" },
+];
+---
+<section class="band spec" id="spec">
+  <div class="wrap">
+    <span class="mono label eyebrow rise">The spec sheet<span class="status"><span class="dot"></span>Systems online</span></span>
+    <h2 class="h2 rise" data-d="1">What's actually<br>in the building.</h2>
+    <div class="sheet">
+      {rows.map((r) => (
+        <div class="row rise">
+          <span class="k">{r.k}</span>
+          <span class="v">{r.v}</span>
+          <span class="m">{r.m}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

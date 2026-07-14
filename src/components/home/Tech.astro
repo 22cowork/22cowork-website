@@ -1,0 +1,16 @@
+---
+// Invisible technology.
+const chips = [
+  "AI orchestration", "Presence sensing", "Smart access", "Climate control",
+  "Smart lighting", "Energy optimization", "Network infrastructure", "Analytics",
+];
+---
+<section class="band tech">
+  <div class="wrap">
+    <span class="mono label eyebrow rise">Behind the walls</span>
+    <p class="big rise" data-d="1">You'll never notice the technology. <span class="fade">That's the entire point.</span></p>
+    <div class="chips">
+      {chips.map((c) => <span class="chip rise">{c}</span>)}
+    </div>
+  </div>
+</section>

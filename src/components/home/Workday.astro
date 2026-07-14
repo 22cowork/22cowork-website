@@ -1,0 +1,46 @@
+---
+// The signature workday narrative — one good day, told in timestamped moments.
+interface Moment {
+  time: string;
+  title: string;
+  body: string;
+  img: string;
+  alt: string;
+  tag: string;
+}
+const moments: Moment[] = [
+  { time: "08 : 12 — Arrival", title: "Badge in. The room already knows.", body: "Lights, climate and your desk, ready before you sit down. No switches, no waiting.", img: "/assets/arrival.jpg", alt: "The lounge at 22cowork", tag: "The lounge" },
+  { time: "08 : 30 — Coffee", title: "First coffee. Included, always.", body: "The good machine, not the sad pod. The small ritual that starts the work.", img: "/assets/coffee.jpg", alt: "Coffee at 22cowork", tag: "Delta Q · always on" },
+  { time: "09 : 00 — Deep work", title: "Your desk. Same spot, every day.", body: "Wood desk, ergonomic chair, standing option. Fibre that doesn't blink. Quiet that holds.", img: "/assets/deepwork.jpg", alt: "Dedicated desk by the window at 22cowork", tag: "Your desk, by the light" },
+  { time: "11 : 30 — The meeting", title: "A door that actually closes.", body: "Soundproofed room for the client call, the investor, or the conversation that needs privacy.", img: "/assets/meeting.jpg", alt: "Private office with a view at 22cowork", tag: "Private office · Setúbal light" },
+  { time: "14 : 00 — The studio", title: "Record it here. Skip the second membership.", body: "A soundproofed podcast and content room in the same building. Film, record, edit — done.", img: "/assets/studio.jpg", alt: "Soundproofed podcast and content studio at 22cowork", tag: "The studio" },
+  { time: "17 : 45 — Downstairs", title: "Close the laptop. Not the day.", body: "Gym one floor down. Parking underground. People around who are building things too.", img: "/assets/gym.jpg", alt: "Gym one floor down at 22cowork", tag: "Gym · one floor down" },
+];
+---
+<section class="band day" id="work">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="mono label eyebrow rise">A day here</span>
+        <h2 class="h2 rise" data-d="1">One good day,<br>on repeat.</h2>
+      </div>
+      <p class="lead rise" data-d="2">No tour of features. Just the shape of a day that works — from the moment you badge in to the moment you leave lighter than you arrived.</p>
+    </div>
+
+    {moments.map((m) => (
+      <div class="moment rise">
+        <div class="m-text">
+          <div class="time">{m.time}</div>
+          <h3 class="h3">{m.title}</h3>
+          <p>{m.body}</p>
+        </div>
+        <div class="m-media">
+          <div class="slot">
+            <img src={m.img} alt={m.alt} />
+            <span class="tag">{m.tag}</span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
