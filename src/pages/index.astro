@@ -1,12 +1,20 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
 const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_place_id=ChIJibrR-YpDGQ0R2UrFT6Fufsk";
+const memberships = [
+  "Dedicated Desk",
+  "Hot Desk",
+  "Private Office (opening Sep 2026)",
+  "Meeting / Studio Room",
+  "Business Address",
+  "Just a look around",
+];
 ---
 
 <HomeLayout>
   <!-- NAV -->
   <header class="nav" id="nav">
-    <a href="#top" class="brand"><b>22cowork</b><span class="b-cur"></span></a>
+    <a href="#top" class="brand"><b>22cowork</b></a>
     <nav class="links">
       <a href="#spaces">Spaces</a>
       <a href="#work">A day here</a>
@@ -21,10 +29,6 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <section class="hero" id="top">
     <img class="hero-img" src="/assets/hero.jpg" alt="Inside 22cowork, Setúbal" />
     <div class="scrim"></div>
-
-    <div class="hero-top wrap">
-      <span class="mono label">Coworking · Setúbal, Portugal · 35 min from Lisboa</span>
-    </div>
 
     <div class="hero-inner wrap">
       <h1 class="display">A coworking space for<br />people who <span class="rot-hold"><em id="rot" class="rot">ship, not sit.</em><span class="cursor"></span></span></h1>
@@ -41,24 +45,32 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- TRUST BAND -->
   <div class="trust">
     <div class="wrap">
-      <a class="grating" href={maps} target="_blank" rel="noopener">
-        <span class="stars">★★★★★</span>
-        <span class="gr-txt"><b>5.0</b> · Google reviews</span>
-      </a>
       <div class="stat"><b>35 min</b><span>from Lisboa</span></div>
       <div class="stat"><b>24/7</b><span>keycard access</span></div>
       <div class="stat"><b>10GB</b><span>fibre + WiFi 7</span></div>
+      <div class="stat"><b>Gym</b><span>one floor down</span></div>
       <span class="resv"><span class="dot"></span>20 desks available · 5 offices in presale</span>
     </div>
   </div>
 
-  <!-- CHOOSE YOUR SPACE -->
+  <!-- CHOOSE YOUR SPACE + TOUR (side by side) -->
   <section class="band spaces" id="spaces">
     <div class="wrap">
-      <span class="mono label eyebrow rise">What you can rent</span>
-      <div class="head" style="display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap">
-        <h2 class="h2 rise" data-d="1">Choose your space.</h2>
-        <p class="lead rise" data-d="2">Five ways to work here, from a desk for the day to your own office. Reserve the one that fits and we'll confirm within a day.</p>
+      <div class="spaces-head">
+        <div class="sh-text">
+          <h2 class="h2 rise">Choose your space.</h2>
+          <p class="lead rise" data-d="1">Five ways to work here, from a desk for the day to your own office. Reserve the one that fits and we'll confirm within a day.</p>
+          <div class="rise" data-d="2" style="margin-top:1.7rem"><a href="#reserve" class="btn btn-gold">Reserve your space →</a></div>
+        </div>
+        <div class="sh-video rise" data-d="1" id="tour">
+          <div class="video-frame" id="tour-video" data-yt="htTdP9zs7pM">
+            <button class="vplay" type="button" aria-label="Play the 22cowork tour">
+              <img class="vthumb" src="https://i.ytimg.com/vi/htTdP9zs7pM/maxresdefault.jpg" alt="22cowork office tour" />
+              <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+            </button>
+          </div>
+          <div style="margin-top:12px"><a href="https://www.youtube.com/watch?v=htTdP9zs7pM" target="_blank" rel="noopener" class="mono label">Prefer YouTube? Watch the tour there ↗</a></div>
+        </div>
       </div>
 
       <div class="sp-grid">
@@ -118,9 +130,8 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- MANIFESTO -->
   <section class="band manifesto" id="space">
     <div class="wrap">
-      <span class="mono label eyebrow rise">The idea</span>
-      <p class="quote rise" data-d="1">Fancy fails. <span class="em">Simple scales.</span></p>
-      <div class="foot rise" data-d="2">
+      <p class="quote rise">Fancy fails. <span class="em">Simple scales.</span></p>
+      <div class="foot rise" data-d="1">
         <p>No gimmicks. No lofi or beanbag theatre. A solid room, a fast connection, and people who are actually working. It's the principle we build everything on, including the building.</p>
       </div>
     </div>
@@ -130,11 +141,8 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <section class="band day" id="work">
     <div class="wrap">
       <div class="head">
-        <div>
-          <span class="mono label eyebrow rise">A day here</span>
-          <h2 class="h2 rise" data-d="1">One good day,<br />on repeat.</h2>
-        </div>
-        <p class="lead rise" data-d="2">No tour of features. Just the shape of a day that works, from the moment you badge in to the moment you leave lighter than you arrived.</p>
+        <h2 class="h2 rise">One good day,<br />on repeat.</h2>
+        <p class="lead rise" data-d="1">No tour of features. Just the shape of a day that works, from the moment you badge in to the moment you leave lighter than you arrived.</p>
       </div>
 
       <div class="moment rise">
@@ -196,8 +204,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- THREE KINDS OF WORK -->
   <section class="band kinds">
     <div class="wrap">
-      <span class="mono label eyebrow rise">Who it's for</span>
-      <h2 class="h2 rise" data-d="1">Built around three<br />kinds of work.</h2>
+      <h2 class="h2 rise">Built around three<br />kinds of work.</h2>
       <div class="kgrid">
         <div class="kcard rise">
           <span class="n">01 / Founders</span>
@@ -218,7 +225,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- SPEC SHEET -->
   <section class="band spec" id="spec">
     <div class="wrap">
-      <span class="mono label eyebrow rise">The spec sheet<span class="status"><span class="dot"></span>Systems online</span></span>
+      <div class="rise" style="margin-bottom:1.2rem"><span class="status" style="float:none"><span class="dot"></span>Systems online</span></div>
       <h2 class="h2 rise" data-d="1">What's actually<br />in the building.</h2>
       <div class="sheet">
         <div class="row rise"><span class="k">Net</span><span class="v">10GB fibre backbone, WiFi 7 throughout</span><span class="m">// no dead zones</span></div>
@@ -235,8 +242,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- INVISIBLE TECH -->
   <section class="band tech">
     <div class="wrap">
-      <span class="mono label eyebrow rise">Behind the walls</span>
-      <p class="big rise" data-d="1">You'll never notice the technology. <span class="fade">That's the entire point.</span></p>
+      <p class="big rise">You'll never notice the technology. <span class="fade">That's the entire point.</span></p>
       <div class="chips">
         <span class="chip rise">AI orchestration</span>
         <span class="chip rise">Presence sensing</span>
@@ -250,31 +256,14 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </section>
 
-  <!-- TOUR -->
-  <section class="band tour" id="tour">
-    <div class="wrap">
-      <span class="mono label eyebrow rise">Walkthrough</span>
-      <h2 class="h2 rise" data-d="1">Take the tour.</h2>
-      <div class="video-frame rise" data-d="2" id="tour-video" data-yt="htTdP9zs7pM">
-        <button class="vplay" type="button" aria-label="Play the 22cowork tour">
-          <img class="vthumb" src="https://i.ytimg.com/vi/htTdP9zs7pM/maxresdefault.jpg" alt="22cowork office tour" />
-          <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
-        </button>
-      </div>
-      <div class="rise" data-d="3" style="margin-top:16px"><a href="https://www.youtube.com/watch?v=htTdP9zs7pM" target="_blank" rel="noopener" class="mono label">Prefer YouTube? Watch the tour there ↗</a></div>
-    </div>
-  </section>
-
   <!-- COMMUNITY -->
   <section class="band comm">
     <div class="wrap comm-grid">
       <div>
-        <span class="mono label eyebrow rise">Community</span>
-        <h2 class="h2 rise" data-d="1">Not a lobby<br />full of strangers.</h2>
-        <p class="lead rise" data-d="2" style="margin-top:1.4rem">Follow the building day to day. Who's shipped what, which desks are open, what's on this month.</p>
-        <div class="rise" data-d="2" style="margin-top:2rem"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
+        <h2 class="h2 rise">Not a lobby<br />full of strangers.</h2>
+        <p class="lead rise" data-d="1" style="margin-top:1.4rem">Follow the building day to day. Who's shipped what, which desks are open, what's on this month.</p>
+        <div class="rise" data-d="1" style="margin-top:2rem"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
       </div>
-      {/* To show a live @22cowork feed here, create a Grid widget at behold.so and replace the tiles below with its embed. */}
       <div class="ig rise" data-d="1" id="ig-feed">
         <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig1.jpg" alt="22cowork" /><span class="tag">@22cowork</span></a>
         <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img src="/assets/ig2.jpg" alt="22cowork" /></a>
@@ -289,8 +278,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- RESERVE -->
   <section class="contact" id="reserve">
     <div class="wrap">
-      <span class="mono label eyebrow rise">Reserve your space</span>
-      <h2 class="h2 rise" data-d="1">Claim your spot<br />before it's taken.</h2>
+      <h2 class="h2 rise">Claim your spot<br />before it's taken.</h2>
       <div class="grid">
         <div class="rise" data-d="1">
           <p class="lead">Tell us what you're after and we'll confirm within a day. Only 20 dedicated desks remain, and private offices are in presale. Just 5, opening September 2026.</p>
@@ -302,47 +290,25 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
           <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
           <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
-        <form
-          class="rise"
-          data-d="2"
-          id="book-form"
-          action="https://formspree.io/f/mojgvedl"
-          method="POST"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New enquiry from 22cowork.pt"
-          />
+        <form class="rise" data-d="2" id="book-form" action="https://formspree.io/f/mojgvedl" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry from 22cowork.pt" />
           <input type="hidden" name="source" value="22Cowork website" />
           <div class="f2">
-            <div class="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
-            <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>
+            <div class="field"><label>Full name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
           </div>
           <div class="f2">
-            <div class="field"><label>Company</label><input type="text" placeholder="Optional" /></div>
-            <div class="field"><label>Phone</label><input type="tel" placeholder="Optional" /></div>
+            <div class="field"><label>Company</label><input type="text" name="company" placeholder="Optional" /></div>
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="Optional" /></div>
           </div>
           <div class="field">
             <label>What are you after</label>
             <select name="workspace" required>
-              <option>Dedicated Desk</option>
-              <option>Hot Desk</option>
-              <option>Private Office (opening Sep 2026)</option>
-              <option>Meeting / Studio Room</option>
-              <option>Business Address</option>
-              <option>Just a look around</option>
+              {memberships.map((m) => <option>{m}</option>)}
             </select>
           </div>
           <button type="submit" class="btn btn-gold" style="justify-self:start; margin-top:8px">Reserve your space →</button>
-        
-          <p
-            id="form-status"
-            class="mono"
-            role="status"
-            aria-live="polite"
-            style="display:none; margin-top:18px;"
-          ></p>
+          <p id="form-status" class="mono" role="status" aria-live="polite" style="display:none; margin-top:16px; color:var(--ember)"></p>
         </form>
       </div>
     </div>
@@ -355,6 +321,10 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div>
           <div class="big-brand">22cowork<span style="color:var(--ember)">.</span></div>
           <p style="max-width:34ch; margin-top:1rem; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 35 minutes from Lisboa.</p>
+          <a class="grating foot-rating" href={maps} target="_blank" rel="noopener">
+            <span class="stars">★★★★★</span>
+            <span class="gr-txt"><b>5.0</b> · Google reviews</span>
+          </a>
         </div>
         <div>
           <h4>Space</h4>
@@ -371,7 +341,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       </div>
       <div class="foot-bottom">
         <span class="mono">© 2026 22cowork · Setúbal, Portugal</span>
-        <span class="mono">Built simple. Made to last.<span class="cursor" style="transform:translateY(.1em)"></span></span>
+        <span class="mono">Built simple. Made to last.</span>
       </div>
     </div>
   </footer>
