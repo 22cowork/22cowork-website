@@ -11,7 +11,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       <a href="#spaces">Spaces</a>
       <a href="#work">A day here</a>
       <a href="#spec">Building</a>
-      <a href="#tour">Tour</a>
+      <a href="/blog">Journal</a>
       <a href="#reserve" class="nav-cta">Reserve</a>
     </nav>
     <a href="#reserve" class="burger">Reserve</a>
@@ -241,13 +241,34 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
           <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
           <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
-        <div class="rise" data-d="2">
-          <div class="tally-card">
-            <iframe data-tally-src="https://tally.so/embed/zxoRxg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                    loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"
-                    title="22Cowork Lead Capture"></iframe>
+        <form class="rise" data-d="2" id="lead-form">
+          <div class="f2">
+            <div class="field"><label>Full name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
           </div>
-        </div>
+          <div class="f2">
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="+351 …" required /></div>
+            <div class="field"><label>Company</label><input type="text" name="company" placeholder="Optional" /></div>
+          </div>
+          <div class="field">
+            <label>What are you after</label>
+            <select name="interest" required>
+              <option value="">Choose…</option>
+              <option>Dedicated Desk</option>
+              <option>Private Office (Sept 2026)</option>
+              <option>Hot Desk</option>
+              <option>Meeting / Studio Room</option>
+              <option>Business Address</option>
+              <option>Just looking</option>
+            </select>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to be contacted by 22cowork, including marketing communications. See our <a href="/privacy">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-gold" style="justify-self:start; margin-top:6px">Reserve your space →</button>
+          <p id="form-status" class="mono" role="status" aria-live="polite" style="display:none; margin-top:14px; color:var(--ember)"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -283,6 +304,4 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       </div>
     </div>
   </footer>
-
-  <script is:inline src="https://tally.so/widgets/embed.js"></script>
 </HomeLayout>

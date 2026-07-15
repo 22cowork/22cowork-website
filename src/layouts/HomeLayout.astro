@@ -152,7 +152,7 @@ const {
   @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
   section{position:relative}
-  .band{padding:clamp(40px,6vh,82px) 0}
+  .band{padding:clamp(30px,4.5vh,64px) 0}
   .eyebrow{margin-bottom:1.3rem}
   .lead{font-size:clamp(1.15rem,1.5vw,1.35rem); line-height:1.5; color:var(--ink-soft); max-width:40ch}
 
@@ -188,16 +188,20 @@ const {
   /* ---------- day timeline ---------- */
   .timeline{position:relative; max-width:1080px; margin:clamp(28px,5vh,52px) auto 0}
   .timeline::before{content:""; position:absolute; left:50%; top:12px; bottom:12px; width:2px; background:var(--line); transform:translateX(-50%)}
-  .tl-item{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; column-gap:clamp(20px,3vw,44px); margin:clamp(14px,2.6vh,30px) 0; position:relative}
-  .tl-node{grid-column:2; display:flex; flex-direction:column; align-items:center; gap:8px; z-index:2}
-  .tl-node .dot{width:13px; height:13px; border-radius:50%; background:var(--ember); box-shadow:0 0 0 5px var(--paper-2)}
+  .tl-item{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; column-gap:clamp(18px,2.6vw,38px); margin:clamp(2px,0.9vh,14px) 0; position:relative}
+  .tl-node{grid-column:2; display:flex; flex-direction:column; align-items:center; gap:7px; z-index:2}
+  .tl-node .dot{width:12px; height:12px; border-radius:50%; background:var(--ember); box-shadow:0 0 0 5px var(--paper-2)}
   .tl-node .hr{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.12em; color:var(--ember-deep); white-space:nowrap}
   .tl-content{position:relative}
-  .tl-content h3{font-size:clamp(1.25rem,2vw,1.8rem); margin:.9rem 0 .4rem}
-  .tl-content p{color:var(--ink-soft); font-size:1rem; max-width:42ch}
+  /* compact: small image hugging the line, tight copy — the whole day fits without a marathon scroll */
+  .tl-content .slot{max-width:300px; aspect-ratio:3/2}
+  .tl-content h3{font-size:clamp(1.1rem,1.7vw,1.5rem); line-height:1.15; margin:.6rem 0 .25rem}
+  .tl-content p{color:var(--ink-soft); font-size:.92rem; line-height:1.45; max-width:34ch}
   .tl-item.left .tl-content{grid-column:1; text-align:right}
   .tl-item.right .tl-content{grid-column:3; text-align:left}
+  .tl-item.left .tl-content .slot{margin-left:auto}
   .tl-item.left .tl-content p{margin-left:auto}
+  .tl-item.right .tl-content .slot{margin-right:auto}
   .tl-item.left .tl-content::after,.tl-item.right .tl-content::after{content:""; position:absolute; top:50%; transform:translateY(-50%); height:1px; background:var(--line); width:clamp(20px,3vw,44px)}
   .tl-item.left .tl-content::after{right:calc(-1 * clamp(20px,3vw,44px))}
   .tl-item.right .tl-content::after{left:calc(-1 * clamp(20px,3vw,44px))}
@@ -226,7 +230,7 @@ const {
   @media(max-width:820px){.kgrid{grid-template-columns:1fr}}
 
   .spec{background:var(--contrast); color:var(--paper)}
-  .spec .wrap{padding-top:clamp(42px,6vh,84px); padding-bottom:clamp(42px,6vh,84px)}
+  .spec .wrap{padding-top:clamp(32px,4.5vh,66px); padding-bottom:clamp(32px,4.5vh,66px)}
   .spec .mono{color:rgba(244,241,234,.6)} .spec .mono::before{background:rgba(244,241,234,.4)}
   .spec h2{color:var(--paper)}
   .spec .status{float:right; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.14em; color:#7fae7a; display:inline-flex; align-items:center; gap:8px}
@@ -264,10 +268,14 @@ const {
   @media(max-width:760px){.comm-grid{grid-template-columns:1fr}}
 
   .contact{background:var(--contrast); color:var(--paper)}
-  .contact .wrap{padding:clamp(44px,6.5vh,88px) var(--pad)}
+  .contact .wrap{padding:clamp(34px,5vh,70px) var(--pad)}
   .contact .mono{color:rgba(244,241,234,.6)} .contact .mono::before{background:rgba(244,241,234,.4)}
   .contact h2{color:var(--paper); max-width:16ch}
-  .contact .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,80px); margin-top:clamp(40px,6vh,70px)}
+  .contact .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,80px); margin-top:clamp(30px,4.5vh,54px); align-items:start}
+  .consent{display:flex; gap:10px; align-items:flex-start; cursor:pointer}
+  .consent input{width:17px; height:17px; margin-top:2px; accent-color:var(--ember); flex:none}
+  .consent span{font-size:.82rem; line-height:1.45; color:rgba(244,241,234,.7)}
+  .consent a{color:var(--ember); text-decoration:underline; text-underline-offset:2px}
   .contact p.lead{color:rgba(244,241,234,.72)}
   form{display:grid; gap:18px}
   .f2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
@@ -407,11 +415,14 @@ const {
       });
     }
 
-    // reserve form — submit to Formspree via AJAX so the page never redirects
-    const bookForm = document.getElementById("book-form");
-    if (bookForm) {
+    // reserve form — native, single screen, posts straight into GoHighLevel
+    // via an Inbound Webhook (no API key in the browser). Paste your GHL
+    // inbound webhook URL below and the form is live.
+    const GHL_WEBHOOK = "REPLACE_WITH_GHL_INBOUND_WEBHOOK_URL";
+    const leadForm = document.getElementById("lead-form");
+    if (leadForm) {
       const status = document.getElementById("form-status");
-      const btn = bookForm.querySelector('button[type="submit"]');
+      const btn = leadForm.querySelector('button[type="submit"]');
       const btnLabel = btn ? btn.textContent : "";
       const say = (msg, ok) => {
         if (!status) return;
@@ -419,23 +430,25 @@ const {
         status.style.color = ok ? "var(--ember)" : "#e0897a";
         status.textContent = msg;
       };
-      bookForm.addEventListener("submit", async (e) => {
+      leadForm.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const data = Object.fromEntries(new FormData(leadForm).entries());
+        data.source = "22cowork.pt homepage";
+        if (!GHL_WEBHOOK || GHL_WEBHOOK.indexOf("REPLACE") === 0) {
+          say("Form isn't connected yet. Please email team@22cowork.pt.", false);
+          return;
+        }
         if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
         if (status) status.style.display = "none";
         try {
-          const res = await fetch(bookForm.action, {
+          await fetch(GHL_WEBHOOK, {
             method: "POST",
-            body: new FormData(bookForm),
-            headers: { Accept: "application/json" },
+            mode: "no-cors",
+            body: new URLSearchParams(data),
           });
-          if (res.ok) {
-            bookForm.reset();
-            if (btn) btn.textContent = "Reserved ✓";
-            say("Thanks, we'll confirm within a day.", true);
-          } else {
-            throw new Error("bad status");
-          }
+          leadForm.reset();
+          if (btn) btn.textContent = "Reserved ✓";
+          say("Thanks, we'll confirm within a day.", true);
         } catch (err) {
           if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
           say("Couldn't send just now. Please email team@22cowork.pt.", false);
