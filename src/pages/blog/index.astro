@@ -1,0 +1,48 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+const posts = [
+  { slug: "the-future-of-work", cat: "Future of work", img: "/assets/hero.jpg",
+    title: "The future of work is here. It looks a lot like a good room.",
+    dek: "It isn't about where you sit. It's about the room quietly working for you." },
+  { slug: "deep-focus-by-design", cat: "Productivity", img: "/assets/deepwork.jpg",
+    title: "Deep focus isn't willpower. It's design.",
+    dek: "Distraction is usually the room's fault, not yours. Here's how to fix it." },
+  { slug: "setubal-tech-hub", cat: "Setúbal", img: "/assets/meeting.jpg",
+    title: "Setúbal is quietly becoming a place people build companies.",
+    dek: "Thirty-five minutes from Lisboa, with lower costs and a better life." },
+  { slug: "community-in-setubal", cat: "Community", img: "/assets/arrival.jpg",
+    title: "Working alone is quietly expensive.",
+    dek: "For most creatives, the isolation is the hard part of freelancing." },
+  { slug: "virtual-office-setubal", cat: "Virtual office", img: "/assets/post.jpg",
+    title: "A real business address, without renting a room.",
+    dek: "Your home address doesn't belong on your invoices. A virtual office fixes that." },
+];
+---
+<BlogLayout
+  title="Journal — Notes on work, focus and Setúbal | 22cowork"
+  description="The 22cowork journal: short, useful notes on the future of work, deep focus, community and building a business in Setúbal, 35 minutes from Lisboa."
+  slug="blog"
+  heroImg="/assets/hero.jpg"
+>
+  <main class="wrap">
+    <div class="bl-head">
+      <span class="mono label">The Journal</span>
+      <h1>Notes on work, focus<br />and Setúbal.</h1>
+      <p>Short, useful reads on the future of work, deep focus, community and building a business on the peninsula.</p>
+    </div>
+
+    <div class="bl-grid">
+      {posts.map((p) => (
+        <a class="bl-card" href={`/blog/${p.slug}`}>
+          <div class="thumb"><img src={p.img} alt={p.title} /></div>
+          <div class="body">
+            <span class="cat">{p.cat}</span>
+            <h2>{p.title}</h2>
+            <p>{p.dek}</p>
+            <span class="go">Read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</BlogLayout>
