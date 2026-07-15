@@ -247,7 +247,20 @@ const {
   .field input:focus,.field select:focus{border-color:var(--ember)}
   .field label{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(244,241,234,.5); display:block; margin-bottom:2px}
   option{color:#000}
-  @media(max-width:680px){.contact .grid,.f2{grid-template-columns:1fr}}
+  
+  .ghl-form{display:grid; gap:18px}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .form-field{position:relative}
+  .form-field input,.form-field select{width:100%; background:transparent; border:0; border-bottom:1px solid rgba(244,241,234,.28); color:var(--paper); font-family:"Inter",sans-serif; font-size:1rem; padding:12px 0; outline:none; transition:border-color .3s}
+  .form-field select{color:rgba(244,241,234,.7)}
+  .form-field input::placeholder{color:rgba(244,241,234,.4)}
+  .form-field input:focus,.form-field select:focus{border-color:var(--ember)}
+  .form-field label{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(244,241,234,.5); display:block; margin-bottom:2px}
+  .form-status{font-family:"IBM Plex Mono",monospace; font-size:.75rem; margin-top:18px; padding:12px; border-radius:4px}
+  .form-status.success{color:var(--ember); background:rgba(225,167,48,.1)}
+  .form-status.error{color:#e0897a; background:rgba(224,137,122,.1)}
+  
+  @media(max-width:680px){.contact .grid,.f2,.form-row{grid-template-columns:1fr}}
 
   footer.foot{background:var(--paper); border-top:1px solid var(--line); padding:clamp(50px,7vh,80px) 0 40px}
   .foot-top{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:30px}
@@ -376,41 +389,8 @@ const {
       });
     }
 
-    // reserve form — submit to Formspree via AJAX so the page never redirects
-    const bookForm = document.getElementById("book-form");
-    if (bookForm) {
-      const status = document.getElementById("form-status");
-      const btn = bookForm.querySelector('button[type="submit"]');
-      const btnLabel = btn ? btn.textContent : "";
-      const say = (msg, ok) => {
-        if (!status) return;
-        status.style.display = "block";
-        status.style.color = ok ? "var(--ember)" : "#e0897a";
-        status.textContent = msg;
-      };
-      bookForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
-        if (status) status.style.display = "none";
-        try {
-          const res = await fetch(bookForm.action, {
-            method: "POST",
-            body: new FormData(bookForm),
-            headers: { Accept: "application/json" },
-          });
-          if (res.ok) {
-            bookForm.reset();
-            if (btn) btn.textContent = "Reserved ✓";
-            say("Thanks, we'll confirm within a day.", true);
-          } else {
-            throw new Error("bad status");
-          }
-        } catch (err) {
-          if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
-          say("Couldn't send just now. Please email team@22cowork.pt.", false);
-        }
-      });
-    }
+    // GHL form is now handled by React component (GHLContactForm.jsx)
+    // No additional form handling needed here
   </script>
 </body>
 </html>

@@ -1,10 +1,7 @@
 ---
+import GHLContactForm from '../GHLContactForm.jsx';
 // Book a visit. No pricing on the homepage — value over tiers.
 const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_place_id=ChIJibrR-YpDGQ0R2UrFT6Fufsk";
-const memberships = [
-  "Dedicated Desk", "Hot Desk", "Private Office (opening Sep 2026)",
-  "Meeting / Studio Room", "Business Address", "Just a look around",
-];
 ---
 <section class="contact" id="visit">
   <div class="wrap">
@@ -17,43 +14,7 @@ const memberships = [
         <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
         <div class="mono" style="margin-top:2rem; color:rgba(244,241,234,.4)">Pricing shared when you're ready — we compete on value, not tiers.</div>
       </div>
-      <form
-          class="rise"
-          data-d="2"
-          id="book-form"
-          action="https://formspree.io/f/mojgvedl"
-          method="POST"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New enquiry from 22cowork.pt"
-          />
-          <input type="hidden" name="source" value="22Cowork website" />
-        <div class="f2">
-          <div class="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
-          <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>
-        </div>
-        <div class="f2">
-          <div class="field"><label>Company</label><input type="text" placeholder="Optional" /></div>
-          <div class="field"><label>Phone</label><input type="tel" placeholder="Optional" /></div>
-        </div>
-        <div class="field">
-          <label>What are you after</label>
-          <select name="workspace" required>
-            {memberships.map((m) => <option>{m}</option>)}
-          </select>
-        </div>
-        <button type="submit" class="btn btn-solid" style="justify-self:start; margin-top:8px">Book a visit →</button>
-      
-          <p
-            id="form-status"
-            class="mono"
-            role="status"
-            aria-live="polite"
-            style="display:none; margin-top:18px;"
-          ></p>
-        </form>
+      <GHLContactForm client:load />
     </div>
   </div>
 </section>

@@ -1,5 +1,6 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
+import GHLContactForm from "../components/GHLContactForm.jsx";
 const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_place_id=ChIJibrR-YpDGQ0R2UrFT6Fufsk";
 const memberships = [
   "Dedicated Desk",
@@ -290,26 +291,7 @@ const memberships = [
           <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
           <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
-        <form class="rise" data-d="2" id="book-form" action="https://formspree.io/f/mojgvedl" method="POST">
-          <input type="hidden" name="_subject" value="New enquiry from 22cowork.pt" />
-          <input type="hidden" name="source" value="22Cowork website" />
-          <div class="f2">
-            <div class="field"><label>Full name</label><input type="text" name="name" placeholder="Your name" required /></div>
-            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
-          </div>
-          <div class="f2">
-            <div class="field"><label>Company</label><input type="text" name="company" placeholder="Optional" /></div>
-            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="Optional" /></div>
-          </div>
-          <div class="field">
-            <label>What are you after</label>
-            <select name="workspace" required>
-              {memberships.map((m) => <option>{m}</option>)}
-            </select>
-          </div>
-          <button type="submit" class="btn btn-gold" style="justify-self:start; margin-top:8px">Reserve your space →</button>
-          <p id="form-status" class="mono" role="status" aria-live="polite" style="display:none; margin-top:16px; color:var(--ember)"></p>
-        </form>
+        <GHLContactForm client:load />
       </div>
     </div>
   </section>
