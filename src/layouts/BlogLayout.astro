@@ -83,7 +83,7 @@ const jsonLd = article
     --paper:#F4F1EA; --paper-2:#ECE8DE; --paper-3:#E3DED2;
     --ink:#171511; --ink-soft:#3A362D; --muted-2:#7D7869;
     --line:rgba(23,21,17,.14); --line-2:rgba(23,21,17,.08);
-    --ember:#e1a730; --ember-deep:#a97d18; --contrast:#0B0A08;
+    --ember:#335C4A; --ember-deep:#294A3B; --contrast:#0B0A08;
     --ease:cubic-bezier(.22,.61,.36,1); --pad:clamp(20px,5vw,88px);
   }
   *{box-sizing:border-box}
@@ -104,7 +104,7 @@ const jsonLd = article
   nav.links a{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85;transition:opacity .3s}
   nav.links a:hover{opacity:1}
   .nav-cta{border:1px solid var(--ink);border-radius:100px;padding:9px 18px;transition:.3s}
-  .nav-cta:hover{background:var(--ember);border-color:var(--ember);color:#1a1305}
+  .nav-cta:hover{background:var(--ember);border-color:var(--ember);color:#F4F1EA}
   @media(max-width:720px){nav.links a:not(.nav-cta){display:none}}
 
   /* article */
@@ -135,8 +135,8 @@ const jsonLd = article
   .post-cta p{color:rgba(244,241,234,.72);margin:0 auto 1.6rem;max-width:44ch}
   .btn{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 26px;border-radius:100px;border:1px solid;display:inline-flex;gap:.6em;transition:transform .4s var(--ease),background .3s}
   .btn:hover{transform:translateY(-2px)}
-  .btn-gold{background:var(--ember);color:#1a1305;border-color:var(--ember);font-weight:500}
-  .btn-gold:hover{background:#f0b944;border-color:#f0b944}
+  .btn-gold{background:var(--ember);color:#F4F1EA;border-color:var(--ember);font-weight:500}
+  .btn-gold:hover{background:#3f7059;border-color:#3f7059}
 
   /* generic content page (privacy) */
   .doc{max-width:760px;margin:0 auto;padding:clamp(30px,5vh,60px) 0 clamp(40px,7vh,80px)}
@@ -168,6 +168,14 @@ const jsonLd = article
 
   /* footer */
   footer.foot{background:var(--paper);border-top:1px solid var(--line);padding:clamp(44px,6vh,72px) 0 40px}
+  footer.foot{background:#294A3B;border-top:none;color:#F4F1EA}
+  footer.foot .big-brand{color:#F4F1EA}
+  footer.foot h4{color:rgba(244,241,234,.5)}
+  footer.foot a{color:rgba(244,241,234,.78)}
+  footer.foot a:hover{color:#F4F1EA}
+  footer.foot p{color:rgba(244,241,234,.74)!important}
+  footer.foot .foot-bottom{border-top-color:rgba(244,241,234,.15)}
+  footer.foot .mono{color:rgba(244,241,234,.5)}
   .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
   .foot h4{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin:0 0 14px;font-weight:500}
   .foot a{display:block;font-size:.92rem;color:var(--ink-soft);padding:5px 0}
@@ -194,7 +202,7 @@ const jsonLd = article
     <div class="wrap">
       <div class="foot-top">
         <div>
-          <div class="big-brand">22cowork<span style="color:var(--ember)">.</span></div>
+          <div class="big-brand">22cowork<span style="color:#8FC0A9">.</span></div>
           <p style="max-width:34ch;margin-top:1rem;color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 35 minutes from Lisboa.</p>
         </div>
         <div>

@@ -19,26 +19,31 @@ import LandingLayout from "../layouts/LandingLayout.astro";
       <div class="calc">
         <div class="ctl-wrap">
           <div class="ctl">
-            <label>One-way commute — <strong id="minVal" style="color:var(--ember)">45</strong> min</label>
-            <input class="range" type="range" id="min" min="15" max="120" step="5" value="45" />
+            <label>How far you live from work — one way — <strong id="kmVal" style="color:var(--ember)">30</strong> km</label>
+            <input class="range" type="range" id="km" min="5" max="90" step="1" value="30" />
           </div>
           <div class="ctl">
             <label>Days you'd commute per week — <strong id="dayVal" style="color:var(--ember)">5</strong></label>
             <input class="range" type="range" id="days" min="1" max="6" step="1" value="5" />
           </div>
-          <div class="ctl">
-            <label>Weekly travel cost (fuel, tolls, transport)</label>
-            <input type="number" id="cost" min="0" max="300" step="5" value="45" />
-          </div>
-          <p class="mono" style="color:rgba(244,241,234,.4);margin:6px 0 0;font-size:.6rem">Based on ~46 working weeks a year.</p>
+          <details class="assump">
+            <summary>Costs used — Portugal averages (tap to fine-tune)</summary>
+            <div class="ag">
+              <div class="ctl"><label>Fuel €/L</label><input type="number" id="fuel" min="0.5" max="3" step="0.01" value="1.88" /></div>
+              <div class="ctl"><label>Consumption L/100km</label><input type="number" id="cons" min="2" max="20" step="0.1" value="6.5" /></div>
+              <div class="ctl"><label>Avg speed km/h</label><input type="number" id="speed" min="10" max="120" step="1" value="50" /></div>
+              <div class="ctl"><label>Tolls €/day</label><input type="number" id="toll" min="0" max="30" step="0.1" value="2.10" /></div>
+            </div>
+          </details>
+          <p class="mono" style="color:rgba(244,241,234,.42);margin:12px 0 0;font-size:.58rem;line-height:1.5">Fuel avg €1.88/L (DGEG, Jul 2026) · ~46 working weeks a year · you can adjust every value above.</p>
         </div>
 
         <div class="out">
-          <div class="lbl">You'd reclaim, every year</div>
-          <div class="big" id="hoursOut">345<small> hours</small></div>
-          <div class="lbl" style="margin-top:1.8rem">And keep, every year</div>
-          <div class="big" id="moneyOut">€2,070</div>
-          <p class="sub2" id="daysNote">That's about 14 full waking days handed back to you — and it's parked outside, for free.</p>
+          <div class="lbl">Time you'd reclaim, every year</div>
+          <div class="big" id="hoursOut">276<small> hours</small></div>
+          <div class="lbl" style="margin-top:1.6rem">Money you'd keep, every year</div>
+          <div class="big" id="moneyOut">€2,169</div>
+          <p class="sub2" id="daysNote">That's about 17 full waking days back — plus roughly €9 a day in fuel and tolls you'd stop spending. Parking here is free.</p>
         </div>
       </div>
     </div>
@@ -63,10 +68,11 @@ import LandingLayout from "../layouts/LandingLayout.astro";
               data-success="Sent — your commute breakdown is on its way. ✓">
           <input type="hidden" name="source" value="Commute Calculator landing" />
           <input type="hidden" name="offer" value="Commute breakdown + day pass" />
-          <input type="hidden" name="commute_min" id="hCommute" value="45" />
+          <input type="hidden" name="distance_km" id="hKm" value="30" />
+          <input type="hidden" name="commute_min" id="hCommute" value="36" />
           <input type="hidden" name="days_week" id="hDays" value="5" />
-          <input type="hidden" name="hours_saved" id="hHours" value="345" />
-          <input type="hidden" name="money_saved" id="hMoney" value="2070" />
+          <input type="hidden" name="hours_saved" id="hHours" value="276" />
+          <input type="hidden" name="money_saved" id="hMoney" value="2169" />
           <p class="fh">Email me my results</p>
           <p class="fsub">We'll send your breakdown and a free day pass.</p>
           <div class="f2">
@@ -102,37 +108,52 @@ import LandingLayout from "../layouts/LandingLayout.astro";
     </div>
   </section>
 
+  <style>
+    .assump{margin-top:4px;border-top:1px solid rgba(244,241,234,.14);padding-top:14px}
+    .assump summary{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(244,241,234,.62);cursor:pointer;list-style:none;user-select:none}
+    .assump summary::-webkit-details-marker{display:none}
+    .assump summary::before{content:"+  ";color:var(--ember);font-weight:600}
+    .assump[open] summary::before{content:"–  "}
+    .ag{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+    .ag .ctl{margin-bottom:0}
+  </style>
+
   <script is:inline>
     (function () {
       var WEEKS = 46;
-      var min = document.getElementById("min");
-      var days = document.getElementById("days");
-      var cost = document.getElementById("cost");
-      var minVal = document.getElementById("minVal");
-      var dayVal = document.getElementById("dayVal");
-      var hoursOut = document.getElementById("hoursOut");
-      var moneyOut = document.getElementById("moneyOut");
-      var daysNote = document.getElementById("daysNote");
-      var hCommute = document.getElementById("hCommute");
-      var hDays = document.getElementById("hDays");
-      var hHours = document.getElementById("hHours");
-      var hMoney = document.getElementById("hMoney");
+      var $ = function (id) { return document.getElementById(id); };
+      var km = $("km"), days = $("days"), fuel = $("fuel"), cons = $("cons"), speed = $("speed"), toll = $("toll");
+      var kmVal = $("kmVal"), dayVal = $("dayVal");
+      var hoursOut = $("hoursOut"), moneyOut = $("moneyOut"), daysNote = $("daysNote");
+      var hKm = $("hKm"), hCommute = $("hCommute"), hDays = $("hDays"), hHours = $("hHours"), hMoney = $("hMoney");
 
-      function euro(n) { return "€" + n.toLocaleString("en-GB"); }
+      function euro(n) { return "€" + Math.round(n).toLocaleString("en-GB"); }
 
       function update() {
-        var m = +min.value, d = +days.value, c = +cost.value || 0;
-        var hours = Math.round((m * 2 * d * WEEKS) / 60);
-        var money = Math.round(c * WEEKS);
+        var K = +km.value, D = +days.value;
+        var F = +fuel.value || 0, C = +cons.value || 0, S = +speed.value || 1, T = +toll.value || 0;
+        var roundTrip = 2 * K;                       // km per day
+        var trips = D * WEEKS;                        // commuting days per year
+        var fuelPerDay = roundTrip * (C / 100) * F;   // € fuel per day
+        var costPerDay = fuelPerDay + T;              // + tolls
+        var money = costPerDay * trips;               // € per year
+        var hours = Math.round((roundTrip / S) * trips); // hours per year
         var wakingDays = Math.round(hours / 16);
-        minVal.textContent = m;
-        dayVal.textContent = d;
+
+        kmVal.textContent = K;
+        dayVal.textContent = D;
         hoursOut.innerHTML = hours.toLocaleString("en-GB") + "<small> hours</small>";
         moneyOut.textContent = euro(money);
-        daysNote.textContent = "That's about " + wakingDays + " full waking days handed back to you — and your car's parked outside, for free.";
-        hCommute.value = m; hDays.value = d; hHours.value = hours; hMoney.value = money;
+        daysNote.textContent = "That's about " + wakingDays + " full waking days back — plus roughly " +
+          euro(costPerDay) + " a day in fuel and tolls you'd stop spending. Parking here is free.";
+
+        hKm.value = K;
+        hCommute.value = Math.round((roundTrip / S) * 60 / 2); // approx one-way minutes
+        hDays.value = D;
+        hHours.value = hours;
+        hMoney.value = Math.round(money);
       }
-      [min, days, cost].forEach(function (el) {
+      [km, days, fuel, cons, speed, toll].forEach(function (el) {
         el.addEventListener("input", update);
         el.addEventListener("change", update);
       });
