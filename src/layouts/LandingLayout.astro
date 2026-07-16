@@ -113,6 +113,9 @@ const ogImage = `${SITE}${ogImg}`;
   .lp-form button{width:100%;justify-content:center}
   .form-status{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.06em;margin:14px 0 0;text-align:center;display:none}
   .form-note{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);text-align:center;margin:14px 0 0}
+  .lp-download{display:none;margin-top:18px;text-align:center}
+  .lp-download .btn{width:100%;justify-content:center}
+  .dl-alt{display:inline-block;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.06em;color:var(--ember-deep);text-decoration:underline;text-underline-offset:3px}
 
   /* proof band */
   .lp-proof{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);background:var(--paper-2)}
@@ -247,6 +250,8 @@ const ogImage = `${SITE}${ogImg}`;
             }
             form.reset();
             if (btn) { btn.textContent = "Sent ✓"; }
+            var dl = form.querySelector(".lp-download");
+            if (dl) { dl.style.display = "block"; }
           }).catch(function () {
             if (status) {
               status.style.display = "block";

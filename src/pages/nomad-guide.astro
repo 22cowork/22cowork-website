@@ -23,7 +23,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
         </div>
 
         <form class="lp-form" id="form" data-lead
-              data-success="Check your inbox — the guide is on its way. ✓">
+              data-success="Your guide is ready — grab it below. We've also emailed you a copy. ✓">
           <input type="hidden" name="source" value="Nomad Guide landing" />
           <input type="hidden" name="offer" value="Setubal Nomad Guide" />
           <p class="fh">Get the free guide</p>
@@ -40,6 +40,10 @@ import LandingLayout from "../layouts/LandingLayout.astro";
           </label>
           <button type="submit" class="btn btn-gold">Send me the guide →</button>
           <p class="form-status"></p>
+          <div class="lp-download">
+            <a class="btn btn-gold" href="/guides/digital-nomads-setubal.pdf" target="_blank" rel="noopener" download>Download the guide (PDF) ↓</a>
+            <a class="dl-alt" href="/guides/guia-nomadas-setubal.pdf" target="_blank" rel="noopener" download>Preferes em português? Descarrega aqui →</a>
+          </div>
           <p class="form-note">Free · No spam · Unsubscribe anytime</p>
         </form>
       </div>
