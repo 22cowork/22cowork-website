@@ -2,7 +2,7 @@
 import LandingLayout from "../layouts/LandingLayout.astro";
 ---
 <LandingLayout
-  title="Commute Calculator — What Lisboa Commuting Really Costs You | 22cowork"
+  title="Commute Calculator, What Lisboa Commuting Really Costs You | 22cowork"
   description="See how many hours and euros you'd reclaim each year by working from 22cowork in Setúbal instead of commuting into Lisboa. Move the sliders and find out."
   slug="commute-calculator"
   ogImg="/assets/parking.jpg"
@@ -19,15 +19,15 @@ import LandingLayout from "../layouts/LandingLayout.astro";
       <div class="calc">
         <div class="ctl-wrap">
           <div class="ctl">
-            <label>How far you live from work — one way — <strong id="kmVal" style="color:var(--ember)">30</strong> km</label>
+            <label>How far you live from work, one way, <strong id="kmVal" style="color:var(--ember)">30</strong> km</label>
             <input class="range" type="range" id="km" min="5" max="90" step="1" value="30" />
           </div>
           <div class="ctl">
-            <label>Days you'd commute per week — <strong id="dayVal" style="color:var(--ember)">5</strong></label>
+            <label>Days you'd commute per week, <strong id="dayVal" style="color:var(--ember)">5</strong></label>
             <input class="range" type="range" id="days" min="1" max="6" step="1" value="5" />
           </div>
           <details class="assump">
-            <summary>Costs used — Portugal averages (tap to fine-tune)</summary>
+            <summary>Costs used, Portugal averages (tap to fine-tune)</summary>
             <div class="ag">
               <div class="ctl"><label>Fuel €/L</label><input type="number" id="fuel" min="0.5" max="3" step="0.01" value="1.88" /></div>
               <div class="ctl"><label>Consumption L/100km</label><input type="number" id="cons" min="2" max="20" step="0.1" value="6.5" /></div>
@@ -43,7 +43,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
           <div class="big" id="hoursOut">276<small> hours</small></div>
           <div class="lbl" style="margin-top:1.6rem">Money you'd keep, every year</div>
           <div class="big" id="moneyOut">€2,169</div>
-          <p class="sub2" id="daysNote">That's about 17 full waking days back — plus roughly €9 a day in fuel and tolls you'd stop spending. Parking here is free.</p>
+          <p class="sub2" id="daysNote">That's about 17 full waking days back, plus roughly €9 a day in fuel and tolls you'd stop spending. Parking here is free.</p>
         </div>
       </div>
     </div>
@@ -55,17 +55,17 @@ import LandingLayout from "../layouts/LandingLayout.astro";
       <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:center">
         <div class="sec-head">
           <span class="mono label lp-eyebrow">Turn hours into work</span>
-          <h2>Get your numbers — and a plan to reclaim them.</h2>
+          <h2>Get your numbers, and a plan to reclaim them.</h2>
           <p>We'll email your personal breakdown plus how a desk in Setúbal would fit your week. No spreadsheet homework required.</p>
           <ul class="lp-ticks" style="margin-top:1.6rem">
             <li>Your saved hours and euros, in writing</li>
             <li>A free day pass to try the commute in reverse</li>
-            <li>Zero pressure — reply only if it's for you</li>
+            <li>Zero pressure, reply only if it's for you</li>
           </ul>
         </div>
 
         <form class="lp-form" id="form" data-lead
-              data-success="Sent — your commute breakdown is on its way. ✓">
+              data-success="Sent, your commute breakdown is on its way. ✓">
           <input type="hidden" name="source" value="Commute Calculator landing" />
           <input type="hidden" name="offer" value="Commute breakdown + day pass" />
           <input type="hidden" name="distance_km" id="hKm" value="30" />
@@ -103,7 +103,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
       <div class="ben-grid">
         <div class="ben"><span class="n">01</span><h3>The time is real</h3><p>Hours you'd spend in traffic become hours for deep work, family or rest. Nobody gives those back but a shorter commute.</p></div>
         <div class="ben"><span class="n">02</span><h3>The money is real</h3><p>Fuel, tolls and transport add up fast. Working closer to home quietly returns a small salary each year.</p></div>
-        <div class="ben"><span class="n">03</span><h3>The setup is better</h3><p>10&nbsp;Gbps fibre, quiet focus rooms and free parking — 35 minutes from Lisboa, none of the daily grind.</p></div>
+        <div class="ben"><span class="n">03</span><h3>The setup is better</h3><p>10&nbsp;Gbps fibre, quiet focus rooms and free parking, 35 minutes from Lisboa, none of the daily grind.</p></div>
       </div>
     </div>
   </section>
@@ -144,7 +144,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
         dayVal.textContent = D;
         hoursOut.innerHTML = hours.toLocaleString("en-GB") + "<small> hours</small>";
         moneyOut.textContent = euro(money);
-        daysNote.textContent = "That's about " + wakingDays + " full waking days back — plus roughly " +
+        daysNote.textContent = "That's about " + wakingDays + " full waking days back, plus roughly " +
           euro(costPerDay) + " a day in fuel and tolls you'd stop spending. Parking here is free.";
 
         hKm.value = K;

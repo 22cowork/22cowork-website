@@ -68,7 +68,7 @@ const ogImage = `${SITE}${ogImg}`;
   .label{display:inline-flex;align-items:center;gap:.6em}
   .label::before{content:"";width:16px;height:1px;background:var(--muted-2);display:inline-block}
 
-  /* nav — slim, conversion-focused */
+  /* nav, slim, conversion-focused */
   header.nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:15px var(--pad);background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid var(--line-2)}
   .brand{font-family:"Montserrat",sans-serif;font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
   nav.links{display:flex;gap:24px;align-items:center}
@@ -85,7 +85,7 @@ const ogImage = `${SITE}${ogImg}`;
   .btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
   .btn-ghost:hover{background:var(--ink);color:var(--paper)}
 
-  /* hero — split copy + form */
+  /* hero, split copy + form */
   .lp-hero{padding:clamp(34px,6vh,72px) 0 clamp(30px,5vh,56px)}
   .lp-hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
   .lp-eyebrow{color:var(--ember-deep);margin-bottom:1.4rem}
@@ -246,7 +246,7 @@ const ogImage = `${SITE}${ogImg}`;
             if (status) {
               status.style.display = "block";
               status.style.color = "var(--ember-deep)";
-              status.textContent = form.dataset.success || "Done — we'll be in touch within a day. ✓";
+              status.textContent = form.dataset.success || "Done, we'll be in touch within a day. ✓";
             }
             form.reset();
             if (btn) { btn.textContent = "Sent ✓"; }
@@ -256,7 +256,7 @@ const ogImage = `${SITE}${ogImg}`;
             if (status) {
               status.style.display = "block";
               status.style.color = "#b3492e";
-              status.textContent = "Something went wrong — email team@22cowork.pt and we'll sort it.";
+              status.textContent = "Something went wrong, email team@22cowork.pt and we'll sort it.";
             }
             if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Submit"; }
           });

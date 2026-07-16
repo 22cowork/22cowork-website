@@ -124,7 +124,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div class="dpc-text">
           <span class="mono label">Free day pass</span>
           <h2>Not sure yet? Spend a day here, on us.</h2>
-          <p>No card, no commitment — a real desk, 10GB fibre and free parking for a full day. The surest way to know if it fits.</p>
+          <p>No card, no commitment. A real desk, 10GB fibre and free parking for a full day. The surest way to know if it fits.</p>
         </div>
         <a href="/day-pass" class="btn btn-gold">Claim your free day →</a>
       </div>
@@ -141,7 +141,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </section>
 
-  <!-- SPEC SHEET — what's in the building -->
+  <!-- SPEC SHEET, what's in the building -->
   <section class="band spec" id="spec">
     <div class="wrap">
       <div class="rise" style="margin-bottom:1.2rem"><span class="status" style="float:none"><span class="dot"></span>Systems online</span></div>
@@ -158,21 +158,33 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </section>
 
-  <!-- A DAY HERE — COMPACT DAY RAIL -->
+  <!-- A DAY HERE, COMPACT DAY RAIL -->
   <section class="band day" id="work">
     <div class="wrap">
       <div class="day-head rise">
         <span class="mono label">A day here</span>
         <h2 class="h2">One good day, on repeat.</h2>
-        <p class="lead">Park underground at 08:00, gym downstairs by 17:45 — the whole day handled, in one building.</p>
+        <p class="lead">Park underground at 08:00, gym downstairs by 17:45. The whole day handled, in one building.</p>
       </div>
-      <ol class="dayrail">
-        <li class="stop rise"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></li>
-        <li class="stop rise" data-d="1"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></li>
-        <li class="stop rise" data-d="2"><span class="t">09:00</span><h3>Deep work</h3><p>Your desk, 10GB fibre, quiet that holds.</p></li>
-        <li class="stop rise" data-d="3"><span class="t">14:00</span><h3>Record it</h3><p>Soundproofed studio, same building.</p></li>
-        <li class="stop rise" data-d="4"><span class="t">17:45</span><h3>Gym downstairs</h3><p>Close the laptop, not the day.</p></li>
-      </ol>
+      <div class="dayrail-wrap rise" data-d="1">
+        <svg class="vine" viewBox="0 0 1200 72" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path class="stem" d="M8,46 C170,14 250,60 410,42 C560,25 660,62 820,44 C960,28 1060,60 1192,42" />
+          <g class="leaves">
+            <path class="lf" transform="translate(150 30) rotate(-20)" d="M0,0 C7,-4 12,-13 6,-23 C2,-28 -2,-28 -6,-23 C-12,-13 -7,-4 0,0 Z" />
+            <path class="lf" transform="translate(360 50) rotate(18)" d="M0,0 C7,-4 12,-13 6,-23 C2,-28 -2,-28 -6,-23 C-12,-13 -7,-4 0,0 Z" />
+            <path class="lf" transform="translate(560 26) rotate(-14)" d="M0,0 C7,-4 12,-13 6,-23 C2,-28 -2,-28 -6,-23 C-12,-13 -7,-4 0,0 Z" />
+            <path class="lf" transform="translate(770 52) rotate(22)" d="M0,0 C7,-4 12,-13 6,-23 C2,-28 -2,-28 -6,-23 C-12,-13 -7,-4 0,0 Z" />
+            <path class="lf" transform="translate(985 28) rotate(-18)" d="M0,0 C7,-4 12,-13 6,-23 C2,-28 -2,-28 -6,-23 C-12,-13 -7,-4 0,0 Z" />
+          </g>
+        </svg>
+        <ol class="dayrail">
+          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/parking.jpg" alt="Underground parking at 22cowork" /></span><div class="s-body"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></div></li>
+          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/coffee.jpg" alt="Coffee at 22cowork" /></span><div class="s-body"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></div></li>
+          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/deepwork.jpg" alt="Dedicated desk at 22cowork" /></span><div class="s-body"><span class="t">09:00</span><h3>Deep work</h3><p>Your desk, 10GB fibre, quiet that holds.</p></div></li>
+          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/studio.jpg" alt="Podcast and content studio at 22cowork" /></span><div class="s-body"><span class="t">14:00</span><h3>Record it</h3><p>Soundproofed studio, same building.</p></div></li>
+          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/gym.jpg" alt="Gym at 22cowork" /></span><div class="s-body"><span class="t">17:45</span><h3>Gym downstairs</h3><p>Close the laptop, not the day.</p></div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -198,12 +210,13 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
   <!-- RESERVE -->
   <section class="contact" id="reserve">
     <div class="wrap">
-      <h2 class="h2 rise">Claim your spot<br />before it's taken.</h2>
       <div class="grid">
         <div class="rise" data-d="1">
-          <div class="mono label"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
+          <span class="mono label">Reserve your space</span>
+          <h2 class="h2" style="margin-top:1rem">Claim your spot before it's taken.</h2>
+          <div class="mono label" style="margin-top:2.2rem"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
           <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
-          <div class="mono" style="margin-top:1.6rem; color:var(--muted-2)">Pricing shared with your reservation. We compete on value, not tiers.</div>
+          <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.45)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
         <form class="rise" data-d="2" id="lead-form">
           <div class="f2">
