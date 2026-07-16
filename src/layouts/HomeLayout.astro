@@ -15,6 +15,9 @@ const {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Preload the hero (LCP) with a mobile-sized variant -->
+  <link rel="preload" as="image" href="/assets/hero-mobile.jpg" imagesrcset="/assets/hero-mobile.jpg 800w, /assets/hero.jpg 1400w" imagesizes="100vw" fetchpriority="high" />
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W54DF8WLWQ"></script>
   <script is:inline>
@@ -33,9 +36,9 @@ const {
   />
   <style is:global>
   :root{
-    --paper:#F4F1EA;
-    --paper-2:#ECE8DE;
-    --paper-3:#E3DED2;
+    --paper:#FAF8F3;
+    --paper-2:#F1ECE2;
+    --paper-3:#E7E1D5;
     --ink:#171511;
     --ink-soft:#3A362D;
     --muted:#8B857642;
