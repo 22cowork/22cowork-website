@@ -36,9 +36,9 @@ const {
   />
   <style is:global>
   :root{
-    --paper:#FAF8F3;
-    --paper-2:#F1ECE2;
-    --paper-3:#E7E1D5;
+    --paper:#F6F7F2;
+    --paper-2:#EAEDE3;
+    --paper-3:#DDE2D3;
     --ink:#171511;
     --ink-soft:#3A362D;
     --muted:#8B857642;
@@ -241,6 +241,35 @@ const {
   .kcard p{color:var(--ink-soft); font-size:1rem; max-width:30ch}
   @media(max-width:820px){.kgrid{grid-template-columns:1fr}}
 
+  /* compact day rail (timeline) */
+  .day-head{max-width:640px; margin:0 auto clamp(28px,5vh,52px); text-align:center}
+  .day-head .label{justify-content:center; color:var(--ember-deep); margin-bottom:1rem}
+  .day-head .label::before{background:var(--ember-deep)}
+  .day-head .lead{color:var(--ink-soft); margin-top:.9rem}
+  .dayrail{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(14px,2vw,30px); position:relative}
+  .dayrail::before{content:""; position:absolute; top:6px; left:5%; right:5%; height:2px; background:linear-gradient(90deg,transparent, var(--ember) 10%, var(--ember) 90%, transparent)}
+  .stop{position:relative; padding-top:30px}
+  .stop::before{content:""; position:absolute; top:0; left:0; width:14px; height:14px; border-radius:50%; background:var(--ember); box-shadow:0 0 0 5px var(--paper)}
+  .stop .t{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.12em; color:var(--ember-deep); display:block; margin-bottom:.5rem}
+  .stop h3{font-family:"Fraunces",serif; font-weight:400; font-size:clamp(1.05rem,1.5vw,1.35rem); line-height:1.14; margin:0 0 .35rem}
+  .stop p{color:var(--ink-soft); font-size:.9rem; line-height:1.45; margin:0}
+  @media(max-width:820px){
+    .dayrail{grid-template-columns:1fr; gap:0}
+    .dayrail::before{left:6px; right:auto; top:6px; bottom:6px; width:2px; height:auto; background:linear-gradient(180deg,transparent, var(--ember) 8%, var(--ember) 92%, transparent)}
+    .stop{padding-top:0; padding-left:30px; padding-bottom:24px}
+    .stop:last-child{padding-bottom:0}
+    .stop::before{top:3px; left:0}
+  }
+
+  /* free day-pass CTA */
+  .daypass-cta .dpc{background:var(--contrast); color:var(--paper); border-radius:16px; padding:clamp(28px,5vw,54px); display:flex; align-items:center; justify-content:space-between; gap:clamp(24px,4vw,48px); flex-wrap:wrap}
+  .daypass-cta .dpc-text{max-width:42ch}
+  .daypass-cta .label{color:#8FC0A9} .daypass-cta .label::before{background:#8FC0A9}
+  .daypass-cta h2{font-family:"Fraunces",serif; font-weight:350; font-size:clamp(1.5rem,3vw,2.3rem); letter-spacing:-.02em; line-height:1.1; color:var(--paper); margin:.7rem 0 0}
+  .daypass-cta p{color:rgba(244,241,234,.72); margin:.8rem 0 0}
+  .daypass-cta .btn{flex:none}
+  @media(max-width:640px){.daypass-cta .dpc{flex-direction:column; align-items:flex-start}}
+
   .spec{background:var(--contrast); color:var(--paper)}
   .spec .wrap{padding-top:clamp(32px,4.5vh,66px); padding-bottom:clamp(32px,4.5vh,66px)}
   .spec .mono{color:rgba(244,241,234,.6)} .spec .mono::before{background:rgba(244,241,234,.4)}
@@ -279,24 +308,27 @@ const {
   .ig .slot{aspect-ratio:1; border-radius:4px}
   @media(max-width:760px){.comm-grid{grid-template-columns:1fr}}
 
-  .contact{background:var(--contrast); color:var(--paper)}
+  .contact{background:var(--paper)}
   .contact .wrap{padding:clamp(34px,5vh,70px) var(--pad)}
-  .contact .mono{color:rgba(244,241,234,.6)} .contact .mono::before{background:rgba(244,241,234,.4)}
-  .contact h2{color:var(--paper); max-width:16ch}
-  .contact .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,80px); margin-top:clamp(30px,4.5vh,54px); align-items:start}
-  .consent{display:flex; gap:10px; align-items:flex-start; cursor:pointer}
-  .consent input{width:17px; height:17px; margin-top:2px; accent-color:var(--ember); flex:none}
-  .consent span{font-size:.82rem; line-height:1.45; color:rgba(244,241,234,.7)}
-  .consent a{color:var(--ember); text-decoration:underline; text-underline-offset:2px}
-  .contact p.lead{color:rgba(244,241,234,.72)}
+  .contact .mono{color:var(--muted-2)} .contact .mono::before{background:var(--muted-2)}
+  .contact h2{max-width:16ch}
+  .contact .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,64px); margin-top:clamp(30px,4.5vh,54px); align-items:start}
+  .consent{display:flex; gap:10px; align-items:flex-start; cursor:pointer; margin-top:2px}
+  .consent input{width:17px; height:17px; margin-top:2px; accent-color:var(--ember-deep); flex:none}
+  .consent span{font-size:.82rem; line-height:1.45; color:var(--muted-2)}
+  .consent a{color:var(--ember-deep); text-decoration:underline; text-underline-offset:2px}
+  .contact p.lead{color:var(--ink-soft)}
   form{display:grid; gap:18px}
   .f2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
   .field{position:relative}
-  .field input,.field select{width:100%; background:transparent; border:0; border-bottom:1px solid rgba(244,241,234,.28); color:var(--paper); font-family:"Inter",sans-serif; font-size:1rem; padding:12px 0; outline:none; transition:border-color .3s}
-  .field select{color:rgba(244,241,234,.7)}
-  .field input::placeholder{color:rgba(244,241,234,.4)}
-  .field input:focus,.field select:focus{border-color:var(--ember)}
-  .field label{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(244,241,234,.5); display:block; margin-bottom:2px}
+  #lead-form{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:clamp(22px,3vw,34px); box-shadow:0 40px 80px -60px rgba(23,21,17,.45); display:flex; flex-direction:column; gap:14px}
+  .field{display:flex; flex-direction:column; gap:6px}
+  .field input,.field select{width:100%; background:var(--paper); border:1px solid var(--line); border-radius:8px; color:var(--ink); font-family:"Inter",sans-serif; font-size:1rem; padding:12px 14px; outline:none; transition:border-color .25s, box-shadow .25s}
+  .field select{color:var(--ink)}
+  .field input::placeholder{color:#9a988c}
+  .field input:focus,.field select:focus{border-color:var(--ember); box-shadow:0 0 0 3px rgba(51,92,74,.18)}
+  .field label{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); display:block; margin-bottom:0}
+  #lead-form .btn-gold{width:100%; justify-self:stretch}
   option{color:#000}
   @media(max-width:680px){.contact .grid,.f2{grid-template-columns:1fr}}
 

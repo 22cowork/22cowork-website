@@ -117,6 +117,20 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </section>
 
+  <!-- FREE DAY PASS CTA -->
+  <section class="band daypass-cta">
+    <div class="wrap">
+      <div class="dpc rise">
+        <div class="dpc-text">
+          <span class="mono label">Free day pass</span>
+          <h2>Not sure yet? Spend a day here, on us.</h2>
+          <p>No card, no commitment — a real desk, 10GB fibre and free parking for a full day. The surest way to know if it fits.</p>
+        </div>
+        <a href="/day-pass" class="btn btn-gold">Claim your free day →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- MANIFESTO -->
   <section class="band manifesto" id="space">
     <div class="wrap">
@@ -127,70 +141,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </section>
 
-  <!-- A DAY HERE — TIMELINE -->
-  <section class="band day" id="work">
-    <div class="wrap">
-      <h2 class="h2 rise" style="text-align:center">One good day,<br />on repeat.</h2>
-
-      <div class="timeline">
-        <div class="tl-item left rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">08:00</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/parking.jpg" alt="Private underground parking at 22cowork" /><span class="tag">Your spot, underground</span></div>
-            <h3 class="h3">Park underground. Your spot, every day.</h3>
-            <p>Pull straight into private, covered parking. No circling the block, no meter.</p>
-          </div>
-        </div>
-
-        <div class="tl-item right rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">08:15</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/arrival.jpg" alt="The lounge at 22cowork" /><span class="tag">The lounge</span></div>
-            <h3 class="h3">Badge in. The room already knows.</h3>
-            <p>Lights, climate and your desk, ready before you sit down. No switches, no waiting.</p>
-          </div>
-        </div>
-
-        <div class="tl-item left rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">08:30</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/coffee.jpg" alt="Coffee at 22cowork" /><span class="tag">Delta Q · always on</span></div>
-            <h3 class="h3">First coffee. Included, always.</h3>
-            <p>The good machine, not the sad pod. The small ritual that starts the work.</p>
-          </div>
-        </div>
-
-        <div class="tl-item right rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">09:00</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/deepwork.jpg" alt="Dedicated desk by the window at 22cowork" /><span class="tag">Your desk, by the light</span></div>
-            <h3 class="h3">Your desk. Same spot, every day.</h3>
-            <p>Wood desk, ergonomic chair, standing option. Fibre that doesn't blink. Quiet that holds.</p>
-          </div>
-        </div>
-
-        <div class="tl-item left rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">14:00</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/studio.jpg" alt="Soundproofed podcast and content studio at 22cowork" /><span class="tag">The studio</span></div>
-            <h3 class="h3">Record it here. Skip the second membership.</h3>
-            <p>A soundproofed podcast and content room in the same building. Film, record, edit. Done.</p>
-          </div>
-        </div>
-
-        <div class="tl-item right rise">
-          <div class="tl-node"><span class="dot"></span><span class="hr">17:45</span></div>
-          <div class="tl-content">
-            <div class="slot"><img loading="lazy" decoding="async" src="/assets/gym.jpg" alt="Gym one floor down at 22cowork" /><span class="tag">Gym · one floor down</span></div>
-            <h3 class="h3">Close the laptop. Not the day.</h3>
-            <p>Gym one floor down. People around who are building things too.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPEC SHEET -->
+  <!-- SPEC SHEET — what's in the building -->
   <section class="band spec" id="spec">
     <div class="wrap">
       <div class="rise" style="margin-bottom:1.2rem"><span class="status" style="float:none"><span class="dot"></span>Systems online</span></div>
@@ -204,6 +155,24 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div class="row rise"><span class="k">Post</span><span class="v">Business address + mail handling</span><span class="m">//</span></div>
         <div class="row rise"><span class="k">Coffee</span><span class="v">Included, always</span><span class="m">//</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- A DAY HERE — COMPACT DAY RAIL -->
+  <section class="band day" id="work">
+    <div class="wrap">
+      <div class="day-head rise">
+        <span class="mono label">A day here</span>
+        <h2 class="h2">One good day, on repeat.</h2>
+        <p class="lead">Park underground at 08:00, gym downstairs by 17:45 — the whole day handled, in one building.</p>
+      </div>
+      <ol class="dayrail">
+        <li class="stop rise"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></li>
+        <li class="stop rise" data-d="1"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></li>
+        <li class="stop rise" data-d="2"><span class="t">09:00</span><h3>Deep work</h3><p>Your desk, 10GB fibre, quiet that holds.</p></li>
+        <li class="stop rise" data-d="3"><span class="t">14:00</span><h3>Record it</h3><p>Soundproofed studio, same building.</p></li>
+        <li class="stop rise" data-d="4"><span class="t">17:45</span><h3>Gym downstairs</h3><p>Close the laptop, not the day.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -234,7 +203,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div class="rise" data-d="1">
           <div class="mono label"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
           <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
-          <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.4)">Pricing shared with your reservation. We compete on value, not tiers.</div>
+          <div class="mono" style="margin-top:1.6rem; color:var(--muted-2)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
         <form class="rise" data-d="2" id="lead-form">
           <div class="f2">
