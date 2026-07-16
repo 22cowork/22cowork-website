@@ -1,0 +1,136 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+---
+<LandingLayout
+  title="Free Day Pass — Try 22cowork in Setúbal | 22cowork"
+  description="Spend a full day working from 22cowork in Setúbal, on us. Fast fibre, quiet focus rooms, real coffee and free parking. Claim your free day pass."
+  slug="day-pass"
+  ogImg="/assets/deepwork.jpg"
+>
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="mono label lp-eyebrow">Free day pass · Setúbal</span>
+          <h1>Try a better<br />workday. <em>On us.</em></h1>
+          <p class="sub">Spend a full day at 22cowork — fast fibre, a quiet desk, real coffee and free parking. No card, no commitment. Just come see if it fits.</p>
+          <ul class="lp-ticks">
+            <li>A full day at a dedicated desk, completely free</li>
+            <li>10&nbsp;Gbps fibre, focus rooms and a phone booth</li>
+            <li>Free on-site parking — 35 minutes from Lisboa</li>
+          </ul>
+        </div>
+
+        <form class="lp-form" id="form" data-lead
+              data-success="You're in — we'll email to lock in your day within 24 hours. ✓">
+          <input type="hidden" name="source" value="Day Pass landing" />
+          <input type="hidden" name="offer" value="Free Day Pass" />
+          <p class="fh">Claim your free day pass</p>
+          <p class="fsub">Tell us where to send it. We'll confirm within a day.</p>
+          <div class="f2">
+            <div class="field"><label>First name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="+351 …" required /></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
+          <div class="field">
+            <label>What would you use it for?</label>
+            <select name="interest">
+              <option>Dedicated desk</option>
+              <option>Private office</option>
+              <option>Hot desk / drop-in</option>
+              <option>Team of 2–6</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to be contacted by 22cowork about my visit and its offers, and I've read the <a href="https://www.22cowork.pt/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-gold">Get my free day →</button>
+          <p class="form-status"></p>
+          <p class="form-note">No payment · No obligation · Cancel anytime</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <div class="lp-proof">
+    <div class="wrap">
+      <div class="in">
+        <span class="stars">★★★★★</span>
+        <span class="txt">5.0 on Google · 21 reviews</span>
+        <span class="txt">10&nbsp;Gbps fibre</span>
+        <span class="txt">Free parking</span>
+        <span class="txt">35 min from Lisboa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono label lp-eyebrow">What the day includes</span>
+        <h2>Everything you need to have your best day of work.</h2>
+        <p>No trial gimmicks. You get the real thing — the same desk, coffee and quiet our members use every day.</p>
+      </div>
+      <div class="ben-grid">
+        <div class="ben">
+          <span class="n">01</span>
+          <h3>A desk that's yours</h3>
+          <p>Settle into a proper dedicated desk with an ergonomic chair, power and all the room to spread out.</p>
+        </div>
+        <div class="ben">
+          <span class="n">02</span>
+          <h3>Fibre that keeps up</h3>
+          <p>10&nbsp;Gbps symmetrical fibre and a booth for calls. Upload, ship and hop on video without a spinner in sight.</p>
+        </div>
+        <div class="ben">
+          <span class="n">03</span>
+          <h3>Coffee and calm</h3>
+          <p>Freshly brewed coffee, natural light and a room built for focus — not beanbag theatre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono label lp-eyebrow">How it works</span>
+        <h2>From this form to your desk in three steps.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Claim it above</h3>
+          <p>Fill in the short form. It takes about twenty seconds.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>We confirm the day</h3>
+          <p>Someone from the team emails you within a day to pick a date that works.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Just show up</h3>
+          <p>Park for free, grab a coffee and get to work. No pressure, no pitch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>One good day is all it takes.</h2>
+        <p>Most people know within an hour whether a space fits. Come find out — the day's on us.</p>
+        <a href="#form" class="btn btn-gold">Claim your free day pass →</a>
+      </div>
+    </div>
+  </section>
+</LandingLayout>

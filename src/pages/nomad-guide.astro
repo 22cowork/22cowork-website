@@ -1,0 +1,88 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+---
+<LandingLayout
+  title="The Setúbal Guide for Remote Workers & Digital Nomads | 22cowork"
+  description="A free, practical guide to living and working remotely from Setúbal — fast internet, cost of living, cafés, coast and community. Get your copy."
+  slug="nomad-guide"
+  ogImg="/assets/studio.jpg"
+>
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="mono label lp-eyebrow">Free guide · Digital nomads</span>
+          <h1>Work remotely from<br /><em>Setúbal.</em> Here's how.</h1>
+          <p class="sub">A short, honest guide to basing yourself on Portugal's quiet coast — real internet speeds, real costs, and the spots worth knowing before you arrive.</p>
+          <ul class="lp-ticks">
+            <li>Cost of living, broken down honestly</li>
+            <li>Where to find fast, reliable internet</li>
+            <li>Coast, food and community beyond the desk</li>
+          </ul>
+        </div>
+
+        <form class="lp-form" id="form" data-lead
+              data-success="Check your inbox — the guide is on its way. ✓">
+          <input type="hidden" name="source" value="Nomad Guide landing" />
+          <input type="hidden" name="offer" value="Setubal Nomad Guide" />
+          <p class="fh">Get the free guide</p>
+          <p class="fsub">Enter your details and we'll send it straight over.</p>
+          <div class="field"><label>First name</label><input type="text" name="name" placeholder="Your name" required /></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
+          <div class="f2">
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="+351 …" required /></div>
+            <div class="field"><label>Where are you now?</label><input type="text" name="company" placeholder="City / country" /></div>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to receive the guide and occasional updates from 22cowork, and I've read the <a href="https://www.22cowork.pt/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-gold">Send me the guide →</button>
+          <p class="form-status"></p>
+          <p class="form-note">Free · No spam · Unsubscribe anytime</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <div class="lp-proof">
+    <div class="wrap">
+      <div class="in">
+        <span class="stars">★★★★★</span>
+        <span class="txt">5.0 on Google · 21 reviews</span>
+        <span class="txt">10&nbsp;Gbps fibre</span>
+        <span class="txt">On the Setúbal coast</span>
+        <span class="txt">35 min from Lisboa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono label lp-eyebrow">What's inside</span>
+        <h2>Everything you'd want a local to tell you.</h2>
+        <p>No fluff, no tourist listicles. Just the practical answers that decide whether a place actually works for remote life.</p>
+      </div>
+      <div class="ben-grid">
+        <div class="ben"><span class="n">01</span><h3>The real cost of living</h3><p>Rent, coffee, coworking and the everyday numbers — so you can budget before you book a flight.</p></div>
+        <div class="ben"><span class="n">02</span><h3>Internet you can trust</h3><p>Where the fast, stable connections are — including 10&nbsp;Gbps fibre at 22cowork for calls and uploads that never stall.</p></div>
+        <div class="ben"><span class="n">03</span><h3>Life outside work</h3><p>Beaches, the Arrábida hills, markets and the community that makes staying easy once the laptop closes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Your next base, minus the guesswork.</h2>
+        <p>Grab the guide, then come see the space in person — the first day's on us.</p>
+        <a href="#form" class="btn btn-gold">Send me the guide →</a>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
