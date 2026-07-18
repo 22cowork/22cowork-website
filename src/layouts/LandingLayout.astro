@@ -62,9 +62,17 @@ const ogImage = `${SITE}${ogImg}`;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@500;600;700&amp;display=swap"
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@500;600;700&amp;display=swap"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@500;600;700&amp;display=swap"
+    />
+  </noscript>
 
   <style is:global>
   :root{
@@ -265,6 +273,10 @@ const ogImage = `${SITE}${ogImg}`;
               status.style.color = "var(--ember-deep)";
               status.textContent = form.dataset.success || "Done, we'll be in touch within a day. ✓";
             }
+            try {
+              var src = form.querySelector('input[name="source"]');
+              if (window.fbq) { fbq('track', 'Lead', { content_name: (src && src.value) || location.pathname }); }
+            } catch (err) {}
             form.reset();
             if (btn) { btn.textContent = "Sent ✓"; }
             var dl = form.querySelector(".lp-download");

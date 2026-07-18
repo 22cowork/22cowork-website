@@ -48,9 +48,17 @@ const {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,320..560;1,9..144,320..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@700&amp;display=swap"
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,320..560;1,9..144,320..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@700&amp;display=swap"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,320..560;1,9..144,320..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Montserrat:wght@700&amp;display=swap"
+    />
+  </noscript>
   <style is:global>
   :root{
     --paper:#F6F7F2;
@@ -293,7 +301,10 @@ const {
   .daypass-cta h2{font-family:"Fraunces",serif; font-weight:350; font-size:clamp(1.5rem,3vw,2.3rem); letter-spacing:-.02em; line-height:1.1; color:var(--paper); margin:.7rem 0 0}
   .daypass-cta p{color:rgba(244,241,234,.72); margin:.8rem 0 0}
   .daypass-cta .btn{flex:none}
-  @media(max-width:640px){.daypass-cta .dpc{flex-direction:column; align-items:flex-start}}
+  .daypass-cta .dpc-actions{display:flex; flex-direction:column; align-items:flex-end; gap:12px; flex:none}
+  .daypass-cta .dpc-alt{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.04em; color:rgba(244,241,234,.72); text-decoration:underline; text-underline-offset:3px; transition:color .2s}
+  .daypass-cta .dpc-alt:hover{color:var(--paper)}
+  @media(max-width:640px){.daypass-cta .dpc{flex-direction:column; align-items:flex-start} .daypass-cta .dpc-actions{align-items:flex-start}}
 
   .spec{background:var(--contrast); color:var(--paper)}
   .spec .wrap{padding-top:clamp(32px,4.5vh,66px); padding-bottom:clamp(32px,4.5vh,66px)}
@@ -526,6 +537,7 @@ const {
             mode: "no-cors",
             body: new URLSearchParams(data),
           });
+          try { if (window.fbq) fbq('track', 'Lead', { content_name: 'Homepage reservation' }); } catch (err) {}
           leadForm.reset();
           if (btn) btn.textContent = "Reserved ✓";
           say("Thanks, we'll confirm within a day.", true);
