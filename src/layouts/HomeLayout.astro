@@ -5,8 +5,35 @@ export interface Props {
 }
 const {
   title = "22cowork · Setúbal",
-  description = "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices, a studio and a gym. 35 minutes from Lisboa.",
+  description = "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices and a soundproofed studio. 35 minutes from Lisboa.",
 } = Astro.props;
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "22cowork",
+  description:
+    "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices and a soundproofed studio, 35 minutes from Lisboa.",
+  url: "https://www.22cowork.pt",
+  logo: "https://www.22cowork.pt/favicon.png",
+  image: "https://www.22cowork.pt/assets/deepwork.jpg",
+  telephone: "+351913781095",
+  email: "team@22cowork.pt",
+  priceRange: "€€",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Estrada Nacional 10, Km 42",
+    addressLocality: "Setúbal",
+    postalCode: "2910-845",
+    addressCountry: "PT",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "23",
+  },
+  sameAs: ["https://instagram.com/22cowork"],
+};
 ---
 
 <!DOCTYPE html>
@@ -45,6 +72,9 @@ const {
 
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(siteJsonLd)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
