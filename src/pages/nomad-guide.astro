@@ -1,5 +1,6 @@
 ---
 import LandingLayout from "../layouts/LandingLayout.astro";
+import reviews from "../data/reviews.json";
 ---
 <LandingLayout
   title="The Setúbal Guide for Remote Workers & Digital Nomads | 22cowork"
@@ -55,7 +56,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
     <div class="wrap">
       <div class="in">
         <span class="stars">★★★★★</span>
-        <span class="txt">5.0 on Google · 29 reviews</span>
+        <span class="txt">{reviews.rating} on Google · {reviews.count} reviews</span>
         <span class="txt">10&nbsp;Gbps fibre</span>
         <span class="txt">On the Setúbal coast</span>
         <span class="txt">35 min from Lisboa</span>

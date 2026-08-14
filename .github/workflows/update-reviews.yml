@@ -1,0 +1,36 @@
+name: Sync Google reviews
+
+on:
+  schedule:
+    - cron: "0 7 * * 1" # every Monday at 07:00 UTC
+  workflow_dispatch: {} # allow manual run from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch live rating + review count
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: node scripts/update-reviews.mjs
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain src/data/reviews.json)" ]]; then
+            git config user.name "22cowork bot"
+            git config user.email "team@22cowork.pt"
+            git add src/data/reviews.json
+            git commit -m "chore: sync Google review count [skip ci]"
+            git push
+          else
+            echo "reviews.json unchanged, nothing to commit"
+          fi

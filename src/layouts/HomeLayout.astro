@@ -3,6 +3,7 @@ export interface Props {
   title?: string;
   description?: string;
 }
+import reviews from "../data/reviews.json";
 const {
   title = "22cowork · Setúbal",
   description = "A coworking space in Setúbal for people who actually work. Dedicated desks, private offices and a soundproofed studio. 35 minutes from Lisboa.",
@@ -29,8 +30,8 @@ const siteJsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "29",
+    ratingValue: reviews.rating,
+    reviewCount: String(reviews.count),
   },
   sameAs: ["https://instagram.com/22cowork"],
 };
