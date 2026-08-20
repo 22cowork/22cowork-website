@@ -451,6 +451,10 @@ const siteJsonLd = {
   .gr-txt{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft)}
   .gr-txt b{font-family:"Fraunces",serif; font-weight:500; font-size:1.05rem; letter-spacing:0}
   .foot-rating{margin-top:1.2rem}
+  .foot-map{display:inline-flex!important; align-items:center; gap:8px; margin-top:.95rem; padding:8px 15px 8px 12px; border:1px solid rgba(143,192,169,.42); border-radius:999px; background:rgba(143,192,169,.12); color:#F4F1EA!important; font-size:.9rem; font-weight:500; text-decoration:none; transition:background .3s var(--ease), border-color .3s var(--ease)}
+  .foot-map svg{flex:none; transition:transform .35s var(--ease)}
+  .foot-map:hover{background:rgba(143,192,169,.22); border-color:rgba(143,192,169,.72)}
+  .foot-map:hover svg{transform:translateY(-2px)}
   .trust .resv{font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.11em; text-transform:uppercase; color:var(--ember-deep); display:inline-flex; align-items:center; gap:8px; white-space:nowrap}
   .trust .resv .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(51,92,74,.55);animation:pulse 2.4s infinite}
   @media(max-width:680px){.trust .wrap{gap:14px} .trust .stat b{font-size:1.1rem}}

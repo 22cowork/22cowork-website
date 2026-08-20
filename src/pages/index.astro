@@ -279,10 +279,16 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
             <span class="stars">★★★★★</span>
             <span class="gr-txt"><b>{reviews.rating}</b> · {reviews.count} Google reviews</span>
           </a>
-          <address class="foot-addr" style="font-style:normal; margin-top:1.1rem; color:var(--muted-2); line-height:1.6">
-            Estrada Nacional 10, Km 42<br />2910-845 Setúbal, Portugal<br />
-            <a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a>
+          <address class="foot-addr" style="font-style:normal; margin-top:1.1rem; color:rgba(244,241,234,.72); line-height:1.6; font-size:.92rem">
+            Estrada Nacional 10, Km 42<br />2910-845 Setúbal, Portugal
           </address>
+          <a class="foot-map" href={maps} target="_blank" rel="noopener" aria-label="View 22cowork on Google Maps">
+            <svg width="15" height="19" viewBox="0 0 24 32" fill="none" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 8.6 12 20 12 20s12-11.4 12-20C24 5.37 18.63 0 12 0Z" fill="#8FC0A9"/>
+              <circle cx="12" cy="12" r="4.4" fill="#294A3B"/>
+            </svg>
+            <span>View on Google Maps</span>
+          </a>
         </div>
         <div>
           <h4>Space</h4>
