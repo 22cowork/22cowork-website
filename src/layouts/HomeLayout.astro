@@ -175,9 +175,9 @@ const siteJsonLd = {
   @keyframes blink{50%{opacity:0}}
 
   .serif{font-family:"Fraunces",Georgia,serif; font-weight:340; letter-spacing:-.02em; line-height:1.02}
-  h1,h2,h3{font-family:"Fraunces",Georgia,serif; font-weight:360; letter-spacing:-.022em; line-height:1.03; margin:0}
-  .display{font-size:clamp(2.6rem,7vw,6.4rem); font-weight:330}
-  .h2{font-size:clamp(2rem,4.4vw,4rem); font-weight:350; line-height:1.02}
+  h1,h2,h3{font-family:"Inter",system-ui,sans-serif; font-weight:600; letter-spacing:-.02em; line-height:1.06; margin:0}
+  .display{font-family:"Fraunces",Georgia,serif; font-size:clamp(2.6rem,7vw,6.4rem); font-weight:340; letter-spacing:-.022em}
+  .h2{font-size:clamp(1.9rem,4vw,3.5rem); font-weight:600; line-height:1.04; letter-spacing:-.02em}
   .h3{font-size:clamp(1.3rem,2vw,1.9rem); font-weight:380}
   em{font-style:italic}
 
@@ -370,7 +370,7 @@ const siteJsonLd = {
   .stop .thumb{display:block; width:clamp(112px,10vw,156px); height:clamp(112px,10vw,156px); border-radius:50%; overflow:hidden; border:4px solid var(--paper); box-shadow:0 18px 40px -18px rgba(23,21,17,.55); margin-bottom:20px}
   .stop .thumb img{width:100%; height:100%; object-fit:cover}
   .stop .t{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.12em; color:var(--ember-deep); display:block; margin-bottom:.45rem}
-  .stop h3{font-family:"Fraunces",serif; font-weight:400; font-size:clamp(1.05rem,1.5vw,1.35rem); line-height:1.14; margin:0 0 .35rem}
+  .stop h3{font-family:"Inter",system-ui,sans-serif; font-weight:600; font-size:clamp(1.05rem,1.5vw,1.35rem); line-height:1.14; margin:0 0 .35rem}
   .stop p{color:var(--ink-soft); font-size:.9rem; line-height:1.45; margin:0}
   @media(prefers-reduced-motion:reduce){.vine .stem,.vine .tendril{animation:none;stroke-dashoffset:0}.vine .lf{animation:none;opacity:.9}}
   @media(max-width:820px){
@@ -384,7 +384,7 @@ const siteJsonLd = {
   .daypass-cta .dpc{background:var(--contrast); color:var(--paper); border-radius:var(--radius); padding:clamp(28px,5vw,54px); display:flex; align-items:center; justify-content:space-between; gap:clamp(24px,4vw,48px); flex-wrap:wrap}
   .daypass-cta .dpc-text{max-width:42ch}
   .daypass-cta .label{color:#8FC0A9} .daypass-cta .label::before{background:#8FC0A9}
-  .daypass-cta h2{font-family:"Fraunces",serif; font-weight:350; font-size:clamp(1.5rem,3vw,2.3rem); letter-spacing:-.02em; line-height:1.1; color:var(--paper); margin:.7rem 0 0}
+  .daypass-cta h2{font-family:"Inter",system-ui,sans-serif; font-weight:600; font-size:clamp(1.5rem,3vw,2.3rem); letter-spacing:-.02em; line-height:1.1; color:var(--paper); margin:.7rem 0 0}
   .daypass-cta p{color:rgba(244,241,234,.72); margin:.8rem 0 0}
   .daypass-cta .btn{flex:none}
   .daypass-cta .dpc-actions{display:flex; flex-direction:column; align-items:flex-end; gap:12px; flex:none}
@@ -402,7 +402,7 @@ const siteJsonLd = {
   .row{display:grid; grid-template-columns:150px 1fr auto; gap:24px; align-items:baseline; padding:15px 0; border-bottom:1px solid rgba(244,241,234,.12); transition:padding-left .4s var(--ease)}
   .row:hover{padding-left:10px}
   .row .k{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(244,241,234,.55)}
-  .row .v{font-family:"Fraunces",serif; font-size:clamp(1.05rem,1.5vw,1.4rem); font-weight:360; color:var(--paper)}
+  .row .v{font-family:"Inter",system-ui,sans-serif; font-size:clamp(1rem,1.4vw,1.25rem); font-weight:500; color:var(--paper)}
   .row .m{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; color:rgba(244,241,234,.4)}
   @media(max-width:680px){.row{grid-template-columns:1fr; gap:6px}.row .m{display:none}}
 
@@ -485,13 +485,13 @@ const siteJsonLd = {
   .trust{background:var(--paper)}
   .trust .wrap{display:flex; gap:clamp(18px,3vw,48px); align-items:center; justify-content:space-between; padding:var(--trust-y) var(--pad); flex-wrap:wrap}
   .trust .stat{display:flex; flex-direction:column; gap:1px}
-  .trust .stat b{font-family:"Fraunces",serif; font-weight:400; font-size:clamp(1.1rem,1.8vw,1.6rem); line-height:1}
+  .trust .stat b{font-family:"Inter",system-ui,sans-serif; font-weight:600; font-size:clamp(1.05rem,1.7vw,1.45rem); line-height:1; letter-spacing:-.01em}
   .trust .stat span{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted-2)}
   .grating{display:inline-flex; align-items:center; gap:9px; transition:opacity .3s}
   .grating:hover{opacity:.7}
   .stars{color:var(--ember); font-size:.92rem; letter-spacing:1px}
   .gr-txt{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft)}
-  .gr-txt b{font-family:"Fraunces",serif; font-weight:500; font-size:1.05rem; letter-spacing:0}
+  .gr-txt b{font-family:"Inter",system-ui,sans-serif; font-weight:600; font-size:.98rem; letter-spacing:0}
   .foot-rating{margin-top:1.2rem}
   .foot-map{display:inline-flex!important; align-items:center; gap:8px; margin-top:.95rem; padding:8px 15px 8px 12px; border:1px solid rgba(143,192,169,.42); border-radius:var(--radius); background:rgba(143,192,169,.12); color:#F4F1EA!important; font-size:.9rem; font-weight:500; text-decoration:none; transition:background .3s var(--ease), border-color .3s var(--ease)}
   .foot-map svg{flex:none; transition:transform .35s var(--ease)}
@@ -529,7 +529,7 @@ const siteJsonLd = {
   .resv-tags .t{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(244,241,234,.75); border:1px solid rgba(244,241,234,.22); border-radius:var(--radius); padding:8px 13px; display:inline-flex; gap:8px; align-items:center}
   .resv-tags .t .dot{width:6px;height:6px;border-radius:50%;background:var(--ember)}
 
-  .prog{position:fixed; top:0; left:0; height:2px; background:var(--ember); z-index:80; width:0}
+  .prog{display:none}
   </style>
 </head>
 <body>
