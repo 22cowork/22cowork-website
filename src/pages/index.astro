@@ -41,7 +41,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <span class="stars">★★★★★</span>
         <span class="gr-txt"><b>{reviews.rating}</b> · {reviews.count} Google reviews</span>
       </a>
-      <div class="stat"><b>35 min</b><span>from Lisboa</span></div>
+      <a class="stat stat-link" href="/commute-calculator"><b>35 min</b><span>from Lisboa</span></a>
       <div class="stat"><b>24/7</b><span>keycard access</span></div>
       <div class="stat"><b>10GB</b><span>fibre + WiFi 7</span></div>
       <div class="stat"><b>Parking</b><span>private, underground</span></div>
@@ -131,6 +131,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div class="dpc-actions">
           <a href="/day-pass" class="btn btn-gold">Claim your free day →</a>
           <a href="/nomad-guide" class="dpc-alt">Working remotely? Get our free Setúbal guide →</a>
+          <a href="/commute-calculator" class="dpc-alt">Commuting to Lisboa? See what it costs you →</a>
         </div>
       </div>
     </div>
@@ -171,30 +172,6 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <p class="lead">Park underground at 08:00, gym downstairs by 17:45. The whole day handled, in one building.</p>
       </div>
       <div class="dayrail-wrap rise" data-d="1">
-        <svg class="vine" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="none" aria-hidden="true">
-          <path class="stem" d="M6,32 C150,12 250,50 400,32 C540,14 650,50 800,32 C950,14 1060,50 1194,32" />
-          <path class="tendril" d="M8,32 c-6,-4 -4,-12 3,-12 c5,0 6,5 3,8" />
-          <path class="tendril" d="M1192,32 c6,-4 4,-12 -3,-12 c-5,0 -6,5 -3,8" />
-          <g class="leaves">
-            <path class="lf"   transform="translate(88 22) rotate(-38) scale(.95)" style="animation-delay:.8s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(150 12) rotate(-28) scale(.75)" style="animation-delay:.95s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(215 40) rotate(140) scale(.7)"  style="animation-delay:1.05s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(252 48) rotate(150) scale(.92)" style="animation-delay:1.15s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(330 40) rotate(136) scale(.72)" style="animation-delay:1.3s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(400 30) rotate(-26) scale(1)"   style="animation-delay:1.45s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(470 20) rotate(-44) scale(.8)"  style="animation-delay:1.58s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(540 14) rotate(-32) scale(.9)"  style="animation-delay:1.7s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(612 40) rotate(140) scale(.72)" style="animation-delay:1.85s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(652 48) rotate(150) scale(.92)" style="animation-delay:1.95s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(730 40) rotate(134) scale(.74)" style="animation-delay:2.1s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(800 30) rotate(-28) scale(1)"   style="animation-delay:2.2s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(872 18) rotate(-46) scale(.82)" style="animation-delay:2.33s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(950 14) rotate(-32) scale(.9)"  style="animation-delay:2.45s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf a" transform="translate(1022 40) rotate(140) scale(.72)" style="animation-delay:2.6s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(1062 48) rotate(150) scale(.9)" style="animation-delay:2.7s"  d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-            <path class="lf"   transform="translate(1140 26) rotate(-30) scale(.95)" style="animation-delay:2.85s" d="M0,0 C5,-3 8,-8 4,-15 C1.5,-19 -1.5,-19 -4,-15 C-8,-8 -5,-3 0,0 Z"/>
-          </g>
-        </svg>
         <ol class="dayrail">
           <li class="stop"><span class="thumb"><Img src="/assets/parking.jpg" alt="Underground parking at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></div></li>
           <li class="stop"><span class="thumb"><Img src="/assets/coffee.jpg" alt="Coffee at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></div></li>
@@ -302,7 +279,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         </div>
         <div>
           <h4>Company</h4>
-          <a href="/blog">Journal</a><a href="#reserve">Reserve a space</a><a href="/nomad-guide">Free nomad guide</a><a href="https://instagram.com/22cowork" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog">Journal</a><a href="#reserve">Reserve a space</a><a href="/nomad-guide">Free nomad guide</a><a href="/commute-calculator">Commute calculator</a><a href="https://instagram.com/22cowork" target="_blank" rel="noopener">Instagram</a>
         </div>
         <div>
           <h4>Legal</h4>

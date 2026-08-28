@@ -1,4 +1,5 @@
 ---
+import "../styles/fonts.css";
 import "../styles/tokens.css";
 import Consent from "../components/Consent.astro";
 export interface Props {
@@ -41,19 +42,7 @@ const ogImage = `${SITE}${ogImg}`;
 
   <link rel="icon" type="image/png" href="/favicon-22.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-22.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap"
-    media="print"
-    onload="this.media='all'"
-  />
   <noscript>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap"
-    />
   </noscript>
 
   <style is:global>
@@ -207,7 +196,7 @@ const ogImage = `${SITE}${ogImg}`;
     <a href="/" class="brand"><span class="vh">22cowork</span></a>
     <nav class="links">
       <a href="/#spaces">Spaces</a>
-      <a href="/blog">Journal</a>
+      <a href="/blog">Journal</a><a href="/commute-calculator">Commute calculator</a>
       <a href="#form" class="nav-cta">Get started</a>
     </nav>
   </header>
@@ -254,6 +243,36 @@ const ogImage = `${SITE}${ogImg}`;
       var MIN_FILL_MS = 3000;
       var shownAt = Date.now();
 
+
+      /**
+       * Fields the Meta Conversions API needs, so the same Lead can be reported
+       * from the server as well as the browser. `event_id` is what lets Meta
+       * deduplicate the two, so a lead is never counted twice.
+       *
+       * Only filled in when the visitor accepted cookies. The Conversions API
+       * recovers the leads lost to ad blockers and browser restrictions — it is
+       * NOT a way around a refusal. Someone who declined has told us not to
+       * report them to Meta, and that has to hold on the server too.
+       */
+      function metaFields() {
+        var consented = window.__consent && window.__consent.state() === "granted";
+        if (!consented) return { meta_forward: "no" };
+        var cookie = function (name) {
+          var m = document.cookie.match("(^|; )" + name + "=([^;]*)");
+          return m ? decodeURIComponent(m[2]) : "";
+        };
+        return {
+          meta_forward: "yes",
+          event_id:
+            (crypto.randomUUID && crypto.randomUUID()) ||
+            String(Date.now()) + Math.random().toString(16).slice(2),
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: location.href,
+          fbp: cookie("_fbp"),
+          fbc: cookie("_fbc"),
+        };
+      }
+
       document.querySelectorAll("form[data-lead]").forEach(function (form) {
         var status = form.querySelector(".form-status");
         var btn = form.querySelector('button[type="submit"]');
@@ -278,7 +297,10 @@ const ogImage = `${SITE}${ogImg}`;
           say(form.dataset.success || "Done, we'll be in touch within a day. ✓", true);
           try {
             var src = form.querySelector('input[name="source"]');
-            if (window.fbq) fbq("track", "Lead", { content_name: (src && src.value) || location.pathname });
+            if (window.fbq) {
+              fbq("track", "Lead", { content_name: (src && src.value) || location.pathname },
+                  form.dataset.eventId ? { eventID: form.dataset.eventId } : undefined);
+            }
           } catch (err) {}
           form.reset();
           if (btn) btn.textContent = "Sent ✓";
@@ -308,6 +330,8 @@ const ogImage = `${SITE}${ogImg}`;
             data.consent_text = CONSENT_TEXT;
           }
           data.page = location.pathname;
+          Object.assign(data, metaFields());
+          if (data.event_id) form.dataset.eventId = data.event_id;
 
           if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
 
