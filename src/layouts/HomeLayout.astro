@@ -1,4 +1,5 @@
 ---
+import "../styles/tokens.css";
 import Consent from "../components/Consent.astro";
 export interface Props {
   title?: string;
@@ -82,74 +83,6 @@ const siteJsonLd = {
     />
   </noscript>
   <style is:global>
-  :root{
-    --paper:#F6F7F2;
-    --paper-2:#EAEDE3;
-    --paper-3:#DDE2D3;
-    --ink:#171511;
-    --ink-soft:#3A362D;
-    --muted:#8B857642;
-    --muted-2:#7D7869;
-    --line:rgba(23,21,17,.14);
-    --line-2:rgba(23,21,17,.08);
-    --ember:#335C4A;
-    --ember-deep:#294A3B;
-    --contrast:#0B0A08;
-    --ease:cubic-bezier(.22,.61,.36,1);
-    --ease-out:cubic-bezier(.16,1,.3,1);
-    --pad: clamp(20px, 5vw, 88px);
-
-    /* 8px spacing scale. 1-8 fixed; 9-16 fluid (clamp) so large gaps scale
-       with the viewport instead of via media queries. All clamp min/max are
-       themselves 8px multiples, so everything stays on the grid. */
-    --space-1: 8px;
-    --space-2: 16px;
-    --space-3: 24px;
-    --space-4: 32px;
-    --space-5: 40px;
-    --space-6: 48px;
-    --space-7: 56px;
-    --space-8: 64px;
-    --space-9:  clamp(32px, 4vw, 56px);
-    --space-10: clamp(40px, 5vw, 64px);
-    --space-11: clamp(48px, 6vw, 80px);
-    --space-12: clamp(56px, 7vw, 96px);
-    --space-13: clamp(64px, 8vw, 112px);
-    --space-14: clamp(72px, 9vw, 128px);
-    --space-15: clamp(88px, 11vw, 160px);
-    --space-16: clamp(104px, 13vw, 200px);
-
-    /* Three section rhythms (apertado / normal / amplo). Sized against the
-       headlines they have to separate: .h2 tops out at 3.5rem, so a 48px gap
-       between sections read as a paragraph break rather than a boundary. */
-    --sec-tight:  var(--space-11);   /*  48 -  80 */
-    --sec-normal: var(--space-14);   /*  72 - 128 */
-    --sec-wide:   var(--space-15);   /*  88 - 160 */
-
-    /* named exceptions (framework chrome, not rhythm sections) */
-    --nav-y: var(--space-2);
-    --nav-y-solid: 12px;
-    --trust-y: var(--space-4);
-    --hero-y-bottom: var(--space-9);
-    --rule: 1px solid color-mix(in srgb, currentColor 22%, transparent);
-    --radius: 2px;
-
-    /* Micro-type scale. Every uppercase mono label on the page is one of these
-       three steps — before this there were ten sizes and eight tracking values
-       for the same font doing the same job. Tracking loosens as the size drops,
-       which is what keeps small caps readable.
-         md — section eyebrows, buttons, data keys and clock times
-         sm — navigation, inline actions, secondary data
-         xs — badges, captions, column headings, field labels */
-    --mono-md: .76rem;  --track-md: .10em;
-    --mono-sm: .70rem;  --track-sm: .12em;
-    --mono-xs: .64rem;  --track-xs: .14em;
-
-    /* Display tracking: one value per typeface, not per rule. Fraunces sets
-       tighter than Inter at the same size because its counters are wider. */
-    --track-serif: -.022em;
-    --track-sans:  -.02em;
-  }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
