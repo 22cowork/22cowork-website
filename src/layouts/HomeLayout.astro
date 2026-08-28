@@ -1,4 +1,5 @@
 ---
+import Consent from "../components/Consent.astro";
 export interface Props {
   title?: string;
   description?: string;
@@ -46,40 +47,7 @@ const siteJsonLd = {
   <!-- Preload the hero (LCP) with a mobile-sized variant -->
   <link rel="preload" as="image" href="/assets/hero-mobile.jpg" imagesrcset="/assets/hero-mobile.jpg 800w, /assets/hero.jpg 1400w" imagesizes="100vw" fetchpriority="high" />
 
-  <!-- Analytics + Meta Pixel, deferred off the critical path for faster mobile load.
-       The fbq/gtag stubs are defined immediately, so any track() calls (e.g. Lead on
-       form submit) queue and flush once the real scripts load on first interaction. -->
-  <script is:inline>
-    // fbq stub — queues calls until fbevents.js loads
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
-    // gtag stub
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} window.gtag = gtag;
-
-    var _tpLoaded = false;
-    function loadThirdParty(){
-      if(_tpLoaded) return; _tpLoaded = true;
-      var ga = document.createElement('script'); ga.async = true;
-      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-W54DF8WLWQ';
-      document.head.appendChild(ga);
-      gtag('js', new Date());
-      gtag('config', 'G-W54DF8WLWQ');
-      var fb = document.createElement('script'); fb.async = true;
-      fb.src = 'https://connect.facebook.net/en_US/fbevents.js';
-      document.head.appendChild(fb);
-      fbq('init', '2897945933870831');
-      fbq('track', 'PageView');
-    }
-    ['scroll','mousemove','touchstart','keydown','click'].forEach(function(ev){
-      window.addEventListener(ev, loadThirdParty, {once:true, passive:true});
-    });
-    // Fallback: load shortly after the page settles even without interaction
-    window.addEventListener('load', function(){ setTimeout(loadThirdParty, 2500); });
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2897945933870831&ev=PageView&noscript=1" /></noscript>
-  <!-- End analytics -->
+  <!-- Analytics is loaded by <Consent />, only after the visitor accepts. -->
 
 
   <!-- Picks the reveal strategy before first paint: browsers with scroll-driven
@@ -797,5 +765,6 @@ const siteJsonLd = {
       });
     }
   </script>
+  <Consent />
 </body>
 </html>

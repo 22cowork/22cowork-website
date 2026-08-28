@@ -1,0 +1,156 @@
+---
+/**
+ * Cookie consent gate.
+ *
+ * GA4 and the Meta Pixel used to fire on first scroll, and again on a 2.5s
+ * timer even without interaction. Under the RGPD/ePrivacy rules that apply to
+ * a Portuguese business, analytics and advertising cookies need consent BEFORE
+ * they are set, so nothing third-party loads here until someone accepts.
+ *
+ * The gtag/fbq stubs are still defined immediately: a track() call made before
+ * a decision (Lead on form submit, for instance) queues harmlessly instead of
+ * throwing. If consent is declined the queue is simply never flushed.
+ *
+ * Declining is a real choice, not a dark pattern — both buttons are equally
+ * reachable, and the decision is remembered so the bar does not come back.
+ */
+const GA_ID = "G-W54DF8WLWQ";
+const PIXEL_ID = "2897945933870831";
+const STORE = "22cw-consent-v1";
+---
+
+<script is:inline define:vars={{ GA_ID, PIXEL_ID, STORE }}>
+  (function () {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+
+    var loaded = false;
+    function loadTrackers() {
+      if (loaded) return;
+      loaded = true;
+      var ga = document.createElement("script");
+      ga.async = true;
+      ga.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(ga);
+      gtag("js", new Date());
+      gtag("config", GA_ID);
+      var fb = document.createElement("script");
+      fb.async = true;
+      fb.src = "https://connect.facebook.net/en_US/fbevents.js";
+      document.head.appendChild(fb);
+      fbq("init", PIXEL_ID);
+      fbq("track", "PageView");
+    }
+
+    function read() { try { return localStorage.getItem(STORE); } catch (e) { return null; } }
+    function write(v) { try { localStorage.setItem(STORE, v); } catch (e) {} }
+
+    window.__consent = {
+      state: read,
+      set: function (value) {
+        write(value);
+        var bar = document.getElementById("consent-bar");
+        if (bar) bar.hidden = true;
+        if (value === "granted") loadTrackers();
+      },
+    };
+
+    if (read() === "granted") loadTrackers();
+  })();
+</script>
+
+<div class="consent" id="consent-bar" hidden>
+  <p class="consent-text">
+    We use cookies to measure how the site is used and how well our ads work.
+    Nothing is set until you choose. See our <a href="/privacy">Privacy Policy</a>.
+  </p>
+  <div class="consent-actions">
+    <button type="button" class="consent-btn consent-no" data-consent="denied">Decline</button>
+    <button type="button" class="consent-btn consent-yes" data-consent="granted">Accept</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var bar = document.getElementById("consent-bar");
+    if (!bar || !window.__consent) return;
+    // Only ask when there is no decision on record.
+    if (!window.__consent.state()) bar.hidden = false;
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-consent]");
+      if (btn) window.__consent.set(btn.getAttribute("data-consent"));
+    });
+  })();
+</script>
+
+<style>
+  /* Falls back to literals because the design tokens live in each layout's
+     global stylesheet, and this component is shared by all three. */
+  .consent {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(16px, 3vw, 40px);
+    flex-wrap: wrap;
+    padding: 18px clamp(20px, 5vw, 88px);
+    background: color-mix(in srgb, var(--paper, #F6F7F2) 96%, transparent);
+    backdrop-filter: saturate(1.2) blur(14px);
+    border-top: 1px solid var(--line, rgba(23, 21, 17, 0.14));
+    box-shadow: 0 -20px 50px -40px rgba(23, 21, 17, 0.5);
+  }
+  .consent[hidden] { display: none; }
+
+  .consent-text {
+    margin: 0;
+    max-width: 68ch;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-soft, #3A362D);
+  }
+  .consent-text a {
+    color: var(--ember-deep, #294A3B);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .consent-actions { display: flex; gap: 10px; flex: none; }
+
+  .consent-btn {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--mono-sm, 0.7rem);
+    letter-spacing: var(--track-sm, 0.12em);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 11px 20px;
+    border-radius: var(--radius, 2px);
+    border: 1px solid;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .consent-no {
+    background: transparent;
+    color: var(--ink, #171511);
+    border-color: var(--line, rgba(23, 21, 17, 0.14));
+  }
+  .consent-no:hover { border-color: var(--ink, #171511); }
+  .consent-yes {
+    background: var(--ember, #335C4A);
+    color: #F4F1EA;
+    border-color: var(--ember, #335C4A);
+  }
+  .consent-yes:hover { background: #3f7059; border-color: #3f7059; }
+
+  @media (max-width: 640px) {
+    .consent { padding: 16px 20px; gap: 14px; }
+    .consent-text { font-size: 0.86rem; }
+    .consent-actions { width: 100%; }
+    .consent-btn { flex: 1; }
+  }
+</style>
