@@ -56,6 +56,20 @@ const STORE = "22cw-consent-v1";
         if (bar) bar.hidden = true;
         if (value === "granted") loadTrackers();
       },
+      // Withdrawing consent has to be as easy as giving it, so the footer
+      // carries a link back to this bar. Trackers already loaded in THIS page
+      // view cannot be unloaded, hence the reload on a change of mind.
+      reopen: function () {
+        var had = read();
+        try { localStorage.removeItem(STORE); } catch (e) {}
+        if (had === "granted") { location.reload(); return; }
+        var bar = document.getElementById("consent-bar");
+        if (bar) {
+          bar.hidden = false;
+          document.documentElement.classList.add("consent-open");
+          document.documentElement.style.setProperty("--consent-h", bar.offsetHeight + "px");
+        }
+      },
     };
 
     if (read() === "granted") loadTrackers();
@@ -95,6 +109,13 @@ const STORE = "22cw-consent-v1";
         if (!bar.hidden) markOpen(true);
       });
     }
+
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest("[data-consent-reopen]");
+      if (!link) return;
+      e.preventDefault();
+      window.__consent.reopen();
+    });
 
     bar.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-consent]");
