@@ -1,4 +1,5 @@
 ---
+import Img from "../components/Img.astro";
 import HomeLayout from "../layouts/HomeLayout.astro";
 import reviews from "../data/reviews.json";
 const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_place_id=ChIJibrR-YpDGQ0R2UrFT6Fufsk";
@@ -20,7 +21,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <img class="hero-img" src="/assets/hero.jpg" srcset="/assets/hero-mobile.jpg 800w, /assets/hero.jpg 1400w" sizes="100vw" width="1400" height="933" fetchpriority="high" decoding="async" alt="Inside 22cowork, Setúbal" />
+    <Img src="/assets/hero.jpg" srcset="/assets/hero-mobile.jpg 800w, /assets/hero.jpg 1400w" sizes="100vw" alt="Inside 22cowork, Setúbal" width="1400" height="933" loading="eager" decoding="async" fetchpriority="high" class="hero-img" />
     <div class="scrim"></div>
 
     <div class="hero-inner wrap">
@@ -61,7 +62,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       <!-- The two most-taken options, with the photographs. -->
       <div class="sp-grid">
         <a href="#reserve" class="sp-card rise">
-          <div class="sp-media"><span class="sp-badge">Most popular</span><img loading="lazy" decoding="async" width="1400" height="1050" src="/assets/deepwork.jpg" srcset="/assets/deepwork-800.jpg 800w, /assets/deepwork.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Dedicated desk at 22cowork" /></div>
+          <div class="sp-media"><span class="sp-badge">Most popular</span><Img src="/assets/deepwork.jpg" srcset="/assets/deepwork-800.jpg 800w, /assets/deepwork.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Dedicated desk at 22cowork" width="1400" height="1050" loading="lazy" decoding="async" /></div>
           <div class="sp-body">
             <h3>Dedicated Desk</h3>
             <p>Your own wood desk and ergonomic chair, same spot every day. The default for founders here full time.</p>
@@ -70,7 +71,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         </a>
 
         <a href="#reserve" class="sp-card rise" data-d="1">
-          <div class="sp-media"><span class="sp-badge">Opening Sept 2026</span><img loading="lazy" decoding="async" width="1400" height="788" src="/assets/meeting.jpg" srcset="/assets/meeting-800.jpg 800w, /assets/meeting.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Private office at 22cowork" /></div>
+          <div class="sp-media"><span class="sp-badge">Opening Sept 2026</span><Img src="/assets/meeting.jpg" srcset="/assets/meeting-800.jpg 800w, /assets/meeting.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Private office at 22cowork" width="1400" height="788" loading="lazy" decoding="async" /></div>
           <div class="sp-body">
             <h3>Private Office</h3>
             <p>Natural light, your team, your layout, a door that closes. In presale now, opening September 2026.</p>
@@ -195,11 +196,11 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
           </g>
         </svg>
         <ol class="dayrail">
-          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/parking.jpg" alt="Underground parking at 22cowork" /></span><div class="s-body"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></div></li>
-          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/coffee.jpg" alt="Coffee at 22cowork" /></span><div class="s-body"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></div></li>
-          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/deepwork-800.jpg" alt="Dedicated desk at 22cowork" /></span><div class="s-body"><span class="t">09:00</span><h3>Deep work</h3><p>Your desk, 10GB fibre, quiet that holds.</p></div></li>
-          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/studio-800.jpg" alt="Podcast and content studio at 22cowork" /></span><div class="s-body"><span class="t">14:00</span><h3>Record it</h3><p>Soundproofed studio, same building.</p></div></li>
-          <li class="stop"><span class="thumb"><img loading="lazy" decoding="async" src="/assets/gym.jpg" alt="Fitness Up gym in the 22cowork building" /></span><div class="s-body"><span class="t">17:45</span><h3>Gym in the building</h3><p>Fitness Up, one floor down. Close the laptop, not the day.</p></div></li>
+          <li class="stop"><span class="thumb"><Img src="/assets/parking.jpg" alt="Underground parking at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">08:00</span><h3>Park underground</h3><p>Your spot, every day. No circling, no meter.</p></div></li>
+          <li class="stop"><span class="thumb"><Img src="/assets/coffee.jpg" alt="Coffee at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">08:20</span><h3>First coffee</h3><p>The good machine, not the sad pod. Always on.</p></div></li>
+          <li class="stop"><span class="thumb"><Img src="/assets/deepwork-800.jpg" alt="Dedicated desk at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">09:00</span><h3>Deep work</h3><p>Your desk, 10GB fibre, quiet that holds.</p></div></li>
+          <li class="stop"><span class="thumb"><Img src="/assets/studio-800.jpg" alt="Podcast and content studio at 22cowork" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">14:00</span><h3>Record it</h3><p>Soundproofed studio, same building.</p></div></li>
+          <li class="stop"><span class="thumb"><Img src="/assets/gym.jpg" alt="Fitness Up gym in the 22cowork building" loading="lazy" decoding="async" /></span><div class="s-body"><span class="t">17:45</span><h3>Gym in the building</h3><p>Fitness Up, one floor down. Close the laptop, not the day.</p></div></li>
         </ol>
       </div>
     </div>
@@ -263,12 +264,12 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
         <div class="rise mt-4" data-d="1"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
       </div>
       <div class="ig rise" data-d="1" id="ig-feed">
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid1.jpg" alt="Open workspace at 22cowork" /><span class="tag">@22cowork</span></a>
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid2.jpg" alt="Lounge at 22cowork" /></a>
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid3.jpg" alt="Storage and desks at 22cowork" /></a>
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid4.jpg" alt="Meeting and studio room at 22cowork" /></a>
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid5.jpg" alt="Kitchen at 22cowork" /></a>
-        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid6.jpg" alt="Content studio at 22cowork" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid1.jpg" alt="Open workspace at 22cowork" width="700" height="700" loading="lazy" decoding="async" /><span class="tag">@22cowork</span></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid2.jpg" alt="Lounge at 22cowork" width="700" height="700" loading="lazy" decoding="async" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid3.jpg" alt="Storage and desks at 22cowork" width="700" height="700" loading="lazy" decoding="async" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid4.jpg" alt="Meeting and studio room at 22cowork" width="700" height="700" loading="lazy" decoding="async" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid5.jpg" alt="Kitchen at 22cowork" width="700" height="700" loading="lazy" decoding="async" /></a>
+        <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><Img src="/assets/grid6.jpg" alt="Content studio at 22cowork" width="700" height="700" loading="lazy" decoding="async" /></a>
       </div>
     </div>
   </section>

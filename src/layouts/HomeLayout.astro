@@ -45,7 +45,7 @@ const siteJsonLd = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Preload the hero (LCP) with a mobile-sized variant -->
-  <link rel="preload" as="image" href="/assets/hero-mobile.jpg" imagesrcset="/assets/hero-mobile.jpg 800w, /assets/hero.jpg 1400w" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/avif" href="/assets/hero-mobile.avif" imagesrcset="/assets/hero-mobile.avif 800w, /assets/hero.avif 1400w" imagesizes="100vw" fetchpriority="high" />
 
   <!-- Analytics is loaded by <Consent />, only after the visitor accepts. -->
 
@@ -163,6 +163,9 @@ const siteJsonLd = {
   ::selection{background:var(--ink); color:var(--paper)}
   a{color:inherit; text-decoration:none}
   img,video{display:block; max-width:100%}
+  /* the <picture> wrappers must leave no box behind, so rules that
+     target the <img> keep working unchanged */
+  picture{display:contents}
 
   .wrap{max-width:1320px; margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
 
@@ -241,8 +244,8 @@ const siteJsonLd = {
   .brand{
     display:block; height:38px; aspect-ratio:450/389;
     background-color:currentColor;
-    -webkit-mask:url("/assets/logo-22cowork.png") center/contain no-repeat;
-    mask:url("/assets/logo-22cowork.png") center/contain no-repeat;
+    -webkit-mask:url("/assets/logo-22cowork-sm.png") center/contain no-repeat;
+    mask:url("/assets/logo-22cowork-sm.png") center/contain no-repeat;
   }
   @media(max-width:640px){.brand{height:32px}}
 
@@ -515,8 +518,8 @@ const siteJsonLd = {
   .foot .big-brand{
     height:clamp(76px,9vw,108px); aspect-ratio:450/389;
     background-color:#F4F1EA;
-    -webkit-mask:url("/assets/logo-22cowork.png") left center/contain no-repeat;
-    mask:url("/assets/logo-22cowork.png") left center/contain no-repeat;
+    -webkit-mask:url("/assets/logo-22cowork-sm.png") left center/contain no-repeat;
+    mask:url("/assets/logo-22cowork-sm.png") left center/contain no-repeat;
   }
   .foot-bottom{display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-12); padding-top:24px; border-top:1px solid var(--line-2); flex-wrap:wrap; gap:16px}
   .foot-bottom .mono{font-size:var(--mono-xs); letter-spacing:var(--track-xs)}
