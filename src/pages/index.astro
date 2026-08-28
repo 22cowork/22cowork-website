@@ -7,7 +7,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
 <HomeLayout>
   <!-- NAV -->
   <header class="nav" id="nav">
-    <a href="#top" class="brand"><b>22cowork</b></a>
+    <a href="#top" class="brand"><span class="vh">22cowork</span></a>
     <nav class="links">
       <a href="#spaces">Spaces</a>
       <a href="#work">A day here</a>
@@ -47,28 +47,20 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     </div>
   </div>
 
-  <!-- CHOOSE YOUR SPACE + TOUR (side by side) -->
+  <!-- CHOOSE YOUR SPACE -->
   <section class="band spaces flow sec-normal" id="spaces">
     <div class="wrap">
       <div class="spaces-head">
         <div class="sh-text">
           <h2 class="h2 rise">Choose your space.</h2>
           <p class="lead rise" data-d="1">Five ways to work here, from a desk for the day to your own office. Reserve the one that fits and we'll confirm within a day.</p>
-          <div class="rise" data-d="2" style="margin-top:1.7rem"><a href="#reserve" class="btn btn-gold">Reserve your space →</a></div>
         </div>
-        <div class="sh-video rise" data-d="1" id="tour">
-          <div class="video-frame" id="tour-video" data-yt="htTdP9zs7pM">
-            <button class="vplay" type="button" aria-label="Play the 22cowork tour">
-              <img loading="lazy" decoding="async" width="1280" height="720" class="vthumb" src="https://i.ytimg.com/vi/htTdP9zs7pM/hqdefault.jpg" alt="22cowork office tour" />
-              <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
-            </button>
-          </div>
-          <div style="margin-top:12px"><a href="https://www.youtube.com/watch?v=htTdP9zs7pM" target="_blank" rel="noopener" class="mono label">Prefer YouTube? Watch the tour there ↗</a></div>
-        </div>
+        <div class="sh-cta rise" data-d="2"><a href="#reserve" class="btn btn-gold">Reserve your space →</a></div>
       </div>
 
+      <!-- The two most-taken options, with the photographs. -->
       <div class="sp-grid">
-        <a href="#reserve" class="sp-card feat rise">
+        <a href="#reserve" class="sp-card rise">
           <div class="sp-media"><span class="sp-badge">Most popular</span><img loading="lazy" decoding="async" width="1400" height="1050" src="/assets/deepwork.jpg" srcset="/assets/deepwork-800.jpg 800w, /assets/deepwork.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Dedicated desk at 22cowork" /></div>
           <div class="sp-body">
             <h3>Dedicated Desk</h3>
@@ -77,7 +69,7 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
           </div>
         </a>
 
-        <a href="#reserve" class="sp-card feat rise" data-d="1">
+        <a href="#reserve" class="sp-card rise" data-d="1">
           <div class="sp-media"><span class="sp-badge">Opening Sept 2026</span><img loading="lazy" decoding="async" width="1400" height="788" src="/assets/meeting.jpg" srcset="/assets/meeting-800.jpg 800w, /assets/meeting.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Private office at 22cowork" /></div>
           <div class="sp-body">
             <h3>Private Office</h3>
@@ -85,33 +77,43 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
             <span class="sp-go">Reserve an office →</span>
           </div>
         </a>
+      </div>
 
-        <a href="#reserve" class="sp-card rise">
-          <div class="sp-media"><span class="sp-badge soft">Flexible</span><img loading="lazy" decoding="async" width="1400" height="787" src="/assets/arrival.jpg" srcset="/assets/arrival-800.jpg 800w, /assets/arrival.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Hot desk lounge at 22cowork" /></div>
-          <div class="sp-body">
-            <h3>Hot Desk</h3>
-            <p>Any open desk, any day. For remote workers and freelancers who want flexibility.</p>
-            <span class="sp-go">Reserve →</span>
-          </div>
-        </a>
+      <!-- The other three, as a light rail. Same row language as the spec
+           sheet further down, so it reads as part of the same system rather
+           than three more photo cards competing with the two above. -->
+      <ul class="sp-list">
+        <li class="rise">
+          <a href="#reserve">
+            <span class="pl-name">Hot Desk</span>
+            <span class="pl-desc">Any open desk, any day. For remote workers and freelancers who want flexibility.</span>
+            <span class="pl-go">Reserve →</span>
+          </a>
+        </li>
+        <li class="rise" data-d="1">
+          <a href="#reserve">
+            <span class="pl-name">Meeting &amp; Studio</span>
+            <span class="pl-desc">A closed room for client calls, plus a podcast &amp; content studio.</span>
+            <span class="pl-go">Book by the hour →</span>
+          </a>
+        </li>
+        <li class="rise" data-d="2">
+          <a href="#reserve">
+            <span class="pl-name">Business Address</span>
+            <span class="pl-desc">A real Setúbal business address with mail handling, desk or no desk.</span>
+            <span class="pl-go">Reserve →</span>
+          </a>
+        </li>
+      </ul>
 
-        <a href="#reserve" class="sp-card rise" data-d="1">
-          <div class="sp-media"><span class="sp-badge soft">By the hour</span><img loading="lazy" decoding="async" width="1400" height="788" src="/assets/studio.jpg" srcset="/assets/studio-800.jpg 800w, /assets/studio.jpg 1400w" sizes="(max-width:680px) 92vw, 45vw" alt="Meeting and podcast studio at 22cowork" /></div>
-          <div class="sp-body">
-            <h3>Meeting &amp; Studio</h3>
-            <p>A closed room for client calls, plus a podcast &amp; content studio. Book it by the hour.</p>
-            <span class="sp-go">Reserve →</span>
-          </div>
-        </a>
-
-        <a href="#reserve" class="sp-card rise" data-d="2">
-          <div class="sp-media"><span class="sp-badge soft">No desk needed</span><img loading="lazy" decoding="async" width="1200" height="870" src="/assets/post.jpg" srcset="/assets/post-800.jpg 800w, /assets/post.jpg 1200w" sizes="(max-width:680px) 92vw, 45vw" alt="Post handling at 22cowork" /></div>
-          <div class="sp-body">
-            <h3>Business Address</h3>
-            <p>A real Setúbal business address with mail handling, whether or not you have a desk here.</p>
-            <span class="sp-go">Reserve →</span>
-          </div>
-        </a>
+      <div class="sh-video rise" id="tour">
+        <div class="video-frame" id="tour-video" data-yt="htTdP9zs7pM">
+          <button class="vplay" type="button" aria-label="Play the 22cowork tour">
+            <img loading="lazy" decoding="async" width="1280" height="720" class="vthumb" src="https://i.ytimg.com/vi/htTdP9zs7pM/hqdefault.jpg" alt="22cowork office tour" />
+            <span class="vbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+          </button>
+        </div>
+        <div class="mt-2"><a href="https://www.youtube.com/watch?v=htTdP9zs7pM" target="_blank" rel="noopener" class="mono label">Prefer YouTube? Watch the tour there ↗</a></div>
       </div>
     </div>
   </section>
@@ -209,10 +211,10 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
       <div class="grid">
         <div class="rise" data-d="1">
           <span class="mono label">Reserve your space</span>
-          <h2 class="h2" style="margin-top:1rem">Claim your spot before it's taken.</h2>
-          <div class="mono label" style="margin-top:2.2rem"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
-          <div style="margin-top:1rem" class="mono label"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
-          <div class="mono" style="margin-top:1.6rem; color:rgba(244,241,234,.45)">Pricing shared with your reservation. We compete on value, not tiers.</div>
+          <h2 class="h2 mt-2">Claim your spot before it's taken.</h2>
+          <div class="mono label mt-4"><a href={maps} target="_blank" rel="noopener">View on Google Maps ↗</a></div>
+          <div class="mono label mt-2"><a href="mailto:team@22cowork.pt">team@22cowork.pt</a></div>
+          <div class="mono mt-3" style="color:rgba(244,241,234,.45)">Pricing shared with your reservation. We compete on value, not tiers.</div>
         </div>
         <form class="rise" data-d="2" id="lead-form">
           <div class="f2">
@@ -235,12 +237,18 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
               <option>Just looking</option>
             </select>
           </div>
+          <!-- Honeypot. Off-screen and out of the tab order, so only a script
+               that fills every field it finds will touch it. -->
+          <div class="hp" aria-hidden="true">
+            <label for="lf-website">Website</label>
+            <input id="lf-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <label class="consent">
             <input type="checkbox" name="consent" required />
             <span>I agree to be contacted by 22cowork, including marketing communications. See our <a href="/privacy">Privacy Policy</a>.</span>
           </label>
-          <button type="submit" class="btn btn-gold" style="justify-self:start; margin-top:6px">Reserve your space →</button>
-          <p id="form-status" class="mono" role="status" aria-live="polite" style="display:none; margin-top:14px; color:var(--ember)"></p>
+          <button type="submit" class="btn btn-gold" style="justify-self:start">Reserve your space →</button>
+          <p id="form-status" class="mono" role="status" aria-live="polite" class="mt-2" style="display:none; color:var(--ember)"></p>
         </form>
       </div>
     </div>
@@ -251,8 +259,8 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     <div class="wrap comm-grid">
       <div>
         <h2 class="h2 rise">Not a lobby<br />full of strangers.</h2>
-        <p class="lead rise" data-d="1" style="margin-top:1.4rem">Follow the building day to day. Who's shipped what, which desks are open, what's on this month.</p>
-        <div class="rise" data-d="1" style="margin-top:2rem"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
+        <p class="lead rise mt-3" data-d="1">Follow the building day to day. Who's shipped what, which desks are open, what's on this month.</p>
+        <div class="rise mt-4" data-d="1"><a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="btn btn-outline">@22cowork on Instagram →</a></div>
       </div>
       <div class="ig rise" data-d="1" id="ig-feed">
         <a href="https://instagram.com/22cowork" target="_blank" rel="noopener" class="slot"><img loading="lazy" decoding="async" width="700" height="700" src="/assets/grid1.jpg" alt="Open workspace at 22cowork" /><span class="tag">@22cowork</span></a>
@@ -270,13 +278,13 @@ const maps = "https://www.google.com/maps/search/?api=1&query=22cowork&query_pla
     <div class="wrap">
       <div class="foot-top">
         <div>
-          <div class="big-brand">22cowork<span style="color:#8FC0A9">.</span></div>
-          <p style="max-width:34ch; margin-top:1rem; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 35 minutes from Lisboa.</p>
+          <div class="big-brand"><span class="vh">22cowork</span></div>
+          <p class="mt-2" style="max-width:34ch; color:var(--muted-2)">A workspace for founders, creators and freelancers. Setúbal, Portugal. 35 minutes from Lisboa.</p>
           <a class="grating foot-rating" href={maps} target="_blank" rel="noopener">
             <span class="stars">★★★★★</span>
             <span class="gr-txt"><b>{reviews.rating}</b> · {reviews.count} Google reviews</span>
           </a>
-          <address class="foot-addr" style="font-style:normal; margin-top:1.1rem; color:rgba(244,241,234,.72); line-height:1.6; font-size:.92rem">
+          <address class="foot-addr mt-2" style="font-style:normal; color:rgba(244,241,234,.72); line-height:1.6; font-size:.92rem">
             Estrada Nacional 10, Km 42<br />2910-845 Setúbal, Portugal
           </address>
           <a class="foot-map" href={maps} target="_blank" rel="noopener" aria-label="View 22cowork on Google Maps">
