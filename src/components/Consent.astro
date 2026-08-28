@@ -77,14 +77,37 @@ const STORE = "22cw-consent-v1";
   (function () {
     var bar = document.getElementById("consent-bar");
     if (!bar || !window.__consent) return;
-    // Only ask when there is no decision on record.
-    if (!window.__consent.state()) bar.hidden = false;
+
+    // The bar is fixed to the bottom, so while it is up it would sit on top of
+    // the floating WhatsApp button. Publish its height and flag the document so
+    // that button can step out of the way.
+    function markOpen(open) {
+      var root = document.documentElement;
+      root.classList.toggle("consent-open", open);
+      if (open) root.style.setProperty("--consent-h", bar.offsetHeight + "px");
+      else root.style.removeProperty("--consent-h");
+    }
+
+    if (!window.__consent.state()) {
+      bar.hidden = false;
+      markOpen(true);
+      addEventListener("resize", function () {
+        if (!bar.hidden) markOpen(true);
+      });
+    }
+
     bar.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-consent]");
-      if (btn) window.__consent.set(btn.getAttribute("data-consent"));
+      if (!btn) return;
+      window.__consent.set(btn.getAttribute("data-consent"));
+      markOpen(false);
     });
   })();
 </script>
+
+<style is:global>
+  html.consent-open .wa { bottom: calc(var(--consent-h, 140px) + 20px); }
+</style>
 
 <style>
   /* Falls back to literals because the design tokens live in each layout's
